@@ -1,0 +1,682 @@
+2022-03-12T15:29:46.446Z	[34mINFO[0m	lotus-bench	lotus-bench/main.go:100	Starting lotus-bench
+2022-03-12T15:29:46.447Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-stacked-proof-of-replication-merkletree-poseidon_hasher-8-0-0-sha256_hasher-6babf46ce344ae495d558e7770a585b2382d54f225af8ed0397b8be7c3fcd472.vk is ok
+2022-03-12T15:29:46.447Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-0-0-3ea05428c9d11689f23529cde32fd30aabd50f7d2c93657c1d3650bca3e8ea9e.vk is ok
+2022-03-12T15:29:46.447Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-stacked-proof-of-replication-merkletree-poseidon_hasher-8-0-0-sha256_hasher-032d3138d22506ec0082ed72b2dcba18df18477904e35bafee82b3793b06832f.vk is ok
+2022-03-12T15:29:46.447Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-0-0-5294475db5237a2e83c3e52fd6c2b03859a1831d45ed08c4f35dbf9a803165a9.vk is ok
+2022-03-12T15:29:46.447Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-8-2-b62098629d07946e9028127e70295ed996fe3ed25b0f9f88eb610a0ab4385a3c.vk is ok
+2022-03-12T15:29:46.447Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-8-0-559e581f022bb4e4ec6e719e563bf0e026ad6de42e56c18714a2c692b1b88d7e.vk is ok
+2022-03-12T15:29:46.447Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-0-0-50c7368dea9593ed0989e70974d28024efa9d156d585b7eea1be22b2e753f331.vk is ok
+2022-03-12T15:29:46.448Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-stacked-proof-of-replication-merkletree-poseidon_hasher-8-8-2-sha256_hasher-96f1b4a04c5c51e4759bbf224bbc2ef5a42c7100f16ec0637123f16a845ddfb2.vk is ok
+2022-03-12T15:29:46.448Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-0-0-0cfb4f178bbb71cf2ecfcd42accce558b27199ab4fb59cb78f2483fe21ef36d9.vk is ok
+2022-03-12T15:29:46.448Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-stacked-proof-of-replication-merkletree-poseidon_hasher-8-0-0-sha256_hasher-ecd683648512ab1765faa2a5f14bab48f676e633467f0aa8aad4b55dcb0652bb.vk is ok
+2022-03-12T15:29:46.448Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-0-0-7d739b8cf60f1b0709eeebee7730e297683552e4b69cab6984ec0285663c5781.vk is ok
+2022-03-12T15:29:46.448Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-stacked-proof-of-replication-merkletree-poseidon_hasher-8-8-0-sha256_hasher-82a357d2f2ca81dc61bb45f4a762807aedee1b0a53fd6c4e77b46a01bfef7820.vk is ok
+2022-03-12T15:29:46.448Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-0-0-0170db1f394b35d995252228ee359194b13199d259380541dc529fb0099096b0.vk is ok
+2022-03-12T15:29:46.455Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-8-2-2627e4006b67f99cef990c0a47d5426cb7ab0a0ad58fc1061547bf2d28b09def.vk is ok
+2022-03-12T15:29:46.456Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-8-0-0377ded656c6f524f1618760bffe4e0a1c51d5a70c4509eedae8a27555733edc.vk is ok
+2022-03-12T15:29:46.531Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-0-0-0cfb4f178bbb71cf2ecfcd42accce558b27199ab4fb59cb78f2483fe21ef36d9.params is ok
+2022-03-12T15:29:46.702Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-proof-of-spacetime-fallback-merkletree-poseidon_hasher-8-0-0-7d739b8cf60f1b0709eeebee7730e297683552e4b69cab6984ec0285663c5781.params is ok
+2022-03-12T15:29:49.242Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:138	Parameter file /var/tmp/filecoin-proof-parameters/v28-stacked-proof-of-replication-merkletree-poseidon_hasher-8-0-0-sha256_hasher-6babf46ce344ae495d558e7770a585b2382d54f225af8ed0397b8be7c3fcd472.params is ok
+2022-03-12T15:29:49.242Z	[34mINFO[0m	build	go-paramfetch@v0.0.2-0.20200701152213-3e0f0afdc261/paramfetch.go:162	parameter and key-fetching complete
+2022-03-12T15:29:49.242Z	[34mINFO[0m	lotus-bench	lotus-bench/main.go:514	[0] Writing piece into sector...
+2022-03-12T15:29:49.278 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:49.374 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:49.391 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:49.480 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:49.498 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:49.586 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:49.595 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:49.681 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:49.700 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:49.787 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:49.796 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:49.883 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:49.892 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:49.980 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:49.999 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:50.088 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:50.108 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:50.197 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:50.209 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:50.297 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:50.311 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:50.400 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:50.412 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:50.508 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:50.521 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:50.610 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:50.625 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:50.716 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:50.728 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:50.818 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:50.830 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:50.920 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:50.932 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.022 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.035 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.123 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.135 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.226 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.238 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.328 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.340 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.429 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.442 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.532 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.544 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.638 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.651 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.744 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.757 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.848 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.860 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:51.951 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:51.964 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.055 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.070 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.157 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.168 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.256 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.268 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.355 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.367 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.456 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.468 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.557 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.569 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.659 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.672 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.759 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.770 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.861 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.875 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:52.965 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:52.983 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:53.072 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:53.086 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:53.178 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:53.198 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:53.288 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:53.307 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:53.399 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:53.416 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:53.512 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:53.530 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:53.618 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:53.635 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:53.735 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:53.753 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:53.841 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:53.852 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:53.941 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:53.959 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:54.050 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:54.069 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:54.158 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:54.178 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:54.269 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:54.289 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:54.379 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:54.399 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:54.496 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:54.516 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:54.614 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:54.633 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:54.726 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:54.746 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:54.835 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:54.854 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:54.945 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:54.964 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:55.057 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:55.078 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:55.175 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:55.194 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:55.285 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:55.297 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:55.387 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:55.400 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:55.491 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:55.506 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:55.595 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:55.614 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:55.712 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:55.731 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:55.821 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:55.840 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:55.936 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:55.956 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:56.045 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:56.057 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:56.146 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:56.165 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:56.255 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:56.276 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:56.366 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:56.384 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:56.477 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:56.496 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:56.595 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:56.615 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:56.708 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:56.726 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:56.824 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:56.843 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:56.931 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:56.951 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:57.041 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:57.053 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:57.142 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:57.153 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:57.244 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:57.261 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:57.358 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:57.378 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:57.467 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:57.480 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:57.579 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:57.597 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:57.693 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:57.711 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:57.810 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:57.829 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:57.919 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:57.938 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.026 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.037 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.129 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.149 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.238 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.258 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.345 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.356 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.447 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.467 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.557 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.569 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.659 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.670 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.760 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.781 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.869 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.888 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:58.977 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:58.997 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:59.085 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:59.098 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:59.188 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:59.201 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:59.292 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:59.313 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:59.402 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:59.413 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:59.504 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:59.524 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:59.614 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:59.634 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:59.725 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:59.746 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:59.836 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:59.848 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:29:59.938 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:29:59.957 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:00.047 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:00.067 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:00.166 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:00.185 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:00.285 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:00.304 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:00.393 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:00.405 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:00.493 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:00.513 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:00.602 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:00.615 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:00.705 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:00.725 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:00.814 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:00.830 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:00.924 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:00.942 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:01.032 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:01.050 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:01.140 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:01.161 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:01.255 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:01.274 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:01.371 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:01.391 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:01.483 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:01.503 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:01.592 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:01.604 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:01.695 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:01.715 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:01.804 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:01.816 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:01.907 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:01.927 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.017 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.037 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.128 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.148 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.236 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.251 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.339 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.350 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.441 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.454 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.543 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.554 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.646 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.666 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.754 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.774 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.865 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.886 INFO filecoin_proofs::api > generate_piece_commitment:start
+2022-03-12T15:30:02.978 INFO filecoin_proofs::api > generate_piece_commitment:finish
+2022-03-12T15:30:02.978 INFO filcrypto::proofs::api > generate_data_commitment: start
+2022-03-12T15:30:02.978 INFO filecoin_proofs::api::seal > compute_comm_d:start
+2022-03-12T15:30:02.978 INFO filecoin_proofs::pieces > verifying 128 pieces
+2022-03-12T15:30:02.978 INFO filecoin_proofs::api::seal > compute_comm_d:finish
+2022-03-12T15:30:02.978 INFO filcrypto::proofs::api > generate_data_commitment: finish
+2022-03-12T15:30:02.979Z	[34mINFO[0m	lotus-bench	lotus-bench/main.go:550	[0] Running replication(1)...
+2022-03-12T15:30:02.979 INFO filcrypto::proofs::api > seal_pre_commit_phase1: start
+2022-03-12T15:30:02.979 INFO filecoin_proofs::api::seal > seal_pre_commit_phase1:start: SectorId(0)
+2022-03-12T15:30:04.647 INFO filecoin_proofs::api::seal > building merkle tree for the original data
+2022-03-12T15:30:06.582 INFO filecoin_proofs::api::seal > verifying pieces
+2022-03-12T15:30:06.582 INFO filecoin_proofs::pieces > verifying 1 pieces
+2022-03-12T15:30:06.582 INFO storage_proofs_porep::stacked::vanilla::proof > replicate_phase1
+2022-03-12T15:30:06.582 INFO storage_proofs_porep::stacked::vanilla::graph > using parent_cache[2048 / 16777216]
+2022-03-12T15:30:06.582 INFO storage_proofs_porep::stacked::vanilla::cache > parent cache: opening /var/tmp/filecoin-parents/v28-sdr-parent-7ba215a1d2345774ab90b8cb1158d296e409d6068819d7b8c7baf0b25d63dc34.cache, verify enabled: false
+2022-03-12T15:30:06.582 INFO storage_proofs_porep::stacked::vanilla::proof > single core replication
+2022-03-12T15:30:06.582 INFO storage_proofs_porep::stacked::vanilla::create_label::single > generate labels
+2022-03-12T15:30:06.582 INFO storage_proofs_porep::stacked::vanilla::create_label::single > generating layer: 1
+2022-03-12T15:30:22.453 INFO storage_proofs_porep::stacked::vanilla::create_label::single >   storing labels on disk
+2022-03-12T15:30:22.803 INFO storage_proofs_porep::stacked::vanilla::create_label::single >   generated layer 1 store with id layer-1
+2022-03-12T15:30:22.803 INFO storage_proofs_porep::stacked::vanilla::create_label::single >   setting exp parents
+2022-03-12T15:30:22.803 INFO storage_proofs_porep::stacked::vanilla::create_label::single > generating layer: 2
+2022-03-12T15:30:39.548 INFO storage_proofs_porep::stacked::vanilla::create_label::single >   storing labels on disk
+2022-03-12T15:30:39.904 INFO storage_proofs_porep::stacked::vanilla::create_label::single >   generated layer 2 store with id layer-2
+2022-03-12T15:30:39.904 INFO storage_proofs_porep::stacked::vanilla::create_label::single >   setting exp parents
+2022-03-12T15:30:39.945 INFO filecoin_proofs::api::seal > seal_pre_commit_phase1:finish: SectorId(0)
+2022-03-12T15:30:39.945 INFO filcrypto::proofs::api > seal_pre_commit_phase1: finish
+2022-03-12T15:30:39.946Z	[34mINFO[0m	lotus-bench	lotus-bench/main.go:561	[0] Running replication(2)...
+2022-03-12T15:30:39.946 INFO filcrypto::proofs::api > seal_pre_commit_phase2: start
+2022-03-12T15:30:39.946 INFO filecoin_proofs::api > validate_cache_for_precommit_phase2:start
+2022-03-12T15:30:39.946 INFO filecoin_proofs::api > validate_cache_for_precommit_phase2:finish
+2022-03-12T15:30:39.946 INFO filecoin_proofs::api::seal > seal_pre_commit_phase2:start
+2022-03-12T15:30:39.946 INFO storage_proofs_porep::stacked::vanilla::proof > replicate_phase2
+2022-03-12T15:30:39.946 INFO storage_proofs_porep::stacked::vanilla::proof > generating tree c using the GPU
+2022-03-12T15:30:39.946 INFO storage_proofs_porep::stacked::vanilla::proof > Building column hashes
+2022-03-12T15:30:39.946 INFO neptune::cl > getting context for ~Index(0)
+2022-03-12T15:30:50.923 INFO storage_proofs_porep::stacked::vanilla::proof > persisting base tree_c 1/1 of length 19173961
+2022-03-12T15:30:52.880 INFO storage_proofs_porep::stacked::vanilla::proof > tree_c done
+2022-03-12T15:30:52.880 INFO storage_proofs_porep::stacked::vanilla::proof > building tree_r_last
+2022-03-12T15:30:52.880 INFO storage_proofs_porep::stacked::vanilla::proof > generating tree r last using the GPU
+2022-03-12T15:30:53.068 INFO neptune::cl > getting context for ~Index(0)
+2022-03-12T15:30:53.621 INFO storage_proofs_porep::stacked::vanilla::proof > building base tree_r_last with GPU 1/1
+2022-03-12T15:30:55.547 INFO storage_proofs_porep::stacked::vanilla::proof > tree_r_last done
+2022-03-12T15:30:55.547 INFO storage_proofs_core::data > dropping data /root/.lotus-bench/bench2446187324/sealed/s-t01000-0
+2022-03-12T15:30:55.582 INFO filecoin_proofs::api::seal > seal_pre_commit_phase2:finish
+2022-03-12T15:30:55.582 INFO filcrypto::proofs::api > seal_pre_commit_phase2: finish
+2022-03-12T15:30:55.582Z	[34mINFO[0m	lotus-bench	lotus-bench/main.go:583	[0] Generating PoRep for sector (1)
+2022-03-12T15:30:55.582 INFO filcrypto::proofs::api > seal_commit_phase1: start
+2022-03-12T15:30:55.582 INFO filecoin_proofs::api > validate_cache_for_precommit:start
+2022-03-12T15:30:55.582 INFO filecoin_proofs::api > validate_cache_for_precommit:finish
+2022-03-12T15:30:55.582 INFO filecoin_proofs::api::seal > seal_commit_phase1:start: SectorId(0)
+2022-03-12T15:30:55.582 INFO filecoin_proofs::pieces > verifying 1 pieces
+2022-03-12T15:30:55.631 INFO filecoin_proofs::api::seal > seal_commit_phase1:finish: SectorId(0)
+2022-03-12T15:30:55.632 INFO filcrypto::proofs::api > seal_commit_phase1: finish
+2022-03-12T15:30:55.632Z	[34mINFO[0m	lotus-bench	lotus-bench/main.go:591	[0] Generating PoRep for sector (2)
+2022-03-12T15:30:55.632 INFO filcrypto::proofs::api > seal_commit_phase2: start
+2022-03-12T15:30:55.633 INFO filecoin_proofs::api::seal > seal_commit_phase2:start: SectorId(0)
+2022-03-12T15:30:55.633 INFO filecoin_proofs::caches > trying parameters memory cache for: STACKED[536870912]
+2022-03-12T15:30:55.633 INFO filecoin_proofs::caches > no params in memory cache for STACKED[536870912]
+2022-03-12T15:30:55.633 INFO storage_proofs_core::parameter_cache > parameter set identifier for cache: layered_drgporep::PublicParams{ graph: stacked_graph::StackedGraph{expansion_degree: 8 base_graph: drgraph::BucketGraph{size: 16777216; degree: 6; hasher: poseidon_hasher} }, challenges: LayerChallenges { layers: 2, max_count: 2 }, tree: merkletree-poseidon_hasher-8-0-0 }
+2022-03-12T15:30:55.633 INFO storage_proofs_core::parameter_cache > ensuring that all ancestor directories for: "/var/tmp/filecoin-proof-parameters/v28-stacked-proof-of-replication-merkletree-poseidon_hasher-8-0-0-sha256_hasher-6babf46ce344ae495d558e7770a585b2382d54f225af8ed0397b8be7c3fcd472.params" exist
+2022-03-12T15:30:55.633 INFO storage_proofs_core::parameter_cache > checking cache_path: "/var/tmp/filecoin-proof-parameters/v28-stacked-proof-of-replication-merkletree-poseidon_hasher-8-0-0-sha256_hasher-6babf46ce344ae495d558e7770a585b2382d54f225af8ed0397b8be7c3fcd472.params" for parameters
+2022-03-12T15:30:55.774 INFO storage_proofs_core::parameter_cache > read parameters from cache "/var/tmp/filecoin-proof-parameters/v28-stacked-proof-of-replication-merkletree-poseidon_hasher-8-0-0-sha256_hasher-6babf46ce344ae495d558e7770a585b2382d54f225af8ed0397b8be7c3fcd472.params" 
+2022-03-12T15:30:55.774 INFO filecoin_proofs::api::seal > got groth params (536870912) while sealing
+2022-03-12T15:30:55.774 INFO filecoin_proofs::api::seal > snark_proof:start
+2022-03-12T15:30:55.774 INFO bellperson::groth16::prover > Bellperson 0.12.3 is being used!
+SystemTime { tv_sec: 1647099055, tv_nsec: 777038349 } starting circuit synthesis
+SystemTime { tv_sec: 1647099059, tv_nsec: 687679658 } circuit synthesis done
+2022-03-12T15:30:59.687 INFO bellperson::groth16::prover > starting proof timer
+2022-03-12T15:31:00.650 INFO bellperson::domain > log_n:23
+2022-03-12T15:31:00.650 INFO bellperson::domain > log_a:23
+2022-03-12T15:31:00.650 INFO bellperson::gpu::locks > GPU is available for FFT!
+2022-03-12T15:31:00.726 INFO bellperson::gpu::fft > FFT: 1 working device(s) selected.
+2022-03-12T15:31:00.726 INFO bellperson::gpu::fft > FFT: Device 0: GeForce RTX 3080
+2022-03-12T15:31:00.726 INFO bellperson::domain > GPU FFT kernel instantiated!
+2022-03-12T15:31:00.783 INFO bellperson::gpu::fft > ----------------------------------cpu->gpu time: 56.37278ms
+2022-03-12T15:31:00.783 INFO bellperson::gpu::fft > log_n:23, log_p:0, deg:8, max_deg:8
+2022-03-12T15:31:00.789 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.645974ms
+2022-03-12T15:31:00.789 INFO bellperson::gpu::fft > log_n:23, log_p:8, deg:8, max_deg:8
+2022-03-12T15:31:00.797 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 7.620451ms
+2022-03-12T15:31:00.797 INFO bellperson::gpu::fft > log_n:23, log_p:16, deg:7, max_deg:8
+2022-03-12T15:31:00.805 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 8.271821ms
+2022-03-12T15:31:00.805 INFO bellperson::gpu::fft > ----------------------------------total kernel run time: 22.641374ms
+2022-03-12T15:31:00.855 INFO bellperson::gpu::fft > ----------------------------------gpu->cpu time: 49.916949ms
+2022-03-12T15:31:00.909 INFO bellperson::domain > log_n:23
+2022-03-12T15:31:00.909 INFO bellperson::domain > log_a:23
+2022-03-12T15:31:00.969 INFO bellperson::gpu::fft > ----------------------------------cpu->gpu time: 58.978275ms
+2022-03-12T15:31:00.969 INFO bellperson::gpu::fft > log_n:23, log_p:0, deg:8, max_deg:8
+2022-03-12T15:31:00.976 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.628641ms
+2022-03-12T15:31:00.976 INFO bellperson::gpu::fft > log_n:23, log_p:8, deg:8, max_deg:8
+2022-03-12T15:31:00.983 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 7.044744ms
+2022-03-12T15:31:00.983 INFO bellperson::gpu::fft > log_n:23, log_p:16, deg:7, max_deg:8
+2022-03-12T15:31:00.991 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 7.631953ms
+2022-03-12T15:31:00.991 INFO bellperson::gpu::fft > ----------------------------------total kernel run time: 21.570323ms
+2022-03-12T15:31:01.036 INFO bellperson::gpu::fft > ----------------------------------gpu->cpu time: 45.852744ms
+2022-03-12T15:31:01.040 INFO bellperson::domain > log_n:23
+2022-03-12T15:31:01.040 INFO bellperson::domain > log_a:23
+2022-03-12T15:31:01.101 INFO bellperson::gpu::fft > ----------------------------------cpu->gpu time: 57.491412ms
+2022-03-12T15:31:01.101 INFO bellperson::gpu::fft > log_n:23, log_p:0, deg:8, max_deg:8
+2022-03-12T15:31:01.107 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.094835ms
+2022-03-12T15:31:01.107 INFO bellperson::gpu::fft > log_n:23, log_p:8, deg:8, max_deg:8
+2022-03-12T15:31:01.114 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.991783ms
+2022-03-12T15:31:01.114 INFO bellperson::gpu::fft > log_n:23, log_p:16, deg:7, max_deg:8
+2022-03-12T15:31:01.122 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 7.589191ms
+2022-03-12T15:31:01.122 INFO bellperson::gpu::fft > ----------------------------------total kernel run time: 20.778514ms
+2022-03-12T15:31:01.172 INFO bellperson::gpu::fft > ----------------------------------gpu->cpu time: 50.52094ms
+2022-03-12T15:31:01.231 INFO bellperson::domain > log_n:23
+2022-03-12T15:31:01.232 INFO bellperson::domain > log_a:23
+2022-03-12T15:31:01.290 INFO bellperson::gpu::fft > ----------------------------------cpu->gpu time: 57.368438ms
+2022-03-12T15:31:01.290 INFO bellperson::gpu::fft > log_n:23, log_p:0, deg:8, max_deg:8
+2022-03-12T15:31:01.296 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.085056ms
+2022-03-12T15:31:01.296 INFO bellperson::gpu::fft > log_n:23, log_p:8, deg:8, max_deg:8
+2022-03-12T15:31:01.303 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.984039ms
+2022-03-12T15:31:01.303 INFO bellperson::gpu::fft > log_n:23, log_p:16, deg:7, max_deg:8
+2022-03-12T15:31:01.311 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 7.587338ms
+2022-03-12T15:31:01.311 INFO bellperson::gpu::fft > ----------------------------------total kernel run time: 20.773595ms
+2022-03-12T15:31:01.368 INFO bellperson::gpu::fft > ----------------------------------gpu->cpu time: 56.886469ms
+2022-03-12T15:31:01.371 INFO bellperson::domain > log_n:23
+2022-03-12T15:31:01.371 INFO bellperson::domain > log_a:23
+2022-03-12T15:31:01.432 INFO bellperson::gpu::fft > ----------------------------------cpu->gpu time: 57.104064ms
+2022-03-12T15:31:01.432 INFO bellperson::gpu::fft > log_n:23, log_p:0, deg:8, max_deg:8
+2022-03-12T15:31:01.438 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.100464ms
+2022-03-12T15:31:01.438 INFO bellperson::gpu::fft > log_n:23, log_p:8, deg:8, max_deg:8
+2022-03-12T15:31:01.445 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.989579ms
+2022-03-12T15:31:01.445 INFO bellperson::gpu::fft > log_n:23, log_p:16, deg:7, max_deg:8
+2022-03-12T15:31:01.453 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 7.58299ms
+2022-03-12T15:31:01.453 INFO bellperson::gpu::fft > ----------------------------------total kernel run time: 20.773355ms
+2022-03-12T15:31:01.502 INFO bellperson::gpu::fft > ----------------------------------gpu->cpu time: 49.542946ms
+2022-03-12T15:31:01.560 INFO bellperson::domain > log_n:23
+2022-03-12T15:31:01.560 INFO bellperson::domain > log_a:23
+2022-03-12T15:31:01.617 INFO bellperson::gpu::fft > ----------------------------------cpu->gpu time: 55.887316ms
+2022-03-12T15:31:01.617 INFO bellperson::gpu::fft > log_n:23, log_p:0, deg:8, max_deg:8
+2022-03-12T15:31:01.624 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.091266ms
+2022-03-12T15:31:01.624 INFO bellperson::gpu::fft > log_n:23, log_p:8, deg:8, max_deg:8
+2022-03-12T15:31:01.631 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.991573ms
+2022-03-12T15:31:01.631 INFO bellperson::gpu::fft > log_n:23, log_p:16, deg:7, max_deg:8
+2022-03-12T15:31:01.638 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 7.587127ms
+2022-03-12T15:31:01.638 INFO bellperson::gpu::fft > ----------------------------------total kernel run time: 20.769227ms
+2022-03-12T15:31:01.690 INFO bellperson::gpu::fft > ----------------------------------gpu->cpu time: 51.75962ms
+2022-03-12T15:31:01.830 INFO bellperson::domain > log_n:23
+2022-03-12T15:31:01.830 INFO bellperson::domain > log_a:23
+2022-03-12T15:31:01.887 INFO bellperson::gpu::fft > ----------------------------------cpu->gpu time: 55.406329ms
+2022-03-12T15:31:01.887 INFO bellperson::gpu::fft > log_n:23, log_p:0, deg:8, max_deg:8
+2022-03-12T15:31:01.893 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.075207ms
+2022-03-12T15:31:01.893 INFO bellperson::gpu::fft > log_n:23, log_p:8, deg:8, max_deg:8
+2022-03-12T15:31:01.900 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 6.976624ms
+2022-03-12T15:31:01.900 INFO bellperson::gpu::fft > log_n:23, log_p:16, deg:7, max_deg:8
+2022-03-12T15:31:01.908 INFO bellperson::gpu::fft > ----------------------------------kernel run time: 7.574914ms
+2022-03-12T15:31:01.908 INFO bellperson::gpu::fft > ----------------------------------total kernel run time: 20.732016ms
+2022-03-12T15:31:01.960 INFO bellperson::gpu::fft > ----------------------------------gpu->cpu time: 51.977846ms
+SystemTime { tv_sec: 1647099062, tv_nsec: 74023228 } params done
+2022-03-12T15:31:02.098 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:02.098 INFO bellperson::gpu::locks > GPU is available for Multiexp!
+2022-03-12T15:31:02.098 INFO bellperson::gpu::multiexp > Running on GeForce RTX 3080 with 8704 cores
+2022-03-12T15:31:02.099 INFO bellperson::gpu::multiexp > Multiexp: 1 working device(s) selected. (CPU utilization: 0)
+2022-03-12T15:31:02.099 INFO bellperson::gpu::multiexp > Multiexp: Device 0: GeForce RTX 3080 (Chunk-size: 2069933)
+2022-03-12T15:31:02.099 INFO bellperson::multiexp > GPU Multiexp kernel instantiated!
+2022-03-12T15:31:02.176 INFO bellperson::multiexp > vec exps init time: 76.796469ms
+2022-03-12T15:31:02.281 INFO bellperson::multiexp > exp iter time: 105.218388ms
+2022-03-12T15:31:02.281 INFO bellperson::multiexp > bases clone time: 651ns
+2022-03-12T15:31:02.374 INFO bellperson::multiexp > exps clone time: 92.93987ms
+2022-03-12T15:31:02.374 INFO bellperson::gpu::multiexp > gpu multiexp
+2022-03-12T15:31:02.374 INFO bellperson::gpu::multiexp > gpu multiexp, n:8388607
+2022-03-12T15:31:02.374 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:02.375 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:02.375 INFO bellperson::gpu::multiexp > n:2000000, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:02.375 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:02.375 INFO bellperson::gpu::multiexp > buffer_size:198.36426MB
+2022-03-12T15:31:02.375 INFO bellperson::gpu::multiexp > each_size:26B
+2022-03-12T15:31:02.405 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 29.486778ms
+2022-03-12T15:31:02.405 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 30.021137ms
+2022-03-12T15:31:02.405 INFO bellperson::gpu::multiexp > buffer_size:61.035156MB
+2022-03-12T15:31:02.405 INFO bellperson::gpu::multiexp > each_size:8B
+2022-03-12T15:31:02.413 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 8.398253ms
+2022-03-12T15:31:02.413 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 8.803165ms
+2022-03-12T15:31:02.413 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:02.417 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:02.757 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 339.423866ms
+2022-03-12T15:31:02.784 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:02.784 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:02.784 INFO bellperson::gpu::multiexp > n:2000000, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:02.784 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:02.784 INFO bellperson::gpu::multiexp > buffer_size:198.36426MB
+2022-03-12T15:31:02.784 INFO bellperson::gpu::multiexp > each_size:26B
+2022-03-12T15:31:02.909 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 122.2277ms
+2022-03-12T15:31:02.909 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 124.132689ms
+2022-03-12T15:31:02.909 INFO bellperson::gpu::multiexp > buffer_size:61.035156MB
+2022-03-12T15:31:02.909 INFO bellperson::gpu::multiexp > each_size:8B
+2022-03-12T15:31:02.923 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 10.816602ms
+2022-03-12T15:31:02.923 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 13.993725ms
+2022-03-12T15:31:02.923 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:02.926 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:03.267 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 340.20311ms
+2022-03-12T15:31:03.297 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:03.297 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:03.297 INFO bellperson::gpu::multiexp > n:2000000, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:03.297 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:03.297 INFO bellperson::gpu::multiexp > buffer_size:198.36426MB
+2022-03-12T15:31:03.297 INFO bellperson::gpu::multiexp > each_size:26B
+2022-03-12T15:31:03.419 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 120.136195ms
+2022-03-12T15:31:03.419 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 122.029022ms
+2022-03-12T15:31:03.419 INFO bellperson::gpu::multiexp > buffer_size:61.035156MB
+2022-03-12T15:31:03.419 INFO bellperson::gpu::multiexp > each_size:8B
+2022-03-12T15:31:03.434 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 10.745886ms
+2022-03-12T15:31:03.434 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 14.60977ms
+2022-03-12T15:31:03.434 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:03.438 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:03.778 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 340.689808ms
+2022-03-12T15:31:03.806 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:03.806 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:03.806 INFO bellperson::gpu::multiexp > n:2000000, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:03.806 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:03.806 INFO bellperson::gpu::multiexp > buffer_size:198.36426MB
+2022-03-12T15:31:03.806 INFO bellperson::gpu::multiexp > each_size:26B
+2022-03-12T15:31:03.927 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 119.10539ms
+2022-03-12T15:31:03.927 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 120.981554ms
+2022-03-12T15:31:03.927 INFO bellperson::gpu::multiexp > buffer_size:61.035156MB
+2022-03-12T15:31:03.927 INFO bellperson::gpu::multiexp > each_size:8B
+2022-03-12T15:31:03.942 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 11.15121ms
+2022-03-12T15:31:03.942 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 15.378344ms
+2022-03-12T15:31:03.942 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:03.946 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:04.286 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 339.629226ms
+2022-03-12T15:31:04.313 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:04.313 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:04.313 INFO bellperson::gpu::multiexp > n:388607, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:04.313 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:04.313 INFO bellperson::gpu::multiexp > buffer_size:38.54287MB
+2022-03-12T15:31:04.313 INFO bellperson::gpu::multiexp > each_size:5.051891B
+2022-03-12T15:31:04.338 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 22.887653ms
+2022-03-12T15:31:04.338 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 24.77522ms
+2022-03-12T15:31:04.338 INFO bellperson::gpu::multiexp > buffer_size:11.8593445MB
+2022-03-12T15:31:04.338 INFO bellperson::gpu::multiexp > each_size:1.554428B
+2022-03-12T15:31:04.345 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 6.193812ms
+2022-03-12T15:31:04.345 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 7.224497ms
+2022-03-12T15:31:04.345 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:04.436 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:04.691 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 255.340091ms
+2022-03-12T15:31:04.717 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:04.746 INFO bellperson::groth16::prover > multiexp h time: 2.648858281s
+2022-03-12T15:31:04.847 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:04.887 INFO bellperson::multiexp > vec exps init time: 39.049701ms
+2022-03-12T15:31:04.909 INFO bellperson::multiexp > exp iter time: 22.867615ms
+2022-03-12T15:31:04.909 INFO bellperson::multiexp > bases clone time: 671ns
+2022-03-12T15:31:04.956 INFO bellperson::multiexp > exps clone time: 46.461213ms
+2022-03-12T15:31:04.956 INFO bellperson::gpu::multiexp > gpu multiexp
+2022-03-12T15:31:04.956 INFO bellperson::gpu::multiexp > gpu multiexp, n:4420837
+2022-03-12T15:31:04.956 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:04.956 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:04.956 INFO bellperson::gpu::multiexp > n:2000000, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:04.956 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:04.956 INFO bellperson::gpu::multiexp > buffer_size:198.36426MB
+2022-03-12T15:31:04.956 INFO bellperson::gpu::multiexp > each_size:26B
+2022-03-12T15:31:04.987 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 27.491727ms
+2022-03-12T15:31:04.987 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 30.756037ms
+2022-03-12T15:31:04.987 INFO bellperson::gpu::multiexp > buffer_size:61.035156MB
+2022-03-12T15:31:04.987 INFO bellperson::gpu::multiexp > each_size:8B
+2022-03-12T15:31:04.996 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 8.41776ms
+2022-03-12T15:31:04.996 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 8.812142ms
+2022-03-12T15:31:04.996 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:04.999 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:05.330 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 330.609829ms
+2022-03-12T15:31:05.341 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:05.341 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:05.341 INFO bellperson::gpu::multiexp > n:2000000, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:05.341 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:05.341 INFO bellperson::gpu::multiexp > buffer_size:198.36426MB
+2022-03-12T15:31:05.341 INFO bellperson::gpu::multiexp > each_size:26B
+2022-03-12T15:31:05.462 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 118.981574ms
+2022-03-12T15:31:05.462 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 120.878578ms
+2022-03-12T15:31:05.462 INFO bellperson::gpu::multiexp > buffer_size:61.035156MB
+2022-03-12T15:31:05.462 INFO bellperson::gpu::multiexp > each_size:8B
+2022-03-12T15:31:05.477 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 10.828776ms
+2022-03-12T15:31:05.477 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 15.084324ms
+2022-03-12T15:31:05.477 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:05.481 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:05.798 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 316.970359ms
+2022-03-12T15:31:05.809 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:05.809 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:05.809 INFO bellperson::gpu::multiexp > n:420837, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:05.809 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:05.809 INFO bellperson::gpu::multiexp > buffer_size:41.73951MB
+2022-03-12T15:31:05.809 INFO bellperson::gpu::multiexp > each_size:5.470881B
+2022-03-12T15:31:05.835 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 24.225071ms
+2022-03-12T15:31:05.835 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 26.110554ms
+2022-03-12T15:31:05.835 INFO bellperson::gpu::multiexp > buffer_size:12.842926MB
+2022-03-12T15:31:05.835 INFO bellperson::gpu::multiexp > each_size:1.683348B
+2022-03-12T15:31:05.844 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 7.311492ms
+2022-03-12T15:31:05.844 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 8.230503ms
+2022-03-12T15:31:05.844 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:05.933 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:06.206 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 272.862289ms
+2022-03-12T15:31:06.215 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:06.226 INFO bellperson::groth16::prover > multiexp l time: 1.378141081s
+2022-03-12T15:31:06.226 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:06.226 INFO bellperson::groth16::prover > multiexp a input time: 12.775µs
+2022-03-12T15:31:06.226 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:06.266 INFO bellperson::multiexp > vec exps init time: 39.858662ms
+2022-03-12T15:31:06.289 INFO bellperson::multiexp > exp iter time: 23.015587ms
+2022-03-12T15:31:06.289 INFO bellperson::multiexp > bases clone time: 1.022µs
+2022-03-12T15:31:06.335 INFO bellperson::multiexp > exps clone time: 46.498194ms
+2022-03-12T15:31:06.335 INFO bellperson::gpu::multiexp > gpu multiexp
+2022-03-12T15:31:06.335 INFO bellperson::gpu::multiexp > gpu multiexp, n:4385040
+2022-03-12T15:31:06.335 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:06.335 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:06.335 INFO bellperson::gpu::multiexp > n:2000000, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:06.335 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:06.335 INFO bellperson::gpu::multiexp > buffer_size:198.36426MB
+2022-03-12T15:31:06.335 INFO bellperson::gpu::multiexp > each_size:26B
+2022-03-12T15:31:06.366 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 27.464956ms
+2022-03-12T15:31:06.366 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 30.739795ms
+2022-03-12T15:31:06.366 INFO bellperson::gpu::multiexp > buffer_size:61.035156MB
+2022-03-12T15:31:06.366 INFO bellperson::gpu::multiexp > each_size:8B
+2022-03-12T15:31:06.375 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 8.421848ms
+2022-03-12T15:31:06.375 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 8.796062ms
+2022-03-12T15:31:06.375 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:06.379 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:06.708 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 329.100063ms
+2022-03-12T15:31:06.719 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:06.719 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:06.719 INFO bellperson::gpu::multiexp > n:2000000, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:06.719 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:06.719 INFO bellperson::gpu::multiexp > buffer_size:198.36426MB
+2022-03-12T15:31:06.719 INFO bellperson::gpu::multiexp > each_size:26B
+2022-03-12T15:31:06.840 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 119.077577ms
+2022-03-12T15:31:06.840 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 120.970814ms
+2022-03-12T15:31:06.840 INFO bellperson::gpu::multiexp > buffer_size:61.035156MB
+2022-03-12T15:31:06.840 INFO bellperson::gpu::multiexp > each_size:8B
+2022-03-12T15:31:06.855 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 10.924989ms
+2022-03-12T15:31:06.855 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 15.179254ms
+2022-03-12T15:31:06.855 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:06.859 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:07.174 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 315.564309ms
+2022-03-12T15:31:07.185 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:07.185 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:07.185 INFO bellperson::gpu::multiexp > n:385040, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:07.185 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:07.185 INFO bellperson::gpu::multiexp > buffer_size:38.189087MB
+2022-03-12T15:31:07.185 INFO bellperson::gpu::multiexp > each_size:5.00552B
+2022-03-12T15:31:07.210 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 22.792492ms
+2022-03-12T15:31:07.210 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 24.684587ms
+2022-03-12T15:31:07.210 INFO bellperson::gpu::multiexp > buffer_size:11.750488MB
+2022-03-12T15:31:07.210 INFO bellperson::gpu::multiexp > each_size:1.54016B
+2022-03-12T15:31:07.217 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 6.176319ms
+2022-03-12T15:31:07.217 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 7.201994ms
+2022-03-12T15:31:07.217 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:07.309 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:07.577 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 268.067202ms
+2022-03-12T15:31:07.586 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:07.597 INFO bellperson::groth16::prover > multiexp a aux time: 1.371081778s
+2022-03-12T15:31:07.597 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:07.597 INFO bellperson::groth16::prover > multiexp b g1 input time: 14.016µs
+2022-03-12T15:31:07.597 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:07.635 INFO bellperson::multiexp > vec exps init time: 38.258743ms
+2022-03-12T15:31:07.649 INFO bellperson::multiexp > exp iter time: 13.814595ms
+2022-03-12T15:31:07.649 INFO bellperson::multiexp > bases clone time: 521ns
+2022-03-12T15:31:07.696 INFO bellperson::multiexp > exps clone time: 46.581964ms
+2022-03-12T15:31:07.696 INFO bellperson::gpu::multiexp > gpu multiexp
+2022-03-12T15:31:07.696 INFO bellperson::gpu::multiexp > gpu multiexp, n:1174173
+2022-03-12T15:31:07.696 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:07.696 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:144
+2022-03-12T15:31:07.696 INFO bellperson::gpu::multiexp > n:1174173, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:07.696 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:07.696 INFO bellperson::gpu::multiexp > buffer_size:116.45698MB
+2022-03-12T15:31:07.696 INFO bellperson::gpu::multiexp > each_size:15.264249B
+2022-03-12T15:31:07.715 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 16.157369ms
+2022-03-12T15:31:07.715 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 19.351014ms
+2022-03-12T15:31:07.715 INFO bellperson::gpu::multiexp > buffer_size:35.832916MB
+2022-03-12T15:31:07.715 INFO bellperson::gpu::multiexp > each_size:4.696692B
+2022-03-12T15:31:07.720 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 4.946826ms
+2022-03-12T15:31:07.720 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 5.293387ms
+2022-03-12T15:31:07.720 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:07.724 INFO bellperson::gpu::multiexp > ----------------------------------compute begin
+2022-03-12T15:31:08.013 INFO bellperson::gpu::multiexp > ----------------------------------kernel run time: 288.940778ms
+2022-03-12T15:31:08.024 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:08.038 INFO bellperson::groth16::prover > multiexp b g1 aux time: 441.42363ms
+2022-03-12T15:31:08.038 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:08.038 INFO bellperson::groth16::prover > multiexp b g2 input time: 22.322µs
+2022-03-12T15:31:08.038 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:08.077 INFO bellperson::multiexp > vec exps init time: 38.731404ms
+2022-03-12T15:31:08.091 INFO bellperson::multiexp > exp iter time: 13.788865ms
+2022-03-12T15:31:08.091 INFO bellperson::multiexp > bases clone time: 521ns
+2022-03-12T15:31:08.137 INFO bellperson::multiexp > exps clone time: 46.468437ms
+2022-03-12T15:31:08.137 INFO bellperson::gpu::multiexp > gpu multiexp
+2022-03-12T15:31:08.137 INFO bellperson::gpu::multiexp > gpu multiexp, n:1174173
+2022-03-12T15:31:08.137 INFO bellperson::gpu::multiexp > kern.multiexp
+2022-03-12T15:31:08.137 INFO bellperson::gpu::multiexp > basesize:104,expsize:32,bucketsize:288
+2022-03-12T15:31:08.137 INFO bellperson::gpu::multiexp > n:1174173, window_size:11, num_windows:24, num_groups:725, bucket_len:2048
+2022-03-12T15:31:08.137 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu begin
+2022-03-12T15:31:08.137 INFO bellperson::gpu::multiexp > buffer_size:223.95572MB
+2022-03-12T15:31:08.137 INFO bellperson::gpu::multiexp > each_size:29.354324B
+2022-03-12T15:31:08.180 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 39.108683ms
+2022-03-12T15:31:08.180 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 42.44506ms
+2022-03-12T15:31:08.180 INFO bellperson::gpu::multiexp > buffer_size:35.832916MB
+2022-03-12T15:31:08.180 INFO bellperson::gpu::multiexp > each_size:4.696692B
+2022-03-12T15:31:08.186 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 5.421742ms
+2022-03-12T15:31:08.186 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu time: 5.770086ms
+2022-03-12T15:31:08.186 INFO bellperson::gpu::multiexp > ----------------------------------cpu->gpu end
+2022-03-12T15:31:08.188 INFO bellperson::multiexp > multiexp begin
+2022-03-12T15:31:08.199 WARN bellperson::gpu::locks > GPU Multiexp failed! Falling back to CPU... Error: Cuda "out of memory"
+GPU error!!
+thread '<unnamed>' panicked at 'explicit panic', /root/filecoin-project/bellperson/src/multiexp.rs:330:13
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread '<unnamed>' panicked at 'called `Result::unwrap()` on an `Err` value: "SendError(..)"', /root/filecoin-project/bellperson/src/multicore.rs:52:30
+Rayon: detected unexpected panic; aborting
+./test.sh: line 1:  1960 Aborted                 (core dumped) ./lotus-bench sealing --sector-size=512m

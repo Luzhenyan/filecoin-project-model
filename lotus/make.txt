@@ -1,0 +1,875 @@
+rm -rf  build/.filecoin-install build/.update-modules  lotus lotus-miner lotus-worker lotus-shed lotus-gateway lotus-seed lotus-pond lotus-townhall lotus-fountain lotus-chainwatch lotus-bench lotus-stats lotus-pcr lotus-health lotus-wallet testground
+make -C extern/filecoin-ffi/ clean
+make[1]: Entering directory '/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi'
+rm -rf filcrypto.h filcrypto.pc libfilcrypto.a .install-filcrypto
+rm -f ./runner
+cd rust && cargo clean && cd ..
+make[1]: Leaving directory '/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi'
+git submodule update --init --recursive
+touch build/.update-modules
+make -C extern/filecoin-ffi/ .install-filcrypto
+make[1]: Entering directory '/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi'
+./install-filcrypto
++ auth_header=()
++ '[' -n '' ']'
+++ dirname ./install-filcrypto
++ cd .
++ rust_sources_dir=rust
+++ jq -r '.[].check_cpu_for_feature | select(. != null)'
++ cpu_features_required_for_optimized_release='adx
+sha_ni
+sha2
+sse2
+avx2
+avx
+sse4_2
+sse4_1'
++ main
+++ get_release_flags
+++ local __features=
+++ [[ ! -f /proc/cpuinfo ]]
++++ uname -a
++++ grep x86_64
+++ x86_64_uname='Linux helmsman 5.4.0-72-generic #80~18.04.1-Ubuntu SMP Mon Apr 12 23:26:25 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux'
+++ '[' -n 'Linux helmsman 5.4.0-72-generic #80~18.04.1-Ubuntu SMP Mon Apr 12 23:26:25 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux' ']'
++++ cat /proc/cpuinfo
++++ grep flags
++++ head -n 1
+++ __features='flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca'
+++ feature_map=("adx:+adx" "sha_ni:+sha" "sha2:+sha2" "sse2:+sse2" "avx2:+avx2" "avx:+avx" "sse4_2:+sse4.2" "sse4_1:+sse4.1")
+++ target_features=
+++ for x in ${cpu_features_required_for_optimized_release[@]}
++++ echo 'flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca'
++++ grep -c adx
+++ current_feature=1
+++ '[' 1 = 1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=adx
+++ '[' adx == adx ']'
+++ val=+adx
+++ '[' -z '' ']'
+++ target_features=+adx
+++ for feature in "${feature_map[@]}"
+++ key=sha_ni
+++ '[' sha_ni == adx ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha2
+++ '[' sha2 == adx ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse2
+++ '[' sse2 == adx ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx2
+++ '[' avx2 == adx ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx
+++ '[' avx == adx ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_2
+++ '[' sse4_2 == adx ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_1
+++ '[' sse4_1 == adx ']'
+++ for x in ${cpu_features_required_for_optimized_release[@]}
++++ echo 'flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca'
++++ grep -c sha_ni
+++ current_feature=1
+++ '[' 1 = 1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=adx
+++ '[' adx == sha_ni ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha_ni
+++ '[' sha_ni == sha_ni ']'
+++ val=+sha
+++ '[' -z +adx ']'
+++ target_features=+adx,+sha
+++ for feature in "${feature_map[@]}"
+++ key=sha2
+++ '[' sha2 == sha_ni ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse2
+++ '[' sse2 == sha_ni ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx2
+++ '[' avx2 == sha_ni ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx
+++ '[' avx == sha_ni ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_2
+++ '[' sse4_2 == sha_ni ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_1
+++ '[' sse4_1 == sha_ni ']'
+++ for x in ${cpu_features_required_for_optimized_release[@]}
++++ echo 'flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca'
++++ grep -c sha2
+++ current_feature=0
+++ '[' 1 = 0 ']'
+++ for x in ${cpu_features_required_for_optimized_release[@]}
++++ echo 'flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca'
++++ grep -c sse2
+++ current_feature=1
+++ '[' 1 = 1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=adx
+++ '[' adx == sse2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha_ni
+++ '[' sha_ni == sse2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha2
+++ '[' sha2 == sse2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse2
+++ '[' sse2 == sse2 ']'
+++ val=+sse2
+++ '[' -z +adx,+sha ']'
+++ target_features=+adx,+sha,+sse2
+++ for feature in "${feature_map[@]}"
+++ key=avx2
+++ '[' avx2 == sse2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx
+++ '[' avx == sse2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_2
+++ '[' sse4_2 == sse2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_1
+++ '[' sse4_1 == sse2 ']'
+++ for x in ${cpu_features_required_for_optimized_release[@]}
++++ echo 'flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca'
++++ grep -c avx2
+++ current_feature=1
+++ '[' 1 = 1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=adx
+++ '[' adx == avx2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha_ni
+++ '[' sha_ni == avx2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha2
+++ '[' sha2 == avx2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse2
+++ '[' sse2 == avx2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx2
+++ '[' avx2 == avx2 ']'
+++ val=+avx2
+++ '[' -z +adx,+sha,+sse2 ']'
+++ target_features=+adx,+sha,+sse2,+avx2
+++ for feature in "${feature_map[@]}"
+++ key=avx
+++ '[' avx == avx2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_2
+++ '[' sse4_2 == avx2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_1
+++ '[' sse4_1 == avx2 ']'
+++ for x in ${cpu_features_required_for_optimized_release[@]}
++++ echo 'flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca'
++++ grep -c avx
+++ current_feature=1
+++ '[' 1 = 1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=adx
+++ '[' adx == avx ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha_ni
+++ '[' sha_ni == avx ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha2
+++ '[' sha2 == avx ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse2
+++ '[' sse2 == avx ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx2
+++ '[' avx2 == avx ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx
+++ '[' avx == avx ']'
+++ val=+avx
+++ '[' -z +adx,+sha,+sse2,+avx2 ']'
+++ target_features=+adx,+sha,+sse2,+avx2,+avx
+++ for feature in "${feature_map[@]}"
+++ key=sse4_2
+++ '[' sse4_2 == avx ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_1
+++ '[' sse4_1 == avx ']'
+++ for x in ${cpu_features_required_for_optimized_release[@]}
++++ echo 'flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca'
++++ grep -c sse4_2
+++ current_feature=1
+++ '[' 1 = 1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=adx
+++ '[' adx == sse4_2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha_ni
+++ '[' sha_ni == sse4_2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha2
+++ '[' sha2 == sse4_2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse2
+++ '[' sse2 == sse4_2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx2
+++ '[' avx2 == sse4_2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx
+++ '[' avx == sse4_2 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_2
+++ '[' sse4_2 == sse4_2 ']'
+++ val=+sse4.2
+++ '[' -z +adx,+sha,+sse2,+avx2,+avx ']'
+++ target_features=+adx,+sha,+sse2,+avx2,+avx,+sse4.2
+++ for feature in "${feature_map[@]}"
+++ key=sse4_1
+++ '[' sse4_1 == sse4_2 ']'
+++ for x in ${cpu_features_required_for_optimized_release[@]}
++++ echo 'flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca'
++++ grep -c sse4_1
+++ current_feature=1
+++ '[' 1 = 1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=adx
+++ '[' adx == sse4_1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha_ni
+++ '[' sha_ni == sse4_1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sha2
+++ '[' sha2 == sse4_1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse2
+++ '[' sse2 == sse4_1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx2
+++ '[' avx2 == sse4_1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=avx
+++ '[' avx == sse4_1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_2
+++ '[' sse4_2 == sse4_1 ']'
+++ for feature in "${feature_map[@]}"
+++ key=sse4_1
+++ '[' sse4_1 == sse4_1 ']'
+++ val=+sse4.1
+++ '[' -z +adx,+sha,+sse2,+avx2,+avx,+sse4.2 ']'
+++ target_features=+adx,+sha,+sse2,+avx2,+avx,+sse4.2,+sse4.1
+++ echo +adx,+sha,+sse2,+avx2,+avx,+sse4.2,+sse4.1
++ local __release_flags=+adx,+sha,+sse2,+avx2,+avx,+sse4.2,+sse4.1
++ '[' 1 '!=' 1 ']'
++ echo '[install-filcrypto/main] building libfilcrypto from local sources (dir = rust)'
+[install-filcrypto/main] building libfilcrypto from local sources (dir = rust)
++ build_from_source filcrypto rust +adx,+sha,+sse2,+avx2,+avx,+sse4.2,+sse4.1
++ local __library_name=filcrypto
++ local __rust_sources_path=rust
++ local __release_flags=+adx,+sha,+sse2,+avx2,+avx,+sse4.2,+sse4.1
+++ git rev-parse HEAD
++ local __repo_sha1=1d9cb3e8ff53f51f9318fc57e5d00bc79bdc0128
++ local __repo_sha1_truncated=1d9cb3e8ff53f51f
++ echo 'building from source @ 1d9cb3e8ff53f51f'
+building from source @ 1d9cb3e8ff53f51f
+++ command -v cargo
++ '[' -x /root/.cargo/bin/cargo ']'
+++ command -v rustup
++ '[' -x /root/.cargo/bin/rustup ']'
++ pushd rust
+~/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/rust ~/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi
++ cargo --version
+cargo 1.48.0-nightly (75615f8e6 2020-09-29)
++ '[' '' == 1 ']'
++ additional_flags='--no-default-features --features pairing'
++ '[' -n +adx,+sha,+sse2,+avx2,+avx,+sse4.2,+sse4.1 ']'
+++ cat rust-toolchain
++ RUSTFLAGS='-C target-feature=+adx,+sha,+sse2,+avx2,+avx,+sse4.2,+sse4.1'
++ ./scripts/build-release.sh filcrypto 'nightly-2020-10-05 ' '--no-default-features --features pairing'
++ main filcrypto 'nightly-2020-10-05 ' '--no-default-features --features pairing'
++ [[ -z filcrypto ]]
++ [[ -z nightly-2020-10-05  ]]
+++ mktemp
++ __build_output_log_tmp=/tmp/tmp.aoZ1Fudu4n
++ trap '{ rm -f $__build_output_log_tmp; }' EXIT
++ local '__rust_flags=--print native-static-libs -C target-feature=+adx,+sha,+sse2,+avx2,+avx,+sse4.2,+sse4.1'
++ RUSTFLAGS='--print native-static-libs -C target-feature=+adx,+sha,+sse2,+avx2,+avx,+sse4.2,+sse4.1'
++ cargo +nightly-2020-10-05 build --release --no-default-features --features pairing
++ tee /tmp/tmp.aoZ1Fudu4n
+   Compiling autocfg v1.0.1
+   Compiling libc v0.2.80
+   Compiling cfg-if v0.1.10
+   Compiling spin v0.5.2
+   Compiling proc-macro2 v1.0.24
+   Compiling unicode-xid v0.2.1
+   Compiling syn v1.0.48
+   Compiling version_check v0.9.2
+   Compiling cc v1.0.62
+   Compiling typenum v1.12.0
+   Compiling log v0.4.11
+   Compiling getrandom v0.1.15
+   Compiling bitflags v1.2.1
+   Compiling cfg-if v1.0.0
+   Compiling serde v1.0.117
+   Compiling serde_derive v1.0.117
+   Compiling memchr v2.3.4
+   Compiling byteorder v1.3.4
+   Compiling scopeguard v1.1.0
+   Compiling const_fn v0.4.3
+   Compiling ppv-lite86 v0.2.10
+   Compiling maybe-uninit v2.0.0
+   Compiling arrayvec v0.5.2
+   Compiling ryu v1.0.5
+   Compiling either v1.6.1
+   Compiling rustc-serialize v0.3.24
+   Compiling pkg-config v0.3.19
+   Compiling rayon-core v1.9.0
+   Compiling arrayref v0.3.6
+   Compiling constant_time_eq v0.1.5
+   Compiling adler v0.2.3
+   Compiling semver v0.1.20
+   Compiling failure_derive v0.1.8
+   Compiling byte-tools v0.3.1
+   Compiling subtle v2.3.0
+   Compiling itoa v0.4.6
+   Compiling gimli v0.23.0
+   Compiling rustc-demangle v0.1.18
+   Compiling serde_json v1.0.59
+   Compiling getrandom v0.2.0
+   Compiling object v0.22.0
+   Compiling cl-sys v0.4.2
+   Compiling fake-simd v0.1.2
+   Compiling opaque-debug v0.2.3
+   Compiling fnv v1.0.7
+   Compiling pin-project-lite v0.1.11
+   Compiling slab v0.4.2
+   Compiling futures-core v0.3.7
+   Compiling bytes v0.5.6
+   Compiling futures v0.1.30
+   Compiling cuda-sys v0.2.0
+   Compiling nodrop v0.1.14
+   Compiling lexical-core v0.7.4
+   Compiling bit-vec v0.6.2
+   Compiling opaque-debug v0.3.0
+   Compiling pin-project-internal v0.4.27
+   Compiling remove_dir_all v0.5.3
+   Compiling anyhow v1.0.34
+   Compiling matches v0.1.8
+   Compiling rustacuda_core v0.1.2
+   Compiling static_assertions v1.1.0
+   Compiling cpuid-bool v0.1.2
+   Compiling foreign-types-shared v0.1.1
+   Compiling openssl v0.10.30
+   Compiling regex-syntax v0.6.21
+   Compiling once_cell v1.4.1
+   Compiling tinyvec v0.3.4
+   Compiling byteorder v0.5.3
+   Compiling unicode-width v0.1.8
+   Compiling semver-parser v0.7.0
+   Compiling futures-sink v0.3.7
+   Compiling ansi_term v0.11.0
+   Compiling futures-io v0.3.7
+   Compiling native-tls v0.2.5
+   Compiling pin-utils v0.1.0
+   Compiling percent-encoding v2.1.0
+   Compiling hashbrown v0.9.1
+   Compiling httparse v1.3.4
+   Compiling block-padding v0.2.1
+   Compiling try-lock v0.2.3
+   Compiling proc-macro2 v0.4.30
+   Compiling hex v0.4.2
+   Compiling openssl-probe v0.1.2
+   Compiling encoding_rs v0.8.26
+   Compiling unicode-xid v0.1.0
+   Compiling unicode-segmentation v1.6.0
+   Compiling subtle v1.0.0
+   Compiling bitflags v0.4.0
+   Compiling crc32fast v1.2.1
+   Compiling tower-service v0.3.0
+   Compiling httpdate v0.3.2
+   Compiling difference v2.0.0
+   Compiling syn v0.15.44
+   Compiling vec_map v0.8.2
+   Compiling mime v0.3.16
+   Compiling storage-proofs v5.4.0 (/root/go/src/github.com/filecoin-project/rust-fil-proofs/storage-proofs)
+   Compiling strsim v0.8.0
+   Compiling cbindgen v0.14.0
+   Compiling bitintr v0.3.0
+   Compiling dtoa v0.4.6
+   Compiling byte-slice-cast v1.0.0
+   Compiling yansi v0.5.0
+   Compiling glob v0.3.0
+   Compiling zeroize v0.9.3
+   Compiling number_prefix v0.3.0
+   Compiling base64 v0.12.3
+   Compiling termcolor v1.1.0
+   Compiling radium v0.3.0
+   Compiling ipnet v2.3.0
+   Compiling humansize v1.1.0
+   Compiling lazy_static v1.4.0
+   Compiling itertools v0.8.2
+   Compiling itertools v0.9.0
+   Compiling block-padding v0.1.5
+   Compiling generic-array v0.14.4
+   Compiling unicase v2.6.0
+   Compiling nom v5.1.2
+   Compiling proc-macro-error-attr v1.0.4
+   Compiling proc-macro-error v1.0.4
+   Compiling blake2b_simd v0.5.11
+   Compiling blake2s_simd v0.5.11
+   Compiling num-traits v0.2.14
+   Compiling num-integer v0.1.44
+   Compiling memoffset v0.5.6
+   Compiling num-bigint v0.2.6
+   Compiling crossbeam-utils v0.8.0
+   Compiling crossbeam-utils v0.7.2
+   Compiling num-iter v0.1.42
+   Compiling miniz_oxide v0.4.3
+   Compiling crossbeam-epoch v0.8.2
+   Compiling rayon v1.5.0
+   Compiling indexmap v1.6.0
+   Compiling rustc_version v0.1.7
+   Compiling openssl-src v111.12.0+1.1.1h
+   Compiling futures-channel v0.3.7
+   Compiling unicode-bidi v0.3.4
+   Compiling foreign-types v0.3.2
+   Compiling hwloc v0.3.0
+   Compiling textwrap v0.11.0
+   Compiling futures-task v0.3.7
+   Compiling form_urlencoded v1.0.0
+   Compiling http v0.2.1
+   Compiling semver v0.9.0
+   Compiling unicode-normalization v0.1.13
+   Compiling pretty_assertions v0.6.1
+   Compiling heck v0.3.1
+   Compiling fff v0.2.3
+   Compiling neptune-triton v2.0.0
+   Compiling sha2-asm v0.5.4
+   Compiling thread_local v1.0.1
+   Compiling tracing-core v0.1.17
+   Compiling bitvec v0.17.4
+   Compiling fil-ocl-core v0.11.3
+   Compiling openssl-sys v0.9.58
+   Compiling rustc_version v0.2.3
+   Compiling want v0.3.0
+   Compiling aho-corasick v0.7.15
+   Compiling addr2line v0.14.0
+   Compiling tracing v0.1.21
+   Compiling idna v0.2.0
+   Compiling quote v1.0.7
+   Compiling num_cpus v1.13.0
+   Compiling rand v0.4.6
+   Compiling memmap v0.7.0
+   Compiling net2 v0.2.35
+   Compiling dirs-sys v0.3.5
+   Compiling iovec v0.1.4
+   Compiling fs2 v0.4.3
+   Compiling positioned-io v0.2.2
+   Compiling time v0.1.44
+   Compiling terminal_size v0.1.13
+   Compiling socket2 v0.3.15
+   Compiling atty v0.2.14
+   Compiling errno v0.1.8
+   Compiling mapr v0.8.0
+   Compiling filetime v0.2.13
+   Compiling xattr v0.2.2
+   Compiling http-body v0.3.1
+   Compiling quote v0.6.13
+   Compiling raw-cpuid v7.0.3
+   Compiling mime_guess v2.0.3
+   Compiling rand_core v0.5.1
+   Compiling generic-array v0.12.3
+   Compiling ahash v0.5.8
+   Compiling url v2.2.0
+   Compiling dirs v2.0.2
+   Compiling mio v0.6.22
+   Compiling clap v2.33.3
+   Compiling regex v1.4.2
+   Compiling tar v0.4.30
+   Compiling tempdir v0.3.7
+   Compiling crossbeam-epoch v0.9.0
+   Compiling crossbeam-channel v0.5.0
+   Compiling crossbeam-queue v0.3.0
+   Compiling crossbeam-channel v0.4.4
+   Compiling crossbeam-queue v0.2.3
+   Compiling backtrace v0.3.54
+   Compiling flate2 v1.0.19
+   Compiling rand_chacha v0.2.2
+   Compiling rand_xorshift v0.2.0
+   Compiling num-complex v0.1.43
+   Compiling num-traits v0.1.43
+   Compiling digest v0.8.1
+   Compiling block-buffer v0.7.3
+   Compiling crypto-mac v0.7.0
+   Compiling digest v0.9.0
+   Compiling crypto-mac v0.10.0
+   Compiling cipher v0.2.5
+   Compiling block-buffer v0.9.0
+   Compiling env_proxy v0.4.1
+   Compiling crossbeam-deque v0.8.0
+   Compiling tokio v0.2.22
+   Compiling crossbeam-deque v0.7.3
+   Compiling rand v0.7.3
+   Compiling pbr v1.0.3
+   Compiling console v0.13.0
+   Compiling num-bigint v0.1.44
+   Compiling chrono v0.4.19
+   Compiling enum_primitive v0.1.1
+   Compiling sha2 v0.8.2
+   Compiling hmac v0.7.1
+   Compiling hmac v0.10.1
+   Compiling sha2 v0.9.2
+   Compiling sha2raw v2.0.0 (/root/go/src/github.com/filecoin-project/rust-fil-proofs/sha2raw)
+   Compiling aes-soft v0.6.3
+   Compiling block-modes v0.7.0
+   Compiling crossbeam v0.7.3
+   Compiling crossbeam v0.8.0
+   Compiling indicatif v0.15.0
+   Compiling sha2ni v0.8.5
+   Compiling tempfile v3.1.0
+   Compiling num-rational v0.1.42
+   Compiling hkdf v0.8.0
+   Compiling hkdf v0.10.0
+   Compiling flexi_logger v0.14.8
+   Compiling simplelog v0.8.0
+   Compiling aes v0.6.0
+   Compiling qutex v0.2.3
+   Compiling dialoguer v0.7.1
+   Compiling synstructure v0.12.4
+   Compiling tokio-util v0.3.1
+   Compiling num v0.1.42
+   Compiling drop_struct_macro_derive v0.4.0
+   Compiling fil_logger v0.1.2
+   Compiling ocl-core-vector v0.1.0
+   Compiling ffi-toolkit v0.4.0
+   Compiling fff_derive v0.2.2
+   Compiling thiserror-impl v1.0.22
+   Compiling rustacuda_derive v0.1.2
+   Compiling pin-project-internal v1.0.1
+   Compiling structopt-derive v0.4.13
+   Compiling failure v0.1.8
+   Compiling rustacuda v0.1.2
+   Compiling thiserror v1.0.22
+   Compiling groupy v0.3.1
+   Compiling ff-cl-gen v0.2.0
+   Compiling pin-project v1.0.1
+   Compiling futures-util v0.3.7
+   Compiling paired v0.20.1
+   Compiling pin-project v0.4.27
+   Compiling tracing-futures v0.2.4
+   Compiling structopt v0.3.20
+   Compiling bls-signatures v0.6.1
+   Compiling fil-ocl v0.19.4
+   Compiling h2 v0.2.7
+   Compiling rust-gpu-tools v0.2.1
+   Compiling toml v0.5.7
+   Compiling paired v0.21.0
+   Compiling merkletree v0.21.0
+   Compiling bincode v1.3.1
+   Compiling serde_urlencoded v0.6.1
+   Compiling hyper v0.13.9
+   Compiling tokio-tls v0.3.1
+   Compiling config v0.10.1
+   Compiling bellperson v0.12.1 (/root/go/src/github.com/filecoin-project/bellperson)
+warning: unused import: `rustacuda::*`
+ --> /root/go/src/github.com/filecoin-project/bellperson/src/gpu/utils.rs:5:5
+  |
+5 | use rustacuda::*;
+  |     ^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: unused imports: `GPUError`, `GPUResult`
+ --> /root/go/src/github.com/filecoin-project/bellperson/src/gpu/multiexp.rs:1:20
+  |
+1 | use super::error::{GPUError, GPUResult};
+  |                    ^^^^^^^^  ^^^^^^^^^
+
+warning: unused import: `super::sources`
+ --> /root/go/src/github.com/filecoin-project/bellperson/src/gpu/multiexp.rs:3:5
+  |
+3 | use super::sources;
+  |     ^^^^^^^^^^^^^^
+
+warning: unused import: `crossbeam::thread`
+  --> /root/go/src/github.com/filecoin-project/bellperson/src/gpu/multiexp.rs:17:5
+   |
+17 | use crossbeam::thread;
+   |     ^^^^^^^^^^^^^^^^^
+
+warning: unused `#[macro_use]` import
+   --> /root/go/src/github.com/filecoin-project/bellperson/src/lib.rs:162:1
+    |
+162 | #[macro_use]
+    | ^^^^^^^^^^^^
+
+   Compiling bellperson v0.12.1
+warning: value assigned to `global_work_size` is never read
+   --> /root/go/src/github.com/filecoin-project/bellperson/src/gpu/multiexp.rs:188:9
+    |
+188 |         global_work_size +=
+    |         ^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(unused_assignments)]` on by default
+    = help: maybe it is overwritten before being read?
+
+warning: unused variable: `name`
+   --> /root/go/src/github.com/filecoin-project/bellperson/src/gpu/multiexp.rs:221:17
+    |
+221 |             let name = "G1_bellman_multiexp";
+    |                 ^^^^ help: if this is intentional, prefix it with an underscore: `_name`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `name`
+   --> /root/go/src/github.com/filecoin-project/bellperson/src/gpu/multiexp.rs:223:17
+    |
+223 |             let name = "G2_bellman_multiexp";
+    |                 ^^^^ help: if this is intentional, prefix it with an underscore: `_name`
+
+warning: unused variable: `device`
+   --> /root/go/src/github.com/filecoin-project/bellperson/src/gpu/multiexp.rs:290:27
+    |
+290 |             .filter_map(|(device, res)| {
+    |                           ^^^^^^ help: if this is intentional, prefix it with an underscore: `_device`
+
+warning: field is never read: `context`
+  --> /root/go/src/github.com/filecoin-project/bellperson/src/gpu/multiexp.rs:44:5
+   |
+44 |     context:context::Context,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+   Compiling phase21 v0.11.0
+   Compiling hyper-tls v0.4.3
+   Compiling reqwest v0.10.8
+warning: 10 warnings emitted
+
+   Compiling filcrypto v0.7.5 (/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/rust)
+   Compiling neptune v2.2.0 (/root/go/src/github.com/filecoin-project/neptune)
+   Compiling storage-proofs-core v5.4.0 (/root/go/src/github.com/filecoin-project/rust-fil-proofs/storage-proofs/core)
+   Compiling storage-proofs-post v5.4.0 (/root/go/src/github.com/filecoin-project/rust-fil-proofs/storage-proofs/post)
+   Compiling storage-proofs-porep v5.4.0 (/root/go/src/github.com/filecoin-project/rust-fil-proofs/storage-proofs/porep)
+   Compiling filecoin-proofs v5.4.0 (/root/go/src/github.com/filecoin-project/rust-fil-proofs/filecoin-proofs)
+   Compiling filecoin-proofs-api v5.4.1 (/root/go/src/github.com/filecoin-project/rust-filecoin-proofs-api)
+note: Link against the following native artifacts when linking against this static library. The order and any duplication can be significant on some platforms.
+
+note: native-static-libs: -lhwloc -lOpenCL -lcuda -lcudart -lcublas -lOpenCL -lOpenCL -lgcc_s -lc -lm -lrt -lpthread -lutil -ldl -lutil
+
+    Finished release [optimized] target(s) in 1m 50s
+++ cat /tmp/tmp.aoZ1Fudu4n
+++ grep native-static-libs:
+++ head -n 1
+++ cut -d : -f 3
++ local '__linker_flags= -lhwloc -lOpenCL -lcuda -lcudart -lcublas -lOpenCL -lOpenCL -lgcc_s -lc -lm -lrt -lpthread -lutil -ldl -lutil'
+++ git rev-parse HEAD
++ sed -e 's;@VERSION@;1d9cb3e8ff53f51f9318fc57e5d00bc79bdc0128;' -e 's;@PRIVATE_LIBS@; -lhwloc -lOpenCL -lcuda -lcudart -lcublas -lOpenCL -lOpenCL -lgcc_s -lc -lm -lrt -lpthread -lutil -ldl -lutil;' filcrypto.pc.template
++ find -L . -type f -name filcrypto.h
++ read
++ find -L . -type f -name libfilcrypto.a
++ read
++ exit
++ rm -f /tmp/tmp.aoZ1Fudu4n
++ popd
+~/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi
++ find -L rust/target/release -type f -name filcrypto.h -exec cp -- '{}' . ';'
++ find -L rust/target/release -type f -name libfilcrypto.a -exec cp -- '{}' . ';'
++ find -L rust -type f -name filcrypto.pc -exec cp -- '{}' . ';'
++ check_installed_files
++ [[ ! -f ./filcrypto.h ]]
++ [[ ! -f ./libfilcrypto.a ]]
++ [[ ! -f ./filcrypto.pc ]]
++ echo '[install-filcrypto/main] successfully built and installed libfilcrypto from source'
+[install-filcrypto/main] successfully built and installed libfilcrypto from source
++ exit
+make[1]: Leaving directory '/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi'
+rm -f lotus
+go build  -ldflags="-X=github.com/filecoin-project/lotus/build.CurrentCommit=+git.93d26195f.dirty" -tags=debug -o lotus ./cmd/lotus
+# github.com/filecoin-project/lotus/cmd/lotus
+/usr/local/go/pkg/tool/linux_amd64/link: running gcc failed: exit status 1
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.3.rcgu.o): In function `<rustacuda::memory::device::device_slice::DeviceSlice<T> as rustacuda::memory::device::CopyDestination<I>>::copy_to':
+filecoin_proofs_api.a3dy3a66-cgu.3:(.text._ZN133_$LT$rustacuda..memory..device..device_slice..DeviceSlice$LT$T$GT$$u20$as$u20$rustacuda..memory..device..CopyDestination$LT$I$GT$$GT$7copy_to17h9f82ddd9bc949564E+0x1f): undefined reference to `cuMemcpyDtoH_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.3.rcgu.o): In function `<rustacuda::memory::device::device_slice::DeviceSlice<T> as rustacuda::memory::device::CopyDestination<I>>::copy_to':
+filecoin_proofs_api.a3dy3a66-cgu.3:(.text._ZN133_$LT$rustacuda..memory..device..device_slice..DeviceSlice$LT$T$GT$$u20$as$u20$rustacuda..memory..device..CopyDestination$LT$I$GT$$GT$7copy_to17hda4739a00fba783cE+0x1f): undefined reference to `cuMemcpyDtoH_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.3.rcgu.o): In function `<rustacuda::memory::device::device_slice::DeviceSlice<T> as rustacuda::memory::device::CopyDestination<I>>::copy_from':
+filecoin_proofs_api.a3dy3a66-cgu.3:(.text._ZN133_$LT$rustacuda..memory..device..device_slice..DeviceSlice$LT$T$GT$$u20$as$u20$rustacuda..memory..device..CopyDestination$LT$I$GT$$GT$9copy_from17h81e82c651b5dfb71E+0x1a): undefined reference to `cuMemcpyHtoD_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.3.rcgu.o): In function `<rustacuda::memory::device::device_slice::DeviceSlice<T> as rustacuda::memory::device::CopyDestination<I>>::copy_from':
+filecoin_proofs_api.a3dy3a66-cgu.3:(.text._ZN133_$LT$rustacuda..memory..device..device_slice..DeviceSlice$LT$T$GT$$u20$as$u20$rustacuda..memory..device..CopyDestination$LT$I$GT$$GT$9copy_from17hc069facaf4c9c6dcE+0x1a): undefined reference to `cuMemcpyHtoD_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.3.rcgu.o): In function `<rustacuda::memory::device::device_slice::DeviceSlice<T> as rustacuda::memory::device::CopyDestination<I>>::copy_from':
+filecoin_proofs_api.a3dy3a66-cgu.3:(.text._ZN133_$LT$rustacuda..memory..device..device_slice..DeviceSlice$LT$T$GT$$u20$as$u20$rustacuda..memory..device..CopyDestination$LT$I$GT$$GT$9copy_from17he1630dc7598fc8a7E+0x17): undefined reference to `cuMemcpyHtoD_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.3.rcgu.o): In function `rustacuda::stream::Stream::launch':
+filecoin_proofs_api.a3dy3a66-cgu.3:(.text._ZN9rustacuda6stream6Stream6launch17h7cd0a06b4ee3cfd8E+0x83): undefined reference to `cuLaunchKernel'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.0.rcgu.o): In function `rustacuda::device::Device::num_devices':
+rustacuda.2b9axgq8-cgu.0:(.text._ZN9rustacuda6device6Device11num_devices17h5aba54bc0bad5cd0E+0x10): undefined reference to `cuDeviceGetCount'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.0.rcgu.o): In function `rustacuda::device::Device::get_device':
+rustacuda.2b9axgq8-cgu.0:(.text._ZN9rustacuda6device6Device10get_device17hfc57db5e473e8894E+0x12): undefined reference to `cuDeviceGet'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.0.rcgu.o): In function `rustacuda::device::Device::devices':
+rustacuda.2b9axgq8-cgu.0:(.text._ZN9rustacuda6device6Device7devices17haebe89e6759ec4b8E+0x10): undefined reference to `cuDeviceGetCount'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.0.rcgu.o): In function `rustacuda::device::Device::total_memory':
+rustacuda.2b9axgq8-cgu.0:(.text._ZN9rustacuda6device6Device12total_memory17hb319bc8e7cb5cdedE+0x10): undefined reference to `cuDeviceTotalMem_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.0.rcgu.o): In function `rustacuda::device::Device::name':
+rustacuda.2b9axgq8-cgu.0:(.text._ZN9rustacuda6device6Device4name17h67d829000fca4132E+0x50): undefined reference to `cuDeviceGetName'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.0.rcgu.o): In function `rustacuda::device::Device::get_attribute':
+rustacuda.2b9axgq8-cgu.0:(.text._ZN9rustacuda6device6Device13get_attribute17h11c77900ea418622E+0x12): undefined reference to `cuDeviceGetAttribute'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.0.rcgu.o): In function `<rustacuda::device::Devices as core::iter::traits::iterator::Iterator>::next':
+rustacuda.2b9axgq8-cgu.0:(.text._ZN85_$LT$rustacuda..device..Devices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd85c07542d4a995bE+0x1c): undefined reference to `cuDeviceGet'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::Context::create_and_push':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context7Context15create_and_push17h02d5d0bedd39c871E+0x12): undefined reference to `cuCtxCreate_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::Context::drop':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context7Context4drop17h3089df0540da1845E+0xe): undefined reference to `cuCtxDestroy_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `<rustacuda::context::Context as core::ops::drop::Drop>::drop':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN69_$LT$rustacuda..context..Context$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0153e0d9db297c12E+0x15): undefined reference to `cuCtxDestroy_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::UnownedContext::get_api_version':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14UnownedContext15get_api_version17h635330b0c230b85eE+0x13): undefined reference to `cuCtxGetApiVersion'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::ContextStack::pop':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context12ContextStack3pop17hb2ff2cd052b71b9fE+0xe): undefined reference to `cuCtxPopCurrent_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::get_cache_config':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext16get_cache_config17h5125d2a009150693E+0x10): undefined reference to `cuCtxGetCacheConfig'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::get_device':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext10get_device17h099c6e4a12c483e9E+0x10): undefined reference to `cuCtxGetDevice'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::get_flags':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext9get_flags17hfb29cd766b0d3d67E+0x10): undefined reference to `cuCtxGetFlags'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::get_resource_limit':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext18get_resource_limit17h2925915d8fe2c62eE+0x10): undefined reference to `cuCtxGetLimit'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::get_shared_memory_config':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext24get_shared_memory_config17hfe9f2ff1763cc867E+0x10): undefined reference to `cuCtxGetSharedMemConfig'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::get_stream_priority_range':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext25get_stream_priority_range17hf65d9bd3be62373bE+0x13): undefined reference to `cuCtxGetStreamPriorityRange'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::set_cache_config':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext16set_cache_config17hd48b522c9d7551b1E+0x3): undefined reference to `cuCtxSetCacheConfig'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::set_resource_limit':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext18set_resource_limit17h8dba52a9a06ba08dE+0x3): undefined reference to `cuCtxSetLimit'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::set_shared_memory_config':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext24set_shared_memory_config17h20a046559b2a6fd2E+0x3): undefined reference to `cuCtxSetSharedMemConfig'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::get_current':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext11get_current17h5a54e924fc6010b3E+0xe): undefined reference to `cuCtxGetCurrent'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.1.rcgu.o): In function `rustacuda::context::CurrentContext::synchronize':
+rustacuda.2b9axgq8-cgu.1:(.text._ZN9rustacuda7context14CurrentContext11synchronize17h9383b5fa37d074f5E+0x3): undefined reference to `cuCtxSynchronize'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.3.rcgu.o): In function `<rustacuda::error::CudaError as core::fmt::Display>::fmt':
+rustacuda.2b9axgq8-cgu.3:(.text._ZN66_$LT$rustacuda..error..CudaError$u20$as$u20$core..fmt..Display$GT$3fmt17h6b8e0ac37b3635b6E+0x4e): undefined reference to `cuGetErrorString'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.4.rcgu.o): In function `rustacuda::stream::Stream::new':
+rustacuda.2b9axgq8-cgu.4:(.text._ZN9rustacuda6stream6Stream3new17hb2e6da6040f4def4E+0x1b): undefined reference to `cuStreamCreateWithPriority'
+rustacuda.2b9axgq8-cgu.4:(.text._ZN9rustacuda6stream6Stream3new17hb2e6da6040f4def4E+0x4b): undefined reference to `cuStreamDestroy_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.4.rcgu.o): In function `rustacuda::stream::Stream::get_flags':
+rustacuda.2b9axgq8-cgu.4:(.text._ZN9rustacuda6stream6Stream9get_flags17heb8cff12a505059cE+0x13): undefined reference to `cuStreamGetFlags'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.4.rcgu.o): In function `rustacuda::stream::Stream::get_priority':
+rustacuda.2b9axgq8-cgu.4:(.text._ZN9rustacuda6stream6Stream12get_priority17hf3b43ca046b2fdaeE+0x13): undefined reference to `cuStreamGetPriority'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.4.rcgu.o): In function `rustacuda::stream::Stream::synchronize':
+rustacuda.2b9axgq8-cgu.4:(.text._ZN9rustacuda6stream6Stream11synchronize17hec9589579f62a165E+0x6): undefined reference to `cuStreamSynchronize'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.4.rcgu.o): In function `rustacuda::stream::Stream::wait_event':
+rustacuda.2b9axgq8-cgu.4:(.text._ZN9rustacuda6stream6Stream10wait_event17hbf8952d3c03ca9a9E+0xb): undefined reference to `cuStreamWaitEvent'
+rustacuda.2b9axgq8-cgu.4:(.text._ZN9rustacuda6stream6Stream10wait_event17hbf8952d3c03ca9a9E+0x16): undefined reference to `cuEventDestroy_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.4.rcgu.o): In function `rustacuda::stream::Stream::drop':
+rustacuda.2b9axgq8-cgu.4:(.text._ZN9rustacuda6stream6Stream4drop17h38072e66952a8dfeE+0xe): undefined reference to `cuStreamDestroy_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.4.rcgu.o): In function `<rustacuda::stream::Stream as core::ops::drop::Drop>::drop':
+rustacuda.2b9axgq8-cgu.4:(.text._ZN67_$LT$rustacuda..stream..Stream$u20$as$u20$core..ops..drop..Drop$GT$4drop17h09f0a36f44e525aeE+0x15): undefined reference to `cuStreamDestroy_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.5.rcgu.o): In function `rustacuda::event::Event::new':
+rustacuda.2b9axgq8-cgu.5:(.text._ZN9rustacuda5event5Event3new17h907809ad4fb68c65E+0x10): undefined reference to `cuEventCreate'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.5.rcgu.o): In function `rustacuda::event::Event::record':
+rustacuda.2b9axgq8-cgu.5:(.text._ZN9rustacuda5event5Event6record17hb3785474aa03eeecE+0x9): undefined reference to `cuEventRecord'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.5.rcgu.o): In function `rustacuda::event::Event::query':
+rustacuda.2b9axgq8-cgu.5:(.text._ZN9rustacuda5event5Event5query17h14c45d967fb5a81bE+0x6): undefined reference to `cuEventQuery'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.5.rcgu.o): In function `rustacuda::event::Event::synchronize':
+rustacuda.2b9axgq8-cgu.5:(.text._ZN9rustacuda5event5Event11synchronize17h0bb422d003dbc87eE+0x6): undefined reference to `cuEventSynchronize'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.5.rcgu.o): In function `rustacuda::event::Event::elapsed_time_f32':
+rustacuda.2b9axgq8-cgu.5:(.text._ZN9rustacuda5event5Event16elapsed_time_f3217hbc9d395481b8c02cE+0x16): undefined reference to `cuEventElapsedTime'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.5.rcgu.o): In function `rustacuda::event::Event::drop':
+rustacuda.2b9axgq8-cgu.5:(.text._ZN9rustacuda5event5Event4drop17h3eada4dbbeb79a82E+0x10): undefined reference to `cuEventDestroy_v2'
+rustacuda.2b9axgq8-cgu.5:(.text._ZN9rustacuda5event5Event4drop17h3eada4dbbeb79a82E+0x2f): undefined reference to `cuEventDestroy_v2'
+rustacuda.2b9axgq8-cgu.5:(.text._ZN9rustacuda5event5Event4drop17h3eada4dbbeb79a82E+0x69): undefined reference to `cuEventDestroy_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.5.rcgu.o): In function `<rustacuda::event::Event as core::ops::drop::Drop>::drop':
+rustacuda.2b9axgq8-cgu.5:(.text._ZN65_$LT$rustacuda..event..Event$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdd29bf1efea4a407E+0x6): undefined reference to `cuEventDestroy_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.7.rcgu.o): In function `rustacuda::function::Function::get_attribute':
+rustacuda.2b9axgq8-cgu.7:(.text._ZN9rustacuda8function8Function13get_attribute17hb86a6c2c0b338c4bE+0x13): undefined reference to `cuFuncGetAttribute'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.7.rcgu.o): In function `rustacuda::function::Function::set_cache_config':
+rustacuda.2b9axgq8-cgu.7:(.text._ZN9rustacuda8function8Function16set_cache_config17h905f051a4696d2bcE+0x6): undefined reference to `cuFuncSetCacheConfig'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.7.rcgu.o): In function `rustacuda::function::Function::set_shared_memory_config':
+rustacuda.2b9axgq8-cgu.7:(.text._ZN9rustacuda8function8Function24set_shared_memory_config17heb846d422f0f7cc3E+0x6): undefined reference to `cuFuncSetSharedMemConfig'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.10.rcgu.o): In function `<rustacuda::memory::device::device_buffer::DeviceBuffer<T> as core::ops::drop::Drop>::drop':
+filecoin_proofs_api.a3dy3a66-cgu.10:(.text._ZN105_$LT$rustacuda..memory..device..device_buffer..DeviceBuffer$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1c03d2b2c3451a80E+0x20): undefined reference to `cuMemFree_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.10.rcgu.o): In function `rustacuda::memory::device::device_buffer::DeviceBuffer<T>::uninitialized':
+filecoin_proofs_api.a3dy3a66-cgu.10:(.text._ZN9rustacuda6memory6device13device_buffer21DeviceBuffer$LT$T$GT$13uninitialized17h190df6a7144bb615E+0x36): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.10.rcgu.o): In function `rustacuda::memory::device::device_buffer::DeviceBuffer<T>::uninitialized':
+filecoin_proofs_api.a3dy3a66-cgu.10:(.text._ZN9rustacuda6memory6device13device_buffer21DeviceBuffer$LT$T$GT$13uninitialized17h1c7acd3247541c0aE+0x36): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.10.rcgu.o): In function `rustacuda::memory::device::device_buffer::DeviceBuffer<T>::uninitialized':
+filecoin_proofs_api.a3dy3a66-cgu.10:(.text._ZN9rustacuda6memory6device13device_buffer21DeviceBuffer$LT$T$GT$13uninitialized17h1f52b4003057a58bE+0x36): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.10.rcgu.o): In function `rustacuda::memory::device::device_buffer::DeviceBuffer<T>::uninitialized':
+filecoin_proofs_api.a3dy3a66-cgu.10:(.text._ZN9rustacuda6memory6device13device_buffer21DeviceBuffer$LT$T$GT$13uninitialized17h2049eb4ed86ce0d7E+0x36): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.10.rcgu.o): In function `rustacuda::memory::device::device_buffer::DeviceBuffer<T>::uninitialized':
+filecoin_proofs_api.a3dy3a66-cgu.10:(.text._ZN9rustacuda6memory6device13device_buffer21DeviceBuffer$LT$T$GT$13uninitialized17h3095650fe763a737E+0x36): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.12.rcgu.o):filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x11a): more undefined references to `cuMemAlloc_v2' follow
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.12.rcgu.o): In function `bellperson::gpu::multiexp::SingleMultiexpKernel<E>::multiexp':
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x151): undefined reference to `cuMemcpyHtoD_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x1d1): undefined reference to `cuMemAlloc_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x205): undefined reference to `cuMemcpyHtoD_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x281): undefined reference to `cuMemAlloc_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x2f2): undefined reference to `cuMemAlloc_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x5de): undefined reference to `cuLaunchKernel'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x6f6): undefined reference to `cuMemcpyDtoH_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x88c): undefined reference to `cuMemFree_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x8c9): undefined reference to `cuMemFree_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x909): undefined reference to `cuMemFree_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0x949): undefined reference to `cuMemFree_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0xa17): undefined reference to `cuMemFree_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.12.rcgu.o):filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17ha330d331ed0081ccE+0xa54): more undefined references to `cuMemFree_v2' follow
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.12.rcgu.o): In function `bellperson::gpu::multiexp::SingleMultiexpKernel<E>::multiexp':
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x118): undefined reference to `cuMemAlloc_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x14f): undefined reference to `cuMemcpyHtoD_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x1d0): undefined reference to `cuMemAlloc_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x204): undefined reference to `cuMemcpyHtoD_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x281): undefined reference to `cuMemAlloc_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x2f3): undefined reference to `cuMemAlloc_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x5e2): undefined reference to `cuLaunchKernel'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x77f): undefined reference to `cuMemcpyDtoH_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x90f): undefined reference to `cuMemFree_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x94c): undefined reference to `cuMemFree_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x98c): undefined reference to `cuMemFree_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0x9cc): undefined reference to `cuMemFree_v2'
+filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0xad7): undefined reference to `cuMemFree_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.12.rcgu.o):filecoin_proofs_api.a3dy3a66-cgu.12:(.text._ZN10bellperson3gpu8multiexp29SingleMultiexpKernel$LT$E$GT$8multiexp17hbbd8125116b247e9E+0xb14): more undefined references to `cuMemFree_v2' follow
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.13.rcgu.o): In function `rustacuda::memory::malloc::cuda_malloc':
+filecoin_proofs_api.a3dy3a66-cgu.13:(.text._ZN9rustacuda6memory6malloc11cuda_malloc17h1fd1a8218813d755E+0x34): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.13.rcgu.o): In function `rustacuda::memory::malloc::cuda_malloc':
+filecoin_proofs_api.a3dy3a66-cgu.13:(.text._ZN9rustacuda6memory6malloc11cuda_malloc17h5de4361082438abbE+0x34): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.13.rcgu.o): In function `rustacuda::memory::malloc::cuda_malloc':
+filecoin_proofs_api.a3dy3a66-cgu.13:(.text._ZN9rustacuda6memory6malloc11cuda_malloc17h9c9ea45f786235e9E+0x34): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.13.rcgu.o): In function `rustacuda::memory::malloc::cuda_malloc':
+filecoin_proofs_api.a3dy3a66-cgu.13:(.text._ZN9rustacuda6memory6malloc11cuda_malloc17hb78de3a8027cbaa9E+0x34): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.13.rcgu.o): In function `rustacuda::memory::malloc::cuda_malloc':
+filecoin_proofs_api.a3dy3a66-cgu.13:(.text._ZN9rustacuda6memory6malloc11cuda_malloc17hc370f276a06693f9E+0x34): undefined reference to `cuMemAlloc_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(filecoin_proofs_api-2a2e0eacc6e65ab3.filecoin_proofs_api.a3dy3a66-cgu.13.rcgu.o): In function `rustacuda::memory::malloc::cuda_free':
+filecoin_proofs_api.a3dy3a66-cgu.13:(.text._ZN9rustacuda6memory6malloc9cuda_free17h2f707819998ff96bE+0x8): undefined reference to `cuMemFree_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.10.rcgu.o): In function `rustacuda::module::Module::load_from_file':
+rustacuda.2b9axgq8-cgu.10:(.text._ZN9rustacuda6module6Module14load_from_file17hba631b6c319c6e37E+0x15): undefined reference to `cuModuleLoad'
+rustacuda.2b9axgq8-cgu.10:(.text._ZN9rustacuda6module6Module14load_from_file17hba631b6c319c6e37E+0x45): undefined reference to `cuModuleUnload'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.10.rcgu.o): In function `rustacuda::module::Module::load_from_string':
+rustacuda.2b9axgq8-cgu.10:(.text._ZN9rustacuda6module6Module16load_from_string17hd949fed7456a80d7E+0x15): undefined reference to `cuModuleLoadData'
+rustacuda.2b9axgq8-cgu.10:(.text._ZN9rustacuda6module6Module16load_from_string17hd949fed7456a80d7E+0x45): undefined reference to `cuModuleUnload'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.10.rcgu.o): In function `rustacuda::module::Module::get_function':
+rustacuda.2b9axgq8-cgu.10:(.text._ZN9rustacuda6module6Module12get_function17h5ae570b15d17a226E+0x14): undefined reference to `cuModuleGetFunction'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.10.rcgu.o): In function `rustacuda::module::Module::drop':
+rustacuda.2b9axgq8-cgu.10:(.text._ZN9rustacuda6module6Module4drop17h930c08c430714e4aE+0xe): undefined reference to `cuModuleUnload'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.10.rcgu.o): In function `<rustacuda::module::Module as core::ops::drop::Drop>::drop':
+rustacuda.2b9axgq8-cgu.10:(.text._ZN67_$LT$rustacuda..module..Module$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha2ccdc22d0ad0a9eE+0x15): undefined reference to `cuModuleUnload'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.9.rcgu.o): In function `rustacuda::init':
+rustacuda.2b9axgq8-cgu.9:(.text._ZN9rustacuda4init17h21e68b065feb04ceE+0x3): undefined reference to `cuInit'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.9.rcgu.o): In function `rustacuda::quick_init':
+rustacuda.2b9axgq8-cgu.9:(.text._ZN9rustacuda10quick_init17h23f7895ca69a9f3fE+0x8): undefined reference to `cuInit'
+rustacuda.2b9axgq8-cgu.9:(.text._ZN9rustacuda10quick_init17h23f7895ca69a9f3fE+0x2c): undefined reference to `cuDeviceGet'
+rustacuda.2b9axgq8-cgu.9:(.text._ZN9rustacuda10quick_init17h23f7895ca69a9f3fE+0x58): undefined reference to `cuCtxCreate_v2'
+/root/go/src/github.com/filecoin-project/lotus/extern/filecoin-ffi/libfilcrypto.a(rustacuda-40c43f2dd64c30ef.rustacuda.2b9axgq8-cgu.9.rcgu.o): In function `rustacuda::CudaApiVersion::get':
+rustacuda.2b9axgq8-cgu.9:(.text._ZN9rustacuda14CudaApiVersion3get17h3034142960ad2df7E+0x10): undefined reference to `cuDriverGetVersion'
+collect2: error: ld returned 1 exit status
+
+Makefile:67: recipe for target 'lotus' failed
+make: *** [lotus] Error 2

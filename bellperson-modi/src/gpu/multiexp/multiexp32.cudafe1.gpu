@@ -1,0 +1,3656 @@
+typedef char __nv_bool;
+# 111 "./multiexp32.cu"
+struct Fr;
+# 491 "./multiexp32.cu"
+struct Fq;
+# 102 "./fq_mul.cu"
+struct chain_t;
+# 722 "./multiexp32.cu"
+struct G1_affine;
+# 733 "./multiexp32.cu"
+struct G1_projective;
+# 930 "./multiexp32.cu"
+struct Fq2;
+# 993 "./multiexp32.cu"
+struct G2_affine;
+# 1004 "./multiexp32.cu"
+struct G2_projective;
+# 216 "/usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 40 "/usr/include/x86_64-linux-gnu/bits/types.h" 3
+typedef signed int __int32_t;
+# 41 "/usr/include/x86_64-linux-gnu/bits/types.h" 3
+typedef unsigned __uint32_t;
+# 149 "/usr/include/x86_64-linux-gnu/sys/types.h" 3
+typedef unsigned long ulong;
+# 150 "/usr/include/x86_64-linux-gnu/sys/types.h" 3
+typedef unsigned short ushort;
+# 151 "/usr/include/x86_64-linux-gnu/sys/types.h" 3
+typedef unsigned uint;
+# 26 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h" 3
+typedef __int32_t int32_t;
+# 19 "./multiexp32.cu"
+typedef unsigned char uchar;
+# 111 "./multiexp32.cu"
+struct Fr {
+# 111 "./multiexp32.cu"
+uint val[8];};
+# 111 "./multiexp32.cu"
+typedef struct Fr Fr;
+# 491 "./multiexp32.cu"
+struct Fq {
+# 491 "./multiexp32.cu"
+uint val[12];};
+# 491 "./multiexp32.cu"
+typedef struct Fq Fq;
+# 26 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h" 3
+typedef __uint32_t uint32_t;
+# 102 "./fq_mul.cu"
+struct chain_t {
+# 103 "./fq_mul.cu"
+int32_t _position;};
+# 104 "./fq_mul.cu"
+typedef struct chain_t chain_t;
+# 722 "./multiexp32.cu"
+struct G1_affine {
+# 723 "./multiexp32.cu"
+Fq x;
+# 724 "./multiexp32.cu"
+Fq y;
+# 726 "./multiexp32.cu"
+__nv_bool inf;
+# 729 "./multiexp32.cu"
+uint _padding;};
+# 731 "./multiexp32.cu"
+typedef struct G1_affine G1_affine;
+# 733 "./multiexp32.cu"
+struct G1_projective {
+# 734 "./multiexp32.cu"
+Fq x;
+# 735 "./multiexp32.cu"
+Fq y;
+# 736 "./multiexp32.cu"
+Fq z;};
+# 737 "./multiexp32.cu"
+typedef struct G1_projective G1_projective;
+# 930 "./multiexp32.cu"
+struct Fq2 {
+# 931 "./multiexp32.cu"
+Fq c0;
+# 932 "./multiexp32.cu"
+Fq c1;};
+# 933 "./multiexp32.cu"
+typedef struct Fq2 Fq2;
+# 993 "./multiexp32.cu"
+struct G2_affine {
+# 994 "./multiexp32.cu"
+Fq2 x;
+# 995 "./multiexp32.cu"
+Fq2 y;
+# 997 "./multiexp32.cu"
+__nv_bool inf;
+# 1000 "./multiexp32.cu"
+uint _padding;};
+# 1002 "./multiexp32.cu"
+typedef struct G2_affine G2_affine;
+# 1004 "./multiexp32.cu"
+struct G2_projective {
+# 1005 "./multiexp32.cu"
+Fq2 x;
+# 1006 "./multiexp32.cu"
+Fq2 y;
+# 1007 "./multiexp32.cu"
+Fq2 z;};
+# 1008 "./multiexp32.cu"
+typedef struct G2_projective G2_projective;
+# 231 "/usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h" 3
+typedef unsigned long _ZSt6size_t;
+#if !defined(__CUDABE__)
+# 145 "/usr/local/cuda-10.2/bin/../targets/x86_64-linux/include/crt/common_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) int printf(const char *__restrict__, ...);
+#endif
+#if !defined(__CUDABE__)
+# 289 "/usr/local/cuda-10.2/bin/../targets/x86_64-linux/include/crt/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) int min(int, int);
+#endif
+#if !defined(__CUDABE__)
+# 291 "/usr/local/cuda-10.2/bin/../targets/x86_64-linux/include/crt/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) unsigned umin(unsigned, unsigned);
+#endif
+# 41 "./multiexp32.cu"
+___device__(static  __no_sc__) ulong mac_with_carry_64(ulong, ulong, ulong, ulong *);
+# 63 "./multiexp32.cu"
+___device__(static  __no_sc__) ulong add_with_carry_64(ulong, ulong *);
+# 79 "./multiexp32.cu"
+___device__(static  __no_sc__) uint mac_with_carry_32(uint, uint, uint, uint *);
+# 86 "./multiexp32.cu"
+___device__(static  __no_sc__) uint add_with_carry_32(uint, uint *);
+# 113 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_sub_nvidia(Fr, Fr);
+# 126 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_add_nvidia(Fr, Fr);
+# 154 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fr_gte(Fr, Fr);
+# 165 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fr_eq(Fr, Fr);
+# 198 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_sub(Fr, Fr);
+# 205 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_add(Fr, Fr);
+# 212 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_mul(Fr, Fr);
+# 247 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_sqr(Fr);
+# 253 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_double(Fr);
+# 263 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_pow(Fr, uint);
+# 301 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fr_get_bit(Fr, uint);
+# 306 "./multiexp32.cu"
+___device__(static  __no_sc__) uint Fr_get_bits(Fr, uint, uint);
+# 315 "./multiexp32.cu"
+___device__(static  __no_sc__) void Fr_print(Fr);
+# 493 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_sub_nvidia(Fq, Fq);
+# 510 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_add_nvidia(Fq, Fq);
+# 542 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fq_gte(Fq, Fq);
+# 553 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fq_eq(Fq, Fq);
+# 586 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_sub(Fq, Fq);
+# 593 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_add(Fq, Fq);
+# 24 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t add_cc(uint32_t, uint32_t);
+# 31 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t addc_cc(uint32_t, uint32_t);
+# 38 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t addc(uint32_t, uint32_t);
+# 53 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t madlo_cc(uint32_t, uint32_t, uint32_t);
+# 60 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t madloc_cc(uint32_t, uint32_t, uint32_t);
+# 81 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t madhi_cc(uint32_t, uint32_t, uint32_t);
+# 88 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t madhic_cc(uint32_t, uint32_t, uint32_t);
+# 112 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t chain_add(chain_t *, uint32_t, uint32_t);
+# 149 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) void mult_v1(uint32_t *, uint32_t *, uint32_t *);
+# 211 "./fq_mul.cu"
+___device__(static  __no_sc__) void reduce(uint32_t *, uint32_t, uint32_t *);
+# 297 "./fq_mul.cu"
+___device__(static  __no_sc__) __noinline__ Fq Fq_mul(Fq, Fq);
+# 639 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_sqr(Fq);
+# 645 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_double(Fq);
+# 655 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_pow(Fq, uint);
+# 694 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fq_get_bit(Fq, uint);
+# 699 "./multiexp32.cu"
+___device__(static  __no_sc__) uint Fq_get_bits(Fq, uint, uint);
+# 708 "./multiexp32.cu"
+___device__(static  __no_sc__) void Fq_print(Fq);
+# 740 "./multiexp32.cu"
+___device__(static  __no_sc__) G1_projective G1_double(G1_projective);
+# 768 "./multiexp32.cu"
+___device__(static  __no_sc__) G1_projective G1_add_mixed(G1_projective, G1_affine);
+# 814 "./multiexp32.cu"
+___device__(static  __no_sc__) G1_projective G1_add(G1_projective, G1_projective);
+# 935 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fq2_eq(Fq2, Fq2);
+# 938 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_sub(Fq2, Fq2);
+# 943 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_add(Fq2, Fq2);
+# 948 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_double(Fq2);
+# 960 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_mul(Fq2, Fq2);
+# 978 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_sqr(Fq2);
+# 1011 "./multiexp32.cu"
+___device__(static  __no_sc__) G2_projective G2_double(G2_projective);
+# 1039 "./multiexp32.cu"
+___device__(static  __no_sc__) G2_projective G2_add_mixed(G2_projective, G2_affine);
+# 1085 "./multiexp32.cu"
+___device__(static  __no_sc__) G2_projective G2_add(G2_projective, G2_projective);
+# 862 "./multiexp32.cu"
+__global__ __var_used__ extern void G1_bellman_multiexp(G1_affine *, G1_projective *, G1_projective *, Fr *, uint, uint, uint, uint);
+# 1133 "./multiexp32.cu"
+__global__ __var_used__ extern void G2_bellman_multiexp(G2_affine *, G2_projective *, G2_projective *, Fr *, uint, uint, uint, uint);
+# 165 "/usr/include/c++/7/cmath" 3
+___device__(static  __no_sc__) __inline__ __attribute__((visibility("default"))) float _ZSt4ceilf(float);
+#include "common_functions.h"
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+# 41 "./multiexp32.cu"
+___device__(static  __no_sc__) ulong mac_with_carry_64(
+# 41 "./multiexp32.cu"
+ulong a, 
+# 41 "./multiexp32.cu"
+ulong b, 
+# 41 "./multiexp32.cu"
+ulong c, 
+# 41 "./multiexp32.cu"
+ulong *d){
+# 41 "./multiexp32.cu"
+{
+# 43 "./multiexp32.cu"
+ ulong __cuda_local_var_20760_11_non_const_lo;
+# 43 "./multiexp32.cu"
+ ulong __cuda_local_var_20760_15_non_const_hi;
+# 44 "./multiexp32.cu"
+__asm("mad.lo.cc.u64 %0, %2, %3, %4;\r\nmadc.hi.u64 %1, %2, %3, 0;\r\nadd.cc.u64 %0, %0, %5;\r\naddc.u64 %1, %1, 0;\r\n" : "=l" (__cuda_local_var_20760_11_non_const_lo), "=l" (__cuda_local_var_20760_15_non_const_hi) : "l" (a), "l" (b), "l" (c), "l" (*d));
+# 49 "./multiexp32.cu"
+(*d) = __cuda_local_var_20760_15_non_const_hi;
+# 50 "./multiexp32.cu"
+return __cuda_local_var_20760_11_non_const_lo;
+# 60 "./multiexp32.cu"
+}}
+# 63 "./multiexp32.cu"
+___device__(static  __no_sc__) ulong add_with_carry_64(
+# 63 "./multiexp32.cu"
+ulong a, 
+# 63 "./multiexp32.cu"
+ulong *b){
+# 63 "./multiexp32.cu"
+{
+# 65 "./multiexp32.cu"
+ ulong __cuda_local_var_20774_11_non_const_lo;
+# 65 "./multiexp32.cu"
+ ulong __cuda_local_var_20774_15_non_const_hi;
+# 66 "./multiexp32.cu"
+__asm("add.cc.u64 %0, %2, %3;\r\naddc.u64 %1, 0, 0;\r\n" : "=l" (__cuda_local_var_20774_11_non_const_lo), "=l" (__cuda_local_var_20774_15_non_const_hi) : "l" (a), "l" (*b));
+# 69 "./multiexp32.cu"
+(*b) = __cuda_local_var_20774_15_non_const_hi;
+# 70 "./multiexp32.cu"
+return __cuda_local_var_20774_11_non_const_lo;
+# 76 "./multiexp32.cu"
+}}
+# 79 "./multiexp32.cu"
+___device__(static  __no_sc__) uint mac_with_carry_32(
+# 79 "./multiexp32.cu"
+uint a, 
+# 79 "./multiexp32.cu"
+uint b, 
+# 79 "./multiexp32.cu"
+uint c, 
+# 79 "./multiexp32.cu"
+uint *d){
+# 79 "./multiexp32.cu"
+{
+# 80 "./multiexp32.cu"
+ ulong __cuda_local_var_20789_9_non_const_res;
+# 80 "./multiexp32.cu"
+__cuda_local_var_20789_9_non_const_res = (((((ulong)a) * ((unsigned long)b)) + ((unsigned long)c)) + ((unsigned long)(*d)));
+# 81 "./multiexp32.cu"
+(*d) = ((uint)(__cuda_local_var_20789_9_non_const_res >> 32));
+# 82 "./multiexp32.cu"
+return (uint)__cuda_local_var_20789_9_non_const_res;
+# 83 "./multiexp32.cu"
+}}
+# 86 "./multiexp32.cu"
+___device__(static  __no_sc__) uint add_with_carry_32(
+# 86 "./multiexp32.cu"
+uint a, 
+# 86 "./multiexp32.cu"
+uint *b){
+# 86 "./multiexp32.cu"
+{
+# 88 "./multiexp32.cu"
+ uint __cuda_local_var_20797_10_non_const_lo;
+# 88 "./multiexp32.cu"
+ uint __cuda_local_var_20797_14_non_const_hi;
+# 89 "./multiexp32.cu"
+__asm("add.cc.u32 %0, %2, %3;\r\naddc.u32 %1, 0, 0;\r\n" : "=r" (__cuda_local_var_20797_10_non_const_lo), "=r" (__cuda_local_var_20797_14_non_const_hi) : "r" (a), "r" (*b));
+# 92 "./multiexp32.cu"
+(*b) = __cuda_local_var_20797_14_non_const_hi;
+# 93 "./multiexp32.cu"
+return __cuda_local_var_20797_10_non_const_lo;
+# 99 "./multiexp32.cu"
+}}
+# 113 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_sub_nvidia(
+# 113 "./multiexp32.cu"
+Fr a, 
+# 113 "./multiexp32.cu"
+Fr b){
+# 113 "./multiexp32.cu"
+{
+# 114 "./multiexp32.cu"
+__asm("sub.cc.u32 %0, %0, %8;\r\nsubc.cc.u32 %1, %1, %9;\r\nsubc.cc.u32 %2, %2, %10;\r\nsubc.cc.u32 %3, %3, %11;\r\nsubc.cc.u32 %4, %4," " %12;\r\nsubc.cc.u32 %5, %5, %13;\r\nsubc.cc.u32 %6, %6, %14;\r\nsubc.u32 %7, %7, %15;\r\n" : "+r" (((a.val))[0]), "+r" (((a.val))[1]), "+r" (((a.val))[2]), "+r" (((a.val))[3]), "+r" (((a.val))[4]), "+r" (((a.val))[5]), "+r" (((a.val))[6]), "+r" (((a.val))[7]) : "r" (((b.val))[0]), "r" (((b.val))[1]), "r" (((b.val))[2]), "r" (((b.val))[3]), "r" (((b.val))[4]), "r" (((b.val))[5]), "r" (((b.val))[6]), "r" (((b.val))[7]));
+# 124 "./multiexp32.cu"
+return a;
+# 125 "./multiexp32.cu"
+}}
+# 126 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_add_nvidia(
+# 126 "./multiexp32.cu"
+Fr a, 
+# 126 "./multiexp32.cu"
+Fr b){
+# 126 "./multiexp32.cu"
+{
+# 127 "./multiexp32.cu"
+__asm("add.cc.u32 %0, %0, %8;\r\naddc.cc.u32 %1, %1, %9;\r\naddc.cc.u32 %2, %2, %10;\r\naddc.cc.u32 %3, %3, %11;\r\naddc.cc.u32 %4, %4," " %12;\r\naddc.cc.u32 %5, %5, %13;\r\naddc.cc.u32 %6, %6, %14;\r\naddc.u32 %7, %7, %15;\r\n" : "+r" (((a.val))[0]), "+r" (((a.val))[1]), "+r" (((a.val))[2]), "+r" (((a.val))[3]), "+r" (((a.val))[4]), "+r" (((a.val))[5]), "+r" (((a.val))[6]), "+r" (((a.val))[7]) : "r" (((b.val))[0]), "r" (((b.val))[1]), "r" (((b.val))[2]), "r" (((b.val))[3]), "r" (((b.val))[4]), "r" (((b.val))[5]), "r" (((b.val))[6]), "r" (((b.val))[7]));
+# 137 "./multiexp32.cu"
+return a;
+# 138 "./multiexp32.cu"
+}}
+# 154 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fr_gte(
+# 154 "./multiexp32.cu"
+Fr a, 
+# 154 "./multiexp32.cu"
+Fr b){
+# 154 "./multiexp32.cu"
+{
+# 155 "./multiexp32.cu"
+{
+# 155 "./multiexp32.cu"
+ char i;
+# 155 "./multiexp32.cu"
+i = ((char)7);
+# 155 "./multiexp32.cu"
+for (; (((int)i) >= 0); i--)
+# 155 "./multiexp32.cu"
+{
+# 156 "./multiexp32.cu"
+if ((((a.val))[i]) > (((b.val))[i])) {
+# 157 "./multiexp32.cu"
+return ((__nv_bool)1); }
+# 158 "./multiexp32.cu"
+if ((((a.val))[i]) < (((b.val))[i])) {
+# 159 "./multiexp32.cu"
+return ((__nv_bool)0); }
+# 160 "./multiexp32.cu"
+} }
+# 161 "./multiexp32.cu"
+return ((__nv_bool)1);
+# 162 "./multiexp32.cu"
+}}
+# 165 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fr_eq(
+# 165 "./multiexp32.cu"
+Fr a, 
+# 165 "./multiexp32.cu"
+Fr b){
+# 165 "./multiexp32.cu"
+{
+# 166 "./multiexp32.cu"
+{
+# 166 "./multiexp32.cu"
+ uchar i;
+# 166 "./multiexp32.cu"
+i = ((uchar)0U);
+# 166 "./multiexp32.cu"
+for (; (((int)i) < 8); i++) {
+# 167 "./multiexp32.cu"
+if ((((a.val))[i]) != (((b.val))[i])) {
+# 168 "./multiexp32.cu"
+return ((__nv_bool)0); } } }
+# 169 "./multiexp32.cu"
+return ((__nv_bool)1);
+# 170 "./multiexp32.cu"
+}}
+# 198 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_sub(
+# 198 "./multiexp32.cu"
+Fr a, 
+# 198 "./multiexp32.cu"
+Fr b){
+# 198 "./multiexp32.cu"
+{
+# 199 "./multiexp32.cu"
+ Fr __cuda_local_var_20858_6_non_const_res;
+# 199 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_20858_6_non_const_res, 0,sizeof(__cuda_local_var_20858_6_non_const_res));
+# 199 "./multiexp32.cu"
+__cuda_local_var_20858_6_non_const_res = (Fr_sub_nvidia(a, b));
+# 200 "./multiexp32.cu"
+if (!(Fr_gte(a, b))) {  Fr __T0;
+# 200 "./multiexp32.cu"
+{ memset((char *)&__T0, 0,sizeof(__T0)); __T0.val[0] = 1U; __T0.val[1] = 4294967295U; __T0.val[2] = 4294859774U; __T0.val[3] = 1404937218U; __T0.val[4] = 161601541U; __T0.val[5] = 859428872U; __T0.val[6] = 698187080U; __T0.val[7] = 1944954707U;
+# 200 "./multiexp32.cu"
+__cuda_local_var_20858_6_non_const_res = (Fr_add_nvidia(__cuda_local_var_20858_6_non_const_res, __T0)); } }
+# 201 "./multiexp32.cu"
+return __cuda_local_var_20858_6_non_const_res;
+# 202 "./multiexp32.cu"
+}}
+# 205 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_add(
+# 205 "./multiexp32.cu"
+Fr a, 
+# 205 "./multiexp32.cu"
+Fr b){
+# 205 "./multiexp32.cu"
+{  Fr __T1;
+# 206 "./multiexp32.cu"
+ Fr __cuda_local_var_20865_6_non_const_res;
+# 206 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_20865_6_non_const_res, 0,sizeof(__cuda_local_var_20865_6_non_const_res));
+# 206 "./multiexp32.cu"
+__cuda_local_var_20865_6_non_const_res = (Fr_add_nvidia(a, b));
+# 207 "./multiexp32.cu"
+{ memset((char *)&__T1, 0,sizeof(__T1)); __T1.val[0] = 1U; __T1.val[1] = 4294967295U; __T1.val[2] = 4294859774U; __T1.val[3] = 1404937218U; __T1.val[4] = 161601541U; __T1.val[5] = 859428872U; __T1.val[6] = 698187080U; __T1.val[7] = 1944954707U;
+# 207 "./multiexp32.cu"
+if (Fr_gte(__cuda_local_var_20865_6_non_const_res, __T1)) {  Fr __T2;
+# 207 "./multiexp32.cu"
+{ memset((char *)&__T2, 0,sizeof(__T2)); __T2.val[0] = 1U; __T2.val[1] = 4294967295U; __T2.val[2] = 4294859774U; __T2.val[3] = 1404937218U; __T2.val[4] = 161601541U; __T2.val[5] = 859428872U; __T2.val[6] = 698187080U; __T2.val[7] = 1944954707U;
+# 207 "./multiexp32.cu"
+__cuda_local_var_20865_6_non_const_res = (Fr_sub_nvidia(__cuda_local_var_20865_6_non_const_res, __T2)); } } }
+# 208 "./multiexp32.cu"
+return __cuda_local_var_20865_6_non_const_res;
+# 209 "./multiexp32.cu"
+}}
+# 212 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_mul(
+# 212 "./multiexp32.cu"
+Fr a, 
+# 212 "./multiexp32.cu"
+Fr b){
+# 212 "./multiexp32.cu"
+{  Fr __T3;
+# 219 "./multiexp32.cu"
+ uint __cuda_local_var_20878_8_non_const_t[10];
+# 237 "./multiexp32.cu"
+ Fr __cuda_local_var_20896_6_non_const_result;
+# 219 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_20878_8_non_const_t, 0,sizeof(__cuda_local_var_20878_8_non_const_t));
+# 219 "./multiexp32.cu"
+__cuda_local_var_20878_8_non_const_t[0] = 0U;
+# 220 "./multiexp32.cu"
+{
+# 220 "./multiexp32.cu"
+ uchar i;
+# 220 "./multiexp32.cu"
+i = ((uchar)0U);
+# 220 "./multiexp32.cu"
+for (; (((int)i) < 8); i++)
+# 220 "./multiexp32.cu"
+{  Fr __T4;
+# 221 "./multiexp32.cu"
+ uint __cuda_local_var_20880_10_non_const_carry;
+# 228 "./multiexp32.cu"
+ uint __cuda_local_var_20887_10_non_const_m;
+# 221 "./multiexp32.cu"
+__cuda_local_var_20880_10_non_const_carry = 0U;
+# 222 "./multiexp32.cu"
+{
+# 222 "./multiexp32.cu"
+ uchar j;
+# 222 "./multiexp32.cu"
+j = ((uchar)0U);
+# 222 "./multiexp32.cu"
+for (; (((int)j) < 8); j++) {
+# 223 "./multiexp32.cu"
+((__cuda_local_var_20878_8_non_const_t)[j]) = (mac_with_carry_32((((a.val))[j]), (((b.val))[i]), ((__cuda_local_var_20878_8_non_const_t)[j]), (&__cuda_local_var_20880_10_non_const_carry))); } }
+# 224 "./multiexp32.cu"
+((__cuda_local_var_20878_8_non_const_t)[8]) = (add_with_carry_32(((__cuda_local_var_20878_8_non_const_t)[8]), (&__cuda_local_var_20880_10_non_const_carry)));
+# 225 "./multiexp32.cu"
+((__cuda_local_var_20878_8_non_const_t)[9]) = __cuda_local_var_20880_10_non_const_carry;
+# 227 "./multiexp32.cu"
+__cuda_local_var_20880_10_non_const_carry = 0U;
+# 228 "./multiexp32.cu"
+__cuda_local_var_20887_10_non_const_m = ((uint)(4294967295L * ((long)((__cuda_local_var_20878_8_non_const_t)[0]))));
+# 229 "./multiexp32.cu"
+{ memset((char *)&__T4, 0,sizeof(__T4)); __T4.val[0] = 1U; __T4.val[1] = 4294967295U; __T4.val[2] = 4294859774U; __T4.val[3] = 1404937218U; __T4.val[4] = 161601541U; __T4.val[5] = 859428872U; __T4.val[6] = 698187080U; __T4.val[7] = 1944954707U;
+# 229 "./multiexp32.cu"
+mac_with_carry_32(__cuda_local_var_20887_10_non_const_m, (((__T4.val))[0]), ((__cuda_local_var_20878_8_non_const_t)[0]), (&__cuda_local_var_20880_10_non_const_carry)); }
+# 230 "./multiexp32.cu"
+{
+# 230 "./multiexp32.cu"
+ uchar j;
+# 230 "./multiexp32.cu"
+j = ((uchar)1U);
+# 230 "./multiexp32.cu"
+for (; (((int)j) < 8); j++) {  Fr __T5;
+# 231 "./multiexp32.cu"
+{ memset((char *)&__T5, 0,sizeof(__T5)); __T5.val[0] = 1U; __T5.val[1] = 4294967295U; __T5.val[2] = 4294859774U; __T5.val[3] = 1404937218U; __T5.val[4] = 161601541U; __T5.val[5] = 859428872U; __T5.val[6] = 698187080U; __T5.val[7] = 1944954707U;
+# 231 "./multiexp32.cu"
+((__cuda_local_var_20878_8_non_const_t)[(((int)j) - 1)]) = (mac_with_carry_32(__cuda_local_var_20887_10_non_const_m, (((__T5.val))[j]), ((__cuda_local_var_20878_8_non_const_t)[j]), (&__cuda_local_var_20880_10_non_const_carry))); } } }
+# 233 "./multiexp32.cu"
+((__cuda_local_var_20878_8_non_const_t)[7]) = (add_with_carry_32(((__cuda_local_var_20878_8_non_const_t)[8]), (&__cuda_local_var_20880_10_non_const_carry)));
+# 234 "./multiexp32.cu"
+((__cuda_local_var_20878_8_non_const_t)[8]) = (((__cuda_local_var_20878_8_non_const_t)[9]) + __cuda_local_var_20880_10_non_const_carry);
+# 235 "./multiexp32.cu"
+} }
+# 238 "./multiexp32.cu"
+{
+# 238 "./multiexp32.cu"
+ uchar i;
+# 238 "./multiexp32.cu"
+i = ((uchar)0U);
+# 238 "./multiexp32.cu"
+for (; (((int)i) < 8); i++) {
+# 238 "./multiexp32.cu"
+(((__cuda_local_var_20896_6_non_const_result.val))[i]) = ((__cuda_local_var_20878_8_non_const_t)[i]); } }
+# 240 "./multiexp32.cu"
+{ memset((char *)&__T3, 0,sizeof(__T3)); __T3.val[0] = 1U; __T3.val[1] = 4294967295U; __T3.val[2] = 4294859774U; __T3.val[3] = 1404937218U; __T3.val[4] = 161601541U; __T3.val[5] = 859428872U; __T3.val[6] = 698187080U; __T3.val[7] = 1944954707U;
+# 240 "./multiexp32.cu"
+if (Fr_gte(__cuda_local_var_20896_6_non_const_result, __T3)) {  Fr __T6;
+# 240 "./multiexp32.cu"
+{ memset((char *)&__T6, 0,sizeof(__T6)); __T6.val[0] = 1U; __T6.val[1] = 4294967295U; __T6.val[2] = 4294859774U; __T6.val[3] = 1404937218U; __T6.val[4] = 161601541U; __T6.val[5] = 859428872U; __T6.val[6] = 698187080U; __T6.val[7] = 1944954707U;
+# 240 "./multiexp32.cu"
+__cuda_local_var_20896_6_non_const_result = (Fr_sub_nvidia(__cuda_local_var_20896_6_non_const_result, __T6)); } } }
+# 242 "./multiexp32.cu"
+return __cuda_local_var_20896_6_non_const_result;
+# 243 "./multiexp32.cu"
+}}
+# 247 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_sqr(
+# 247 "./multiexp32.cu"
+Fr a){
+# 247 "./multiexp32.cu"
+{
+# 248 "./multiexp32.cu"
+return Fr_mul(a, a);
+# 249 "./multiexp32.cu"
+}}
+# 253 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_double(
+# 253 "./multiexp32.cu"
+Fr a){
+# 253 "./multiexp32.cu"
+{  Fr __T7;
+# 254 "./multiexp32.cu"
+{
+# 254 "./multiexp32.cu"
+ uchar i;
+# 254 "./multiexp32.cu"
+i = ((uchar)7U);
+# 254 "./multiexp32.cu"
+for (; (((int)i) >= 1); i--) {
+# 255 "./multiexp32.cu"
+(((a.val))[i]) = (((((a.val))[i]) << 1) | ((((a.val))[(((int)i) - 1)]) >> 31)); } }
+# 256 "./multiexp32.cu"
+(((a.val))[0]) <<= 1;
+# 257 "./multiexp32.cu"
+{ memset((char *)&__T7, 0,sizeof(__T7)); __T7.val[0] = 1U; __T7.val[1] = 4294967295U; __T7.val[2] = 4294859774U; __T7.val[3] = 1404937218U; __T7.val[4] = 161601541U; __T7.val[5] = 859428872U; __T7.val[6] = 698187080U; __T7.val[7] = 1944954707U;
+# 257 "./multiexp32.cu"
+if (Fr_gte(a, __T7)) {  Fr __T8;
+# 257 "./multiexp32.cu"
+{ memset((char *)&__T8, 0,sizeof(__T8)); __T8.val[0] = 1U; __T8.val[1] = 4294967295U; __T8.val[2] = 4294859774U; __T8.val[3] = 1404937218U; __T8.val[4] = 161601541U; __T8.val[5] = 859428872U; __T8.val[6] = 698187080U; __T8.val[7] = 1944954707U;
+# 257 "./multiexp32.cu"
+a = (Fr_sub_nvidia(a, __T8)); } } }
+# 258 "./multiexp32.cu"
+return a;
+# 259 "./multiexp32.cu"
+}}
+# 263 "./multiexp32.cu"
+___device__(static  __no_sc__) Fr Fr_pow(
+# 263 "./multiexp32.cu"
+Fr base, 
+# 263 "./multiexp32.cu"
+uint exponent){
+# 263 "./multiexp32.cu"
+{
+# 264 "./multiexp32.cu"
+ Fr __cuda_local_var_20923_6_non_const_res;
+# 264 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_20923_6_non_const_res, 0,sizeof(__cuda_local_var_20923_6_non_const_res));
+# 264 "./multiexp32.cu"
+__cuda_local_var_20923_6_non_const_res.val[0] = 4294967294U;
+# 264 "./multiexp32.cu"
+__cuda_local_var_20923_6_non_const_res.val[1] = 1U;
+# 264 "./multiexp32.cu"
+__cuda_local_var_20923_6_non_const_res.val[2] = 215042U;
+# 264 "./multiexp32.cu"
+__cuda_local_var_20923_6_non_const_res.val[3] = 1485092858U;
+# 264 "./multiexp32.cu"
+__cuda_local_var_20923_6_non_const_res.val[4] = 3971764213U;
+# 264 "./multiexp32.cu"
+__cuda_local_var_20923_6_non_const_res.val[5] = 2576109551U;
+# 264 "./multiexp32.cu"
+__cuda_local_var_20923_6_non_const_res.val[6] = 2898593135U;
+# 264 "./multiexp32.cu"
+__cuda_local_var_20923_6_non_const_res.val[7] = 405057881U;
+# 265 "./multiexp32.cu"
+while (exponent > 0U)
+# 265 "./multiexp32.cu"
+{
+# 266 "./multiexp32.cu"
+if (exponent & 1U) {
+# 267 "./multiexp32.cu"
+__cuda_local_var_20923_6_non_const_res = (Fr_mul(__cuda_local_var_20923_6_non_const_res, base)); }
+# 268 "./multiexp32.cu"
+exponent = (exponent >> 1);
+# 269 "./multiexp32.cu"
+base = (Fr_sqr(base));
+# 270 "./multiexp32.cu"
+}
+# 271 "./multiexp32.cu"
+return __cuda_local_var_20923_6_non_const_res;
+# 272 "./multiexp32.cu"
+}}
+# 301 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fr_get_bit(
+# 301 "./multiexp32.cu"
+Fr l, 
+# 301 "./multiexp32.cu"
+uint i){
+# 301 "./multiexp32.cu"
+{
+# 302 "./multiexp32.cu"
+return (__nv_bool)((((((l.val))[(7U - (i / 32U))]) >> (31U - (i % 32U))) & 1U) != 0U);
+# 303 "./multiexp32.cu"
+}}
+# 306 "./multiexp32.cu"
+___device__(static  __no_sc__) uint Fr_get_bits(
+# 306 "./multiexp32.cu"
+Fr l, 
+# 306 "./multiexp32.cu"
+uint skip, 
+# 306 "./multiexp32.cu"
+uint window){
+# 306 "./multiexp32.cu"
+{
+# 307 "./multiexp32.cu"
+ uint __cuda_local_var_20939_8_non_const_ret;
+# 307 "./multiexp32.cu"
+__cuda_local_var_20939_8_non_const_ret = 0U;
+# 308 "./multiexp32.cu"
+{
+# 308 "./multiexp32.cu"
+ uint i;
+# 308 "./multiexp32.cu"
+i = 0U;
+# 308 "./multiexp32.cu"
+for (; (i < window); i++)
+# 308 "./multiexp32.cu"
+{
+# 309 "./multiexp32.cu"
+__cuda_local_var_20939_8_non_const_ret <<= 1;
+# 310 "./multiexp32.cu"
+__cuda_local_var_20939_8_non_const_ret |= ((unsigned)(Fr_get_bit(l, (skip + i))));
+# 311 "./multiexp32.cu"
+} }
+# 312 "./multiexp32.cu"
+return __cuda_local_var_20939_8_non_const_ret;
+# 313 "./multiexp32.cu"
+}}
+# 315 "./multiexp32.cu"
+___device__(static  __no_sc__) void Fr_print(
+# 315 "./multiexp32.cu"
+Fr a){
+# 315 "./multiexp32.cu"
+{
+# 316 "./multiexp32.cu"
+printf(((const char *)"0x"));
+# 317 "./multiexp32.cu"
+{
+# 317 "./multiexp32.cu"
+ uint i;
+# 317 "./multiexp32.cu"
+i = 0U;
+# 317 "./multiexp32.cu"
+for (; (i < 8U); i++)
+# 317 "./multiexp32.cu"
+{
+# 318 "./multiexp32.cu"
+printf(((const char *)"%08x"), (((a.val))[((8U - i) - 1U)]));
+# 319 "./multiexp32.cu"
+} } 
+# 320 "./multiexp32.cu"
+}}
+# 493 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_sub_nvidia(
+# 493 "./multiexp32.cu"
+Fq a, 
+# 493 "./multiexp32.cu"
+Fq b){
+# 493 "./multiexp32.cu"
+{
+# 494 "./multiexp32.cu"
+__asm("sub.cc.u32 %0, %0, %12;\r\nsubc.cc.u32 %1, %1, %13;\r\nsubc.cc.u32 %2, %2, %14;\r\nsubc.cc.u32 %3, %3, %15;\r\nsubc.cc.u32 %4, %" "4, %16;\r\nsubc.cc.u32 %5, %5, %17;\r\nsubc.cc.u32 %6, %6, %18;\r\nsubc.cc.u32 %7, %7, %19;\r\nsubc.cc.u32 %8, %8, %20;\r\nsubc." "cc.u32 %9, %9, %21;\r\nsubc.cc.u32 %10, %10, %22;\r\nsubc.u32 %11, %11, %23;\r\n" : "+r" (((a.val))[0]), "+r" (((a.val))[1]), "+r" (((a.val))[2]), "+r" (((a.val))[3]), "+r" (((a.val))[4]), "+r" (((a.val))[5]), "+r" (((a.val))[6]), "+r" (((a.val))[7]), "+r" (((a.val))[8]), "+r" (((a.val))[9]), "+r" (((a.val))[10]), "+r" (((a.val))[11]) : "r" (((b.val))[0]), "r" (((b.val))[1]), "r" (((b.val))[2]), "r" (((b.val))[3]), "r" (((b.val))[4]), "r" (((b.val))[5]), "r" (((b.val))[6]), "r" (((b.val))[7]), "r" (((b.val))[8]), "r" (((b.val))[9]), "r" (((b.val))[10]), "r" (((b.val))[11]));
+# 508 "./multiexp32.cu"
+return a;
+# 509 "./multiexp32.cu"
+}}
+# 510 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_add_nvidia(
+# 510 "./multiexp32.cu"
+Fq a, 
+# 510 "./multiexp32.cu"
+Fq b){
+# 510 "./multiexp32.cu"
+{
+# 511 "./multiexp32.cu"
+__asm("add.cc.u32 %0, %0, %12;\r\naddc.cc.u32 %1, %1, %13;\r\naddc.cc.u32 %2, %2, %14;\r\naddc.cc.u32 %3, %3, %15;\r\naddc.cc.u32 %4, %" "4, %16;\r\naddc.cc.u32 %5, %5, %17;\r\naddc.cc.u32 %6, %6, %18;\r\naddc.cc.u32 %7, %7, %19;\r\naddc.cc.u32 %8, %8, %20;\r\naddc." "cc.u32 %9, %9, %21;\r\naddc.cc.u32 %10, %10, %22;\r\naddc.u32 %11, %11, %23;\r\n" : "+r" (((a.val))[0]), "+r" (((a.val))[1]), "+r" (((a.val))[2]), "+r" (((a.val))[3]), "+r" (((a.val))[4]), "+r" (((a.val))[5]), "+r" (((a.val))[6]), "+r" (((a.val))[7]), "+r" (((a.val))[8]), "+r" (((a.val))[9]), "+r" (((a.val))[10]), "+r" (((a.val))[11]) : "r" (((b.val))[0]), "r" (((b.val))[1]), "r" (((b.val))[2]), "r" (((b.val))[3]), "r" (((b.val))[4]), "r" (((b.val))[5]), "r" (((b.val))[6]), "r" (((b.val))[7]), "r" (((b.val))[8]), "r" (((b.val))[9]), "r" (((b.val))[10]), "r" (((b.val))[11]));
+# 525 "./multiexp32.cu"
+return a;
+# 526 "./multiexp32.cu"
+}}
+# 542 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fq_gte(
+# 542 "./multiexp32.cu"
+Fq a, 
+# 542 "./multiexp32.cu"
+Fq b){
+# 542 "./multiexp32.cu"
+{
+# 543 "./multiexp32.cu"
+{
+# 543 "./multiexp32.cu"
+ char i;
+# 543 "./multiexp32.cu"
+i = ((char)11);
+# 543 "./multiexp32.cu"
+for (; (((int)i) >= 0); i--)
+# 543 "./multiexp32.cu"
+{
+# 544 "./multiexp32.cu"
+if ((((a.val))[i]) > (((b.val))[i])) {
+# 545 "./multiexp32.cu"
+return ((__nv_bool)1); }
+# 546 "./multiexp32.cu"
+if ((((a.val))[i]) < (((b.val))[i])) {
+# 547 "./multiexp32.cu"
+return ((__nv_bool)0); }
+# 548 "./multiexp32.cu"
+} }
+# 549 "./multiexp32.cu"
+return ((__nv_bool)1);
+# 550 "./multiexp32.cu"
+}}
+# 553 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fq_eq(
+# 553 "./multiexp32.cu"
+Fq a, 
+# 553 "./multiexp32.cu"
+Fq b){
+# 553 "./multiexp32.cu"
+{
+# 554 "./multiexp32.cu"
+{
+# 554 "./multiexp32.cu"
+ uchar i;
+# 554 "./multiexp32.cu"
+i = ((uchar)0U);
+# 554 "./multiexp32.cu"
+for (; (((int)i) < 12); i++) {
+# 555 "./multiexp32.cu"
+if ((((a.val))[i]) != (((b.val))[i])) {
+# 556 "./multiexp32.cu"
+return ((__nv_bool)0); } } }
+# 557 "./multiexp32.cu"
+return ((__nv_bool)1);
+# 558 "./multiexp32.cu"
+}}
+# 586 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_sub(
+# 586 "./multiexp32.cu"
+Fq a, 
+# 586 "./multiexp32.cu"
+Fq b){
+# 586 "./multiexp32.cu"
+{
+# 587 "./multiexp32.cu"
+ Fq __cuda_local_var_21010_6_non_const_res;
+# 587 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21010_6_non_const_res, 0,sizeof(__cuda_local_var_21010_6_non_const_res));
+# 587 "./multiexp32.cu"
+__cuda_local_var_21010_6_non_const_res = (Fq_sub_nvidia(a, b));
+# 588 "./multiexp32.cu"
+if (!(Fq_gte(a, b))) {  Fq __T9;
+# 588 "./multiexp32.cu"
+{ memset((char *)&__T9, 0,sizeof(__T9)); __T9.val[0] = 4294945451U; __T9.val[1] = 3120496639U; __T9.val[2] = 2975072255U; __T9.val[3] = 514588670U; __T9.val[4] = 4138792484U; __T9.val[5] = 1731252896U; __T9.val[6] = 4085584575U; __T9.val[7] = 1685539716U; __T9.val[8] = 1129032919U; __T9.val[9] = 1260103606U; __T9.val[10] = 964683418U; __T9.val[11] = 436277738U;
+# 588 "./multiexp32.cu"
+__cuda_local_var_21010_6_non_const_res = (Fq_add_nvidia(__cuda_local_var_21010_6_non_const_res, __T9)); } }
+# 589 "./multiexp32.cu"
+return __cuda_local_var_21010_6_non_const_res;
+# 590 "./multiexp32.cu"
+}}
+# 593 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_add(
+# 593 "./multiexp32.cu"
+Fq a, 
+# 593 "./multiexp32.cu"
+Fq b){
+# 593 "./multiexp32.cu"
+{  Fq __T10;
+# 594 "./multiexp32.cu"
+ Fq __cuda_local_var_21017_6_non_const_res;
+# 594 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21017_6_non_const_res, 0,sizeof(__cuda_local_var_21017_6_non_const_res));
+# 594 "./multiexp32.cu"
+__cuda_local_var_21017_6_non_const_res = (Fq_add_nvidia(a, b));
+# 595 "./multiexp32.cu"
+{ memset((char *)&__T10, 0,sizeof(__T10)); __T10.val[0] = 4294945451U; __T10.val[1] = 3120496639U; __T10.val[2] = 2975072255U; __T10.val[3] = 514588670U; __T10.val[4] = 4138792484U; __T10.val[5] = 1731252896U; __T10.val[6] = 4085584575U; __T10.val[7] = 1685539716U; __T10.val[8] = 1129032919U; __T10.val[9] = 1260103606U; __T10.val[10] = 964683418U; __T10.val[11] = 436277738U;
+# 595 "./multiexp32.cu"
+if (Fq_gte(__cuda_local_var_21017_6_non_const_res, __T10)) {  Fq __T11;
+# 595 "./multiexp32.cu"
+{ memset((char *)&__T11, 0,sizeof(__T11)); __T11.val[0] = 4294945451U; __T11.val[1] = 3120496639U; __T11.val[2] = 2975072255U; __T11.val[3] = 514588670U; __T11.val[4] = 4138792484U; __T11.val[5] = 1731252896U; __T11.val[6] = 4085584575U; __T11.val[7] = 1685539716U; __T11.val[8] = 1129032919U; __T11.val[9] = 1260103606U; __T11.val[10] = 964683418U; __T11.val[11] = 436277738U;
+# 595 "./multiexp32.cu"
+__cuda_local_var_21017_6_non_const_res = (Fq_sub_nvidia(__cuda_local_var_21017_6_non_const_res, __T11)); } } }
+# 596 "./multiexp32.cu"
+return __cuda_local_var_21017_6_non_const_res;
+# 597 "./multiexp32.cu"
+}}
+# 24 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t add_cc(
+# 24 "./fq_mul.cu"
+uint32_t a, 
+# 24 "./fq_mul.cu"
+uint32_t b){
+# 24 "./fq_mul.cu"
+{
+# 25 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21099_12_non_const_r;
+# 27 "./fq_mul.cu"
+__asm volatile("add.cc.u32 %0, %1, %2;" : "=r" (__cuda_local_var_21099_12_non_const_r) : "r" (a), "r" (b));
+# 28 "./fq_mul.cu"
+return __cuda_local_var_21099_12_non_const_r;
+# 29 "./fq_mul.cu"
+}}
+# 31 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t addc_cc(
+# 31 "./fq_mul.cu"
+uint32_t a, 
+# 31 "./fq_mul.cu"
+uint32_t b){
+# 31 "./fq_mul.cu"
+{
+# 32 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21106_12_non_const_r;
+# 34 "./fq_mul.cu"
+__asm volatile("addc.cc.u32 %0, %1, %2;" : "=r" (__cuda_local_var_21106_12_non_const_r) : "r" (a), "r" (b));
+# 35 "./fq_mul.cu"
+return __cuda_local_var_21106_12_non_const_r;
+# 36 "./fq_mul.cu"
+}}
+# 38 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t addc(
+# 38 "./fq_mul.cu"
+uint32_t a, 
+# 38 "./fq_mul.cu"
+uint32_t b){
+# 38 "./fq_mul.cu"
+{
+# 39 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21113_12_non_const_r;
+# 41 "./fq_mul.cu"
+__asm volatile("addc.u32 %0, %1, %2;" : "=r" (__cuda_local_var_21113_12_non_const_r) : "r" (a), "r" (b));
+# 42 "./fq_mul.cu"
+return __cuda_local_var_21113_12_non_const_r;
+# 43 "./fq_mul.cu"
+}}
+# 53 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t madlo_cc(
+# 53 "./fq_mul.cu"
+uint32_t a, 
+# 53 "./fq_mul.cu"
+uint32_t b, 
+# 53 "./fq_mul.cu"
+uint32_t c){
+# 53 "./fq_mul.cu"
+{
+# 54 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21128_12_non_const_r;
+# 56 "./fq_mul.cu"
+__asm volatile("mad.lo.cc.u32 %0, %1, %2, %3;" : "=r" (__cuda_local_var_21128_12_non_const_r) : "r" (a), "r" (b), "r" (c));
+# 57 "./fq_mul.cu"
+return __cuda_local_var_21128_12_non_const_r;
+# 58 "./fq_mul.cu"
+}}
+# 60 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t madloc_cc(
+# 60 "./fq_mul.cu"
+uint32_t a, 
+# 60 "./fq_mul.cu"
+uint32_t b, 
+# 60 "./fq_mul.cu"
+uint32_t c){
+# 60 "./fq_mul.cu"
+{
+# 61 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21135_12_non_const_r;
+# 63 "./fq_mul.cu"
+__asm volatile("madc.lo.cc.u32 %0, %1, %2, %3;" : "=r" (__cuda_local_var_21135_12_non_const_r) : "r" (a), "r" (b), "r" (c));
+# 64 "./fq_mul.cu"
+return __cuda_local_var_21135_12_non_const_r;
+# 65 "./fq_mul.cu"
+}}
+# 81 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t madhi_cc(
+# 81 "./fq_mul.cu"
+uint32_t a, 
+# 81 "./fq_mul.cu"
+uint32_t b, 
+# 81 "./fq_mul.cu"
+uint32_t c){
+# 81 "./fq_mul.cu"
+{
+# 82 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21156_12_non_const_r;
+# 84 "./fq_mul.cu"
+__asm volatile("mad.hi.cc.u32 %0, %1, %2, %3;" : "=r" (__cuda_local_var_21156_12_non_const_r) : "r" (a), "r" (b), "r" (c));
+# 85 "./fq_mul.cu"
+return __cuda_local_var_21156_12_non_const_r;
+# 86 "./fq_mul.cu"
+}}
+# 88 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t madhic_cc(
+# 88 "./fq_mul.cu"
+uint32_t a, 
+# 88 "./fq_mul.cu"
+uint32_t b, 
+# 88 "./fq_mul.cu"
+uint32_t c){
+# 88 "./fq_mul.cu"
+{
+# 89 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21163_12_non_const_r;
+# 91 "./fq_mul.cu"
+__asm volatile("madc.hi.cc.u32 %0, %1, %2, %3;" : "=r" (__cuda_local_var_21163_12_non_const_r) : "r" (a), "r" (b), "r" (c));
+# 92 "./fq_mul.cu"
+return __cuda_local_var_21163_12_non_const_r;
+# 93 "./fq_mul.cu"
+}}
+# 112 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) uint32_t chain_add(
+# 112 "./fq_mul.cu"
+chain_t *ch, 
+# 112 "./fq_mul.cu"
+uint32_t a, 
+# 112 "./fq_mul.cu"
+uint32_t b){
+# 112 "./fq_mul.cu"
+{
+# 113 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21187_12_non_const_r;
+# 115 "./fq_mul.cu"
+(ch->_position)++;
+# 116 "./fq_mul.cu"
+if ((ch->_position) == 1) {
+# 117 "./fq_mul.cu"
+__cuda_local_var_21187_12_non_const_r = (add_cc(a, b)); } else  {
+# 119 "./fq_mul.cu"
+__cuda_local_var_21187_12_non_const_r = (addc_cc(a, b)); }
+# 120 "./fq_mul.cu"
+return __cuda_local_var_21187_12_non_const_r;
+# 121 "./fq_mul.cu"
+}}
+# 149 "./fq_mul.cu"
+___device__(static  __no_sc__) __inline__ __attribute__((__always_inline__)) void mult_v1(
+# 149 "./fq_mul.cu"
+uint32_t *x, 
+# 149 "./fq_mul.cu"
+uint32_t *y, 
+# 149 "./fq_mul.cu"
+uint32_t *xy){
+# 149 "./fq_mul.cu"
+{
+# 150 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21224_18_const_xLimbs;
+# 151 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21225_18_const_yLimbs;
+# 152 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21226_18_const_xyLimbs;
+# 153 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21227_12_non_const_temp[24];
+# 154 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21228_12_non_const_carry;
+# 150 "./fq_mul.cu"
+__cuda_local_var_21224_18_const_xLimbs = 12U;
+# 151 "./fq_mul.cu"
+__cuda_local_var_21225_18_const_yLimbs = 12U;
+# 152 "./fq_mul.cu"
+__cuda_local_var_21226_18_const_xyLimbs = 24U;
+# 154 "./fq_mul.cu"
+__cuda_local_var_21228_12_non_const_carry = 0U;
+# 157 "./fq_mul.cu"
+{
+# 157 "./fq_mul.cu"
+ int32_t i;
+# 157 "./fq_mul.cu"
+i = 0;
+# 157 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (; (((unsigned)i) < 24U); i++)
+# 157 "./fq_mul.cu"
+{
+# 158 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[i]) = 0U;
+# 159 "./fq_mul.cu"
+} }
+# 162 "./fq_mul.cu"
+{
+# 162 "./fq_mul.cu"
+ int32_t i;
+# 162 "./fq_mul.cu"
+i = 0;
+# 162 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (; (((unsigned)i) < 12U); i++)
+# 162 "./fq_mul.cu"
+{  uint32_t __T12;
+# 163 "./fq_mul.cu"
+ chain_t __cuda_local_var_21237_13_non_const_chain1;
+# 164 "./fq_mul.cu"
+{
+# 164 "./fq_mul.cu"
+(__cuda_local_var_21237_13_non_const_chain1._position) = 0;
+# 164 "./fq_mul.cu"
+}
+# 166 "./fq_mul.cu"
+{  uint32_t __T13;
+ uint32_t __T14;
+ uint32_t __T15;
+ uint32_t __T16;
+ uint32_t __T17;
+ uint32_t __T18;
+ uint32_t __T19;
+ uint32_t __T20;
+# 166 "./fq_mul.cu"
+ int32_t j;
+# 166 "./fq_mul.cu"
+j = 0;
+# 166 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (; (((unsigned)j) < 12U); j++)
+# 166 "./fq_mul.cu"
+{
+# 167 "./fq_mul.cu"
+if (((i + j) % 2) == 1)
+# 167 "./fq_mul.cu"
+{
+# 168 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[((i + j) - 1)]) = ((((__T13 = (x[i])) , (void)(__T14 = (y[j]))) , (void)(__T15 = ((__cuda_local_var_21227_12_non_const_temp)[((i + j) - 1)]))) , ((((__cuda_local_var_21237_13_non_const_chain1._position)++) , (void)(((__cuda_local_var_21237_13_non_const_chain1._position) == 1) ? ((void)(__T16 = (madlo_cc(__T13, __T14, __T15)))) : ((void)(__T16 = (madloc_cc(__T13, __T14, __T15)))))) , __T16));
+# 169 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[(i + j)]) = ((((__T17 = (x[i])) , (void)(__T18 = (y[j]))) , (void)(__T19 = ((__cuda_local_var_21227_12_non_const_temp)[(i + j)]))) , ((((__cuda_local_var_21237_13_non_const_chain1._position)++) , (void)(((__cuda_local_var_21237_13_non_const_chain1._position) == 1) ? ((void)(__T20 = (madhi_cc(__T17, __T18, __T19)))) : ((void)(__T20 = (madhic_cc(__T17, __T18, __T19)))))) , __T20));
+# 170 "./fq_mul.cu"
+}
+# 171 "./fq_mul.cu"
+} }
+# 172 "./fq_mul.cu"
+if ((i % 2) == 1)
+# 172 "./fq_mul.cu"
+{
+# 173 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[((((unsigned)i) + 12U) - 1U)]) = ((((__cuda_local_var_21237_13_non_const_chain1._position)++) , (void)(((__cuda_local_var_21237_13_non_const_chain1._position) == 1) ? ((void)(__T12 = (add_cc(0U, 0U)))) : ((void)(__T12 = (addc_cc(0U, 0U)))))) , __T12);
+# 174 "./fq_mul.cu"
+}
+# 175 "./fq_mul.cu"
+} }
+# 178 "./fq_mul.cu"
+{
+# 178 "./fq_mul.cu"
+ int32_t i;
+# 178 "./fq_mul.cu"
+i = 23;
+# 178 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (; (i > 0); i--)
+# 178 "./fq_mul.cu"
+{
+# 179 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[i]) = ((__cuda_local_var_21227_12_non_const_temp)[(i - 1)]);
+# 180 "./fq_mul.cu"
+} }
+# 181 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[0]) = 0U;
+# 184 "./fq_mul.cu"
+{
+# 184 "./fq_mul.cu"
+ int32_t i;
+# 184 "./fq_mul.cu"
+i = 0;
+# 184 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (; (((unsigned)i) < 12U); i++)
+# 184 "./fq_mul.cu"
+{  uint32_t __T21;
+ uint32_t __T22;
+ uint32_t __T23;
+ uint32_t __T24;
+ uint32_t __T25;
+ uint32_t __T26;
+# 185 "./fq_mul.cu"
+ chain_t __cuda_local_var_21259_13_non_const_chain2;
+# 186 "./fq_mul.cu"
+{
+# 186 "./fq_mul.cu"
+(__cuda_local_var_21259_13_non_const_chain2._position) = 0;
+# 186 "./fq_mul.cu"
+}
+# 189 "./fq_mul.cu"
+{  uint32_t __T27;
+ uint32_t __T28;
+ uint32_t __T29;
+ uint32_t __T30;
+ uint32_t __T31;
+ uint32_t __T32;
+ uint32_t __T33;
+ uint32_t __T34;
+# 189 "./fq_mul.cu"
+ int32_t j;
+# 189 "./fq_mul.cu"
+j = 0;
+# 189 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (; (((unsigned)j) < 12U); j++)
+# 189 "./fq_mul.cu"
+{
+# 190 "./fq_mul.cu"
+if (((i + j) % 2) == 0)
+# 190 "./fq_mul.cu"
+{
+# 191 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[(i + j)]) = ((((__T27 = (x[i])) , (void)(__T28 = (y[j]))) , (void)(__T29 = ((__cuda_local_var_21227_12_non_const_temp)[(i + j)]))) , ((((__cuda_local_var_21259_13_non_const_chain2._position)++) , (void)(((__cuda_local_var_21259_13_non_const_chain2._position) == 1) ? ((void)(__T30 = (madlo_cc(__T27, __T28, __T29)))) : ((void)(__T30 = (madloc_cc(__T27, __T28, __T29)))))) , __T30));
+# 192 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[((i + j) + 1)]) = ((((__T31 = (x[i])) , (void)(__T32 = (y[j]))) , (void)(__T33 = ((__cuda_local_var_21227_12_non_const_temp)[((i + j) + 1)]))) , ((((__cuda_local_var_21259_13_non_const_chain2._position)++) , (void)(((__cuda_local_var_21259_13_non_const_chain2._position) == 1) ? ((void)(__T34 = (madhi_cc(__T31, __T32, __T33)))) : ((void)(__T34 = (madhic_cc(__T31, __T32, __T33)))))) , __T34));
+# 193 "./fq_mul.cu"
+}
+# 194 "./fq_mul.cu"
+} }
+# 195 "./fq_mul.cu"
+if ((((((unsigned)i) + 12U) % 2U) == 0U) && (((unsigned)i) != 11U))
+# 195 "./fq_mul.cu"
+{
+# 196 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[(((unsigned)i) + 12U)]) = ((__T21 = ((__cuda_local_var_21227_12_non_const_temp)[(((unsigned)i) + 12U)])) , ((((__cuda_local_var_21259_13_non_const_chain2._position)++) , (void)(((__cuda_local_var_21259_13_non_const_chain2._position) == 1) ? ((void)(__T22 = (add_cc(__T21, __cuda_local_var_21228_12_non_const_carry)))) : ((void)(__T22 = (addc_cc(__T21, __cuda_local_var_21228_12_non_const_carry)))))) , __T22));
+# 197 "./fq_mul.cu"
+((__cuda_local_var_21227_12_non_const_temp)[((((unsigned)i) + 12U) + 1U)]) = ((__T23 = ((__cuda_local_var_21227_12_non_const_temp)[((((unsigned)i) + 12U) + 1U)])) , ((((__cuda_local_var_21259_13_non_const_chain2._position)++) , (void)(((__cuda_local_var_21259_13_non_const_chain2._position) == 1) ? ((void)(__T24 = (add_cc(__T23, 0U)))) : ((void)(__T24 = (addc_cc(__T23, 0U)))))) , __T24));
+# 198 "./fq_mul.cu"
+__cuda_local_var_21228_12_non_const_carry = ((((__cuda_local_var_21259_13_non_const_chain2._position)++) , (void)(((__cuda_local_var_21259_13_non_const_chain2._position) == 1) ? ((void)(__T25 = (add_cc(0U, 0U)))) : ((void)(__T25 = (addc_cc(0U, 0U)))))) , __T25);
+# 199 "./fq_mul.cu"
+}
+# 200 "./fq_mul.cu"
+if ((((((unsigned)i) + 12U) % 2U) == 1U) && (((unsigned)i) != 11U))
+# 200 "./fq_mul.cu"
+{
+# 201 "./fq_mul.cu"
+__cuda_local_var_21228_12_non_const_carry = ((((__cuda_local_var_21259_13_non_const_chain2._position)++) , (void)(((__cuda_local_var_21259_13_non_const_chain2._position) == 1) ? ((void)(__T26 = (add_cc(__cuda_local_var_21228_12_non_const_carry, 0U)))) : ((void)(__T26 = (addc_cc(__cuda_local_var_21228_12_non_const_carry, 0U)))))) , __T26);
+# 202 "./fq_mul.cu"
+}
+# 203 "./fq_mul.cu"
+} }
+# 206 "./fq_mul.cu"
+{
+# 206 "./fq_mul.cu"
+ int32_t i;
+# 206 "./fq_mul.cu"
+i = 0;
+# 206 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (; (((unsigned)i) < 24U); i++)
+# 206 "./fq_mul.cu"
+{
+# 207 "./fq_mul.cu"
+(xy[i]) = ((__cuda_local_var_21227_12_non_const_temp)[i]);
+# 208 "./fq_mul.cu"
+} } 
+# 209 "./fq_mul.cu"
+}}
+# 211 "./fq_mul.cu"
+___device__(static  __no_sc__) void reduce(
+# 211 "./fq_mul.cu"
+uint32_t *accLow, 
+# 211 "./fq_mul.cu"
+uint32_t np0, 
+# 211 "./fq_mul.cu"
+uint32_t *fq){
+# 211 "./fq_mul.cu"
+{  uint32_t __T35;
+ uint32_t __T36;
+ uint32_t __T37;
+ uint32_t __T38;
+ uint32_t __T39;
+# 214 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21288_18_const_count;
+# 215 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21289_12_non_const_accHigh[12];
+# 216 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21290_12_non_const_bucket;
+# 216 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21290_22_non_const_lowCarry;
+# 216 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21290_34_non_const_highCarry;
+# 216 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21290_47_non_const_q;
+# 217 "./fq_mul.cu"
+ int32_t __cuda_local_var_21291_11_non_const_i;
+# 217 "./fq_mul.cu"
+ int32_t __cuda_local_var_21291_14_non_const_j;
+# 285 "./fq_mul.cu"
+ chain_t __cuda_local_var_21359_11_non_const_chain5;
+# 214 "./fq_mul.cu"
+__cuda_local_var_21288_18_const_count = 12U;
+# 216 "./fq_mul.cu"
+__cuda_local_var_21290_12_non_const_bucket = 0U;
+# 216 "./fq_mul.cu"
+__cuda_local_var_21290_22_non_const_lowCarry = 0U;
+# 216 "./fq_mul.cu"
+__cuda_local_var_21290_34_non_const_highCarry = 0U;
+# 220 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (__cuda_local_var_21291_11_non_const_i = 0; (((unsigned)__cuda_local_var_21291_11_non_const_i) < 12U); __cuda_local_var_21291_11_non_const_i++) {
+# 221 "./fq_mul.cu"
+((__cuda_local_var_21289_12_non_const_accHigh)[__cuda_local_var_21291_11_non_const_i]) = 0U; }
+# 226 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (__cuda_local_var_21291_14_non_const_j = 0; (((unsigned)__cuda_local_var_21291_14_non_const_j) < 12U); __cuda_local_var_21291_14_non_const_j++)
+# 226 "./fq_mul.cu"
+{
+# 227 "./fq_mul.cu"
+if ((__cuda_local_var_21291_14_non_const_j % 2) == 0)
+# 227 "./fq_mul.cu"
+{  uint32_t __T40;
+ uint32_t __T41;
+ uint32_t __T42;
+ uint32_t __T43;
+ uint32_t __T44;
+ uint32_t __T45;
+ uint32_t __T46;
+ uint32_t __T47;
+ uint32_t __T48;
+ uint32_t __T49;
+ uint32_t __T50;
+# 235 "./fq_mul.cu"
+ chain_t __cuda_local_var_21309_15_non_const_chain1;
+# 245 "./fq_mul.cu"
+ chain_t __cuda_local_var_21319_15_non_const_chain2;
+# 228 "./fq_mul.cu"
+add_cc(__cuda_local_var_21290_12_non_const_bucket, 4294967295U);
+# 229 "./fq_mul.cu"
+(accLow[0]) = (addc_cc((accLow[0]), ((__cuda_local_var_21289_12_non_const_accHigh)[1])));
+# 230 "./fq_mul.cu"
+__cuda_local_var_21290_12_non_const_bucket = (addc(0U, 0U));
+# 232 "./fq_mul.cu"
+__cuda_local_var_21290_47_non_const_q = ((accLow[0]) * np0);
+# 236 "./fq_mul.cu"
+{
+# 236 "./fq_mul.cu"
+(__cuda_local_var_21309_15_non_const_chain1._position) = 0;
+# 236 "./fq_mul.cu"
+}
+# 239 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (__cuda_local_var_21291_11_non_const_i = 0; (((unsigned)__cuda_local_var_21291_11_non_const_i) < 12U); __cuda_local_var_21291_11_non_const_i += 2)
+# 239 "./fq_mul.cu"
+{  uint32_t __T51;
+ uint32_t __T52;
+ uint32_t __T53;
+ uint32_t __T54;
+ uint32_t __T55;
+ uint32_t __T56;
+# 240 "./fq_mul.cu"
+(accLow[__cuda_local_var_21291_11_non_const_i]) = (((__T51 = (fq[__cuda_local_var_21291_11_non_const_i])) , (void)(__T52 = (accLow[__cuda_local_var_21291_11_non_const_i]))) , ((((__cuda_local_var_21309_15_non_const_chain1._position)++) , (void)(((__cuda_local_var_21309_15_non_const_chain1._position) == 1) ? ((void)(__T53 = (madlo_cc(__cuda_local_var_21290_47_non_const_q, __T51, __T52)))) : ((void)(__T53 = (madloc_cc(__cuda_local_var_21290_47_non_const_q, __T51, __T52)))))) , __T53));
+# 241 "./fq_mul.cu"
+(accLow[(__cuda_local_var_21291_11_non_const_i + 1)]) = (((__T54 = (fq[__cuda_local_var_21291_11_non_const_i])) , (void)(__T55 = (accLow[(__cuda_local_var_21291_11_non_const_i + 1)]))) , ((((__cuda_local_var_21309_15_non_const_chain1._position)++) , (void)(((__cuda_local_var_21309_15_non_const_chain1._position) == 1) ? ((void)(__T56 = (madhi_cc(__cuda_local_var_21290_47_non_const_q, __T54, __T55)))) : ((void)(__T56 = (madhic_cc(__cuda_local_var_21290_47_non_const_q, __T54, __T55)))))) , __T56));
+# 242 "./fq_mul.cu"
+}
+# 243 "./fq_mul.cu"
+__cuda_local_var_21290_22_non_const_lowCarry = ((((__cuda_local_var_21309_15_non_const_chain1._position)++) , (void)(((__cuda_local_var_21309_15_non_const_chain1._position) == 1) ? ((void)(__T40 = (add_cc(0U, 0U)))) : ((void)(__T40 = (addc_cc(0U, 0U)))))) , __T40);
+# 246 "./fq_mul.cu"
+{
+# 246 "./fq_mul.cu"
+(__cuda_local_var_21319_15_non_const_chain2._position) = 0;
+# 246 "./fq_mul.cu"
+}
+# 247 "./fq_mul.cu"
+for (__cuda_local_var_21291_11_non_const_i = 0; (((unsigned)__cuda_local_var_21291_11_non_const_i) < 10U); __cuda_local_var_21291_11_non_const_i += 2)
+# 247 "./fq_mul.cu"
+{
+# 248 "./fq_mul.cu"
+((__cuda_local_var_21289_12_non_const_accHigh)[__cuda_local_var_21291_11_non_const_i]) = (((__T41 = (fq[(__cuda_local_var_21291_11_non_const_i + 1)])) , (void)(__T42 = ((__cuda_local_var_21289_12_non_const_accHigh)[(__cuda_local_var_21291_11_non_const_i + 2)]))) , ((((__cuda_local_var_21319_15_non_const_chain2._position)++) , (void)(((__cuda_local_var_21319_15_non_const_chain2._position) == 1) ? ((void)(__T43 = (madlo_cc(__cuda_local_var_21290_47_non_const_q, __T41, __T42)))) : ((void)(__T43 = (madloc_cc(__cuda_local_var_21290_47_non_const_q, __T41, __T42)))))) , __T43));
+# 249 "./fq_mul.cu"
+((__cuda_local_var_21289_12_non_const_accHigh)[(__cuda_local_var_21291_11_non_const_i + 1)]) = (((__T44 = (fq[(__cuda_local_var_21291_11_non_const_i + 1)])) , (void)(__T45 = ((__cuda_local_var_21289_12_non_const_accHigh)[(__cuda_local_var_21291_11_non_const_i + 3)]))) , ((((__cuda_local_var_21319_15_non_const_chain2._position)++) , (void)(((__cuda_local_var_21319_15_non_const_chain2._position) == 1) ? ((void)(__T46 = (madhi_cc(__cuda_local_var_21290_47_non_const_q, __T44, __T45)))) : ((void)(__T46 = (madhic_cc(__cuda_local_var_21290_47_non_const_q, __T44, __T45)))))) , __T46));
+# 250 "./fq_mul.cu"
+}
+# 251 "./fq_mul.cu"
+((__cuda_local_var_21289_12_non_const_accHigh)[__cuda_local_var_21291_11_non_const_i]) = ((__T47 = (fq[(__cuda_local_var_21291_11_non_const_i + 1)])) , ((((__cuda_local_var_21319_15_non_const_chain2._position)++) , (void)(((__cuda_local_var_21319_15_non_const_chain2._position) == 1) ? ((void)(__T48 = (madlo_cc(__cuda_local_var_21290_47_non_const_q, __T47, __cuda_local_var_21290_34_non_const_highCarry)))) : ((void)(__T48 = (madloc_cc(__cuda_local_var_21290_47_non_const_q, __T47, __cuda_local_var_21290_34_non_const_highCarry)))))) , __T48));
+# 252 "./fq_mul.cu"
+((__cuda_local_var_21289_12_non_const_accHigh)[(__cuda_local_var_21291_11_non_const_i + 1)]) = ((__T49 = (fq[(__cuda_local_var_21291_11_non_const_i + 1)])) , ((((__cuda_local_var_21319_15_non_const_chain2._position)++) , (void)(((__cuda_local_var_21319_15_non_const_chain2._position) == 1) ? ((void)(__T50 = (madhi_cc(__cuda_local_var_21290_47_non_const_q, __T49, 0U)))) : ((void)(__T50 = (madhic_cc(__cuda_local_var_21290_47_non_const_q, __T49, 0U)))))) , __T50));
+# 253 "./fq_mul.cu"
+}
+# 254 "./fq_mul.cu"
+else 
+# 254 "./fq_mul.cu"
+{  uint32_t __T57;
+ uint32_t __T58;
+ uint32_t __T59;
+ uint32_t __T60;
+ uint32_t __T61;
+ uint32_t __T62;
+ uint32_t __T63;
+ uint32_t __T64;
+ uint32_t __T65;
+ uint32_t __T66;
+ uint32_t __T67;
+# 261 "./fq_mul.cu"
+ chain_t __cuda_local_var_21335_15_non_const_chain3;
+# 270 "./fq_mul.cu"
+ chain_t __cuda_local_var_21344_15_non_const_chain4;
+# 255 "./fq_mul.cu"
+add_cc(__cuda_local_var_21290_12_non_const_bucket, 4294967295U);
+# 256 "./fq_mul.cu"
+((__cuda_local_var_21289_12_non_const_accHigh)[0]) = (addc_cc(((__cuda_local_var_21289_12_non_const_accHigh)[0]), (accLow[1])));
+# 257 "./fq_mul.cu"
+__cuda_local_var_21290_12_non_const_bucket = (addc(0U, 0U));
+# 259 "./fq_mul.cu"
+__cuda_local_var_21290_47_non_const_q = (((__cuda_local_var_21289_12_non_const_accHigh)[0]) * np0);
+# 262 "./fq_mul.cu"
+{
+# 262 "./fq_mul.cu"
+(__cuda_local_var_21335_15_non_const_chain3._position) = 0;
+# 262 "./fq_mul.cu"
+}
+# 264 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (__cuda_local_var_21291_11_non_const_i = 0; (((unsigned)__cuda_local_var_21291_11_non_const_i) < 12U); __cuda_local_var_21291_11_non_const_i += 2)
+# 264 "./fq_mul.cu"
+{  uint32_t __T68;
+ uint32_t __T69;
+ uint32_t __T70;
+ uint32_t __T71;
+ uint32_t __T72;
+ uint32_t __T73;
+# 265 "./fq_mul.cu"
+((__cuda_local_var_21289_12_non_const_accHigh)[__cuda_local_var_21291_11_non_const_i]) = (((__T68 = (fq[__cuda_local_var_21291_11_non_const_i])) , (void)(__T69 = ((__cuda_local_var_21289_12_non_const_accHigh)[__cuda_local_var_21291_11_non_const_i]))) , ((((__cuda_local_var_21335_15_non_const_chain3._position)++) , (void)(((__cuda_local_var_21335_15_non_const_chain3._position) == 1) ? ((void)(__T70 = (madlo_cc(__cuda_local_var_21290_47_non_const_q, __T68, __T69)))) : ((void)(__T70 = (madloc_cc(__cuda_local_var_21290_47_non_const_q, __T68, __T69)))))) , __T70));
+# 266 "./fq_mul.cu"
+((__cuda_local_var_21289_12_non_const_accHigh)[(__cuda_local_var_21291_11_non_const_i + 1)]) = (((__T71 = (fq[__cuda_local_var_21291_11_non_const_i])) , (void)(__T72 = ((__cuda_local_var_21289_12_non_const_accHigh)[(__cuda_local_var_21291_11_non_const_i + 1)]))) , ((((__cuda_local_var_21335_15_non_const_chain3._position)++) , (void)(((__cuda_local_var_21335_15_non_const_chain3._position) == 1) ? ((void)(__T73 = (madhi_cc(__cuda_local_var_21290_47_non_const_q, __T71, __T72)))) : ((void)(__T73 = (madhic_cc(__cuda_local_var_21290_47_non_const_q, __T71, __T72)))))) , __T73));
+# 267 "./fq_mul.cu"
+}
+# 268 "./fq_mul.cu"
+__cuda_local_var_21290_34_non_const_highCarry = ((((__cuda_local_var_21335_15_non_const_chain3._position)++) , (void)(((__cuda_local_var_21335_15_non_const_chain3._position) == 1) ? ((void)(__T57 = (add_cc(0U, 0U)))) : ((void)(__T57 = (addc_cc(0U, 0U)))))) , __T57);
+# 271 "./fq_mul.cu"
+{
+# 271 "./fq_mul.cu"
+(__cuda_local_var_21344_15_non_const_chain4._position) = 0;
+# 271 "./fq_mul.cu"
+}
+# 272 "./fq_mul.cu"
+for (__cuda_local_var_21291_11_non_const_i = 0; (((unsigned)__cuda_local_var_21291_11_non_const_i) < 10U); __cuda_local_var_21291_11_non_const_i += 2)
+# 272 "./fq_mul.cu"
+{
+# 273 "./fq_mul.cu"
+(accLow[__cuda_local_var_21291_11_non_const_i]) = (((__T58 = (fq[(__cuda_local_var_21291_11_non_const_i + 1)])) , (void)(__T59 = (accLow[(__cuda_local_var_21291_11_non_const_i + 2)]))) , ((((__cuda_local_var_21344_15_non_const_chain4._position)++) , (void)(((__cuda_local_var_21344_15_non_const_chain4._position) == 1) ? ((void)(__T60 = (madlo_cc(__cuda_local_var_21290_47_non_const_q, __T58, __T59)))) : ((void)(__T60 = (madloc_cc(__cuda_local_var_21290_47_non_const_q, __T58, __T59)))))) , __T60));
+# 274 "./fq_mul.cu"
+(accLow[(__cuda_local_var_21291_11_non_const_i + 1)]) = (((__T61 = (fq[(__cuda_local_var_21291_11_non_const_i + 1)])) , (void)(__T62 = (accLow[(__cuda_local_var_21291_11_non_const_i + 3)]))) , ((((__cuda_local_var_21344_15_non_const_chain4._position)++) , (void)(((__cuda_local_var_21344_15_non_const_chain4._position) == 1) ? ((void)(__T63 = (madhi_cc(__cuda_local_var_21290_47_non_const_q, __T61, __T62)))) : ((void)(__T63 = (madhic_cc(__cuda_local_var_21290_47_non_const_q, __T61, __T62)))))) , __T63));
+# 275 "./fq_mul.cu"
+}
+# 276 "./fq_mul.cu"
+(accLow[__cuda_local_var_21291_11_non_const_i]) = ((__T64 = (fq[(__cuda_local_var_21291_11_non_const_i + 1)])) , ((((__cuda_local_var_21344_15_non_const_chain4._position)++) , (void)(((__cuda_local_var_21344_15_non_const_chain4._position) == 1) ? ((void)(__T65 = (madlo_cc(__cuda_local_var_21290_47_non_const_q, __T64, __cuda_local_var_21290_22_non_const_lowCarry)))) : ((void)(__T65 = (madloc_cc(__cuda_local_var_21290_47_non_const_q, __T64, __cuda_local_var_21290_22_non_const_lowCarry)))))) , __T65));
+# 277 "./fq_mul.cu"
+(accLow[(__cuda_local_var_21291_11_non_const_i + 1)]) = ((__T66 = (fq[(__cuda_local_var_21291_11_non_const_i + 1)])) , ((((__cuda_local_var_21344_15_non_const_chain4._position)++) , (void)(((__cuda_local_var_21344_15_non_const_chain4._position) == 1) ? ((void)(__T67 = (madhi_cc(__cuda_local_var_21290_47_non_const_q, __T66, 0U)))) : ((void)(__T67 = (madhic_cc(__cuda_local_var_21290_47_non_const_q, __T66, 0U)))))) , __T67));
+# 278 "./fq_mul.cu"
+}
+# 279 "./fq_mul.cu"
+}
+# 286 "./fq_mul.cu"
+{
+# 286 "./fq_mul.cu"
+(__cuda_local_var_21359_11_non_const_chain5._position) = 0;
+# 286 "./fq_mul.cu"
+}
+# 287 "./fq_mul.cu"
+chain_add((&__cuda_local_var_21359_11_non_const_chain5), __cuda_local_var_21290_12_non_const_bucket, 4294967295U);
+# 289 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (__cuda_local_var_21291_11_non_const_i = 0; (((unsigned)__cuda_local_var_21291_11_non_const_i) < 11U); __cuda_local_var_21291_11_non_const_i++) {
+# 290 "./fq_mul.cu"
+(accLow[__cuda_local_var_21291_11_non_const_i]) = (((__T35 = (accLow[__cuda_local_var_21291_11_non_const_i])) , (void)(__T36 = ((__cuda_local_var_21289_12_non_const_accHigh)[(__cuda_local_var_21291_11_non_const_i + 1)]))) , ((((__cuda_local_var_21359_11_non_const_chain5._position)++) , (void)(((__cuda_local_var_21359_11_non_const_chain5._position) == 1) ? ((void)(__T37 = (add_cc(__T35, __T36)))) : ((void)(__T37 = (addc_cc(__T35, __T36)))))) , __T37)); }
+# 291 "./fq_mul.cu"
+(accLow[__cuda_local_var_21291_11_non_const_i]) = ((__T38 = (accLow[__cuda_local_var_21291_11_non_const_i])) , ((((__cuda_local_var_21359_11_non_const_chain5._position)++) , (void)(((__cuda_local_var_21359_11_non_const_chain5._position) == 1) ? ((void)(__T39 = (add_cc(__T38, __cuda_local_var_21290_34_non_const_highCarry)))) : ((void)(__T39 = (addc_cc(__T38, __cuda_local_var_21290_34_non_const_highCarry)))))) , __T39)); 
+# 292 "./fq_mul.cu"
+}}
+# 297 "./fq_mul.cu"
+___device__(static  __no_sc__) __noinline__ Fq Fq_mul(
+# 297 "./fq_mul.cu"
+Fq a, 
+# 297 "./fq_mul.cu"
+Fq b){
+# 297 "./fq_mul.cu"
+{  Fq __T74;
+ Fq __T75;
+# 299 "./fq_mul.cu"
+ uint __cuda_local_var_21373_8_non_const_ab[24];
+# 302 "./fq_mul.cu"
+ uint32_t __cuda_local_var_21376_12_non_const_io[12];
+# 311 "./fq_mul.cu"
+ int __cuda_local_var_21385_7_non_const_j;
+# 318 "./fq_mul.cu"
+ Fq __cuda_local_var_21392_6_non_const_r;
+# 300 "./fq_mul.cu"
+mult_v1(((a.val)), ((b.val)), (__cuda_local_var_21373_8_non_const_ab));
+# 304 "./fq_mul.cu"
+{
+# 304 "./fq_mul.cu"
+ int i;
+# 304 "./fq_mul.cu"
+i = 0;
+# 304 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (; (i < 12); i++)
+# 304 "./fq_mul.cu"
+{
+# 305 "./fq_mul.cu"
+((__cuda_local_var_21376_12_non_const_io)[i]) = ((__cuda_local_var_21373_8_non_const_ab)[i]);
+# 306 "./fq_mul.cu"
+} }
+# 307 "./fq_mul.cu"
+{ memset((char *)&__T74, 0,sizeof(__T74)); __T74.val[0] = 4294945451U; __T74.val[1] = 3120496639U; __T74.val[2] = 2975072255U; __T74.val[3] = 514588670U; __T74.val[4] = 4138792484U; __T74.val[5] = 1731252896U; __T74.val[6] = 4085584575U; __T74.val[7] = 1685539716U; __T74.val[8] = 1129032919U; __T74.val[9] = 1260103606U; __T74.val[10] = 964683418U; __T74.val[11] = 436277738U;
+# 307 "./fq_mul.cu"
+reduce((__cuda_local_var_21376_12_non_const_io), 4294770685U, ((__T74.val))); }
+# 310 "./fq_mul.cu"
+((__cuda_local_var_21373_8_non_const_ab)[12]) = (add_cc(((__cuda_local_var_21373_8_non_const_ab)[12]), ((__cuda_local_var_21376_12_non_const_io)[0])));
+# 313 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (__cuda_local_var_21385_7_non_const_j = 1; (__cuda_local_var_21385_7_non_const_j < 11); __cuda_local_var_21385_7_non_const_j++)
+# 313 "./fq_mul.cu"
+{
+# 314 "./fq_mul.cu"
+((__cuda_local_var_21373_8_non_const_ab)[(__cuda_local_var_21385_7_non_const_j + 12)]) = (addc_cc(((__cuda_local_var_21373_8_non_const_ab)[(__cuda_local_var_21385_7_non_const_j + 12)]), ((__cuda_local_var_21376_12_non_const_io)[__cuda_local_var_21385_7_non_const_j])));
+# 315 "./fq_mul.cu"
+}
+# 316 "./fq_mul.cu"
+((__cuda_local_var_21373_8_non_const_ab)[23]) = (addc(((__cuda_local_var_21373_8_non_const_ab)[23]), ((__cuda_local_var_21376_12_non_const_io)[11])));
+# 320 "./fq_mul.cu"
+{
+# 320 "./fq_mul.cu"
+ int i;
+# 320 "./fq_mul.cu"
+i = 0;
+# 320 "./fq_mul.cu"
+
+#pragma unroll 2147483647
+for (; (i < 12); i++)
+# 320 "./fq_mul.cu"
+{
+# 321 "./fq_mul.cu"
+(((__cuda_local_var_21392_6_non_const_r.val))[i]) = ((__cuda_local_var_21373_8_non_const_ab)[(i + 12)]);
+# 322 "./fq_mul.cu"
+} }
+# 324 "./fq_mul.cu"
+{ memset((char *)&__T75, 0,sizeof(__T75)); __T75.val[0] = 4294945451U; __T75.val[1] = 3120496639U; __T75.val[2] = 2975072255U; __T75.val[3] = 514588670U; __T75.val[4] = 4138792484U; __T75.val[5] = 1731252896U; __T75.val[6] = 4085584575U; __T75.val[7] = 1685539716U; __T75.val[8] = 1129032919U; __T75.val[9] = 1260103606U; __T75.val[10] = 964683418U; __T75.val[11] = 436277738U;
+# 324 "./fq_mul.cu"
+if (Fq_gte(__cuda_local_var_21392_6_non_const_r, __T75))
+# 324 "./fq_mul.cu"
+{  Fq __T76;
+# 325 "./fq_mul.cu"
+{ memset((char *)&__T76, 0,sizeof(__T76)); __T76.val[0] = 4294945451U; __T76.val[1] = 3120496639U; __T76.val[2] = 2975072255U; __T76.val[3] = 514588670U; __T76.val[4] = 4138792484U; __T76.val[5] = 1731252896U; __T76.val[6] = 4085584575U; __T76.val[7] = 1685539716U; __T76.val[8] = 1129032919U; __T76.val[9] = 1260103606U; __T76.val[10] = 964683418U; __T76.val[11] = 436277738U;
+# 325 "./fq_mul.cu"
+__cuda_local_var_21392_6_non_const_r = (Fq_sub_nvidia(__cuda_local_var_21392_6_non_const_r, __T76)); }
+# 326 "./fq_mul.cu"
+} }
+# 328 "./fq_mul.cu"
+return __cuda_local_var_21392_6_non_const_r;
+# 329 "./fq_mul.cu"
+}}
+# 639 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_sqr(
+# 639 "./multiexp32.cu"
+Fq a){
+# 639 "./multiexp32.cu"
+{
+# 640 "./multiexp32.cu"
+return Fq_mul(a, a);
+# 641 "./multiexp32.cu"
+}}
+# 645 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_double(
+# 645 "./multiexp32.cu"
+Fq a){
+# 645 "./multiexp32.cu"
+{  Fq __T77;
+# 646 "./multiexp32.cu"
+{
+# 646 "./multiexp32.cu"
+ uchar i;
+# 646 "./multiexp32.cu"
+i = ((uchar)11U);
+# 646 "./multiexp32.cu"
+for (; (((int)i) >= 1); i--) {
+# 647 "./multiexp32.cu"
+(((a.val))[i]) = (((((a.val))[i]) << 1) | ((((a.val))[(((int)i) - 1)]) >> 31)); } }
+# 648 "./multiexp32.cu"
+(((a.val))[0]) <<= 1;
+# 649 "./multiexp32.cu"
+{ memset((char *)&__T77, 0,sizeof(__T77)); __T77.val[0] = 4294945451U; __T77.val[1] = 3120496639U; __T77.val[2] = 2975072255U; __T77.val[3] = 514588670U; __T77.val[4] = 4138792484U; __T77.val[5] = 1731252896U; __T77.val[6] = 4085584575U; __T77.val[7] = 1685539716U; __T77.val[8] = 1129032919U; __T77.val[9] = 1260103606U; __T77.val[10] = 964683418U; __T77.val[11] = 436277738U;
+# 649 "./multiexp32.cu"
+if (Fq_gte(a, __T77)) {  Fq __T78;
+# 649 "./multiexp32.cu"
+{ memset((char *)&__T78, 0,sizeof(__T78)); __T78.val[0] = 4294945451U; __T78.val[1] = 3120496639U; __T78.val[2] = 2975072255U; __T78.val[3] = 514588670U; __T78.val[4] = 4138792484U; __T78.val[5] = 1731252896U; __T78.val[6] = 4085584575U; __T78.val[7] = 1685539716U; __T78.val[8] = 1129032919U; __T78.val[9] = 1260103606U; __T78.val[10] = 964683418U; __T78.val[11] = 436277738U;
+# 649 "./multiexp32.cu"
+a = (Fq_sub_nvidia(a, __T78)); } } }
+# 650 "./multiexp32.cu"
+return a;
+# 651 "./multiexp32.cu"
+}}
+# 655 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq Fq_pow(
+# 655 "./multiexp32.cu"
+Fq base, 
+# 655 "./multiexp32.cu"
+uint exponent){
+# 655 "./multiexp32.cu"
+{
+# 656 "./multiexp32.cu"
+ Fq __cuda_local_var_21423_6_non_const_res;
+# 656 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21423_6_non_const_res, 0,sizeof(__cuda_local_var_21423_6_non_const_res));
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[0] = 196605U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[1] = 1980301312U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[2] = 3289120770U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[3] = 3958636555U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[4] = 1405573306U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[5] = 1598593111U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[6] = 1884444485U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[7] = 2010011731U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[8] = 2723605613U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[9] = 1543969431U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[10] = 4202751123U;
+# 656 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res.val[11] = 368467651U;
+# 657 "./multiexp32.cu"
+while (exponent > 0U)
+# 657 "./multiexp32.cu"
+{
+# 658 "./multiexp32.cu"
+if (exponent & 1U) {
+# 659 "./multiexp32.cu"
+__cuda_local_var_21423_6_non_const_res = (Fq_mul(__cuda_local_var_21423_6_non_const_res, base)); }
+# 660 "./multiexp32.cu"
+exponent = (exponent >> 1);
+# 661 "./multiexp32.cu"
+base = (Fq_sqr(base));
+# 662 "./multiexp32.cu"
+}
+# 663 "./multiexp32.cu"
+return __cuda_local_var_21423_6_non_const_res;
+# 664 "./multiexp32.cu"
+}}
+# 694 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fq_get_bit(
+# 694 "./multiexp32.cu"
+Fq l, 
+# 694 "./multiexp32.cu"
+uint i){
+# 694 "./multiexp32.cu"
+{
+# 695 "./multiexp32.cu"
+return (__nv_bool)((((((l.val))[(11U - (i / 32U))]) >> (31U - (i % 32U))) & 1U) != 0U);
+# 696 "./multiexp32.cu"
+}}
+# 699 "./multiexp32.cu"
+___device__(static  __no_sc__) uint Fq_get_bits(
+# 699 "./multiexp32.cu"
+Fq l, 
+# 699 "./multiexp32.cu"
+uint skip, 
+# 699 "./multiexp32.cu"
+uint window){
+# 699 "./multiexp32.cu"
+{
+# 700 "./multiexp32.cu"
+ uint __cuda_local_var_21439_8_non_const_ret;
+# 700 "./multiexp32.cu"
+__cuda_local_var_21439_8_non_const_ret = 0U;
+# 701 "./multiexp32.cu"
+{
+# 701 "./multiexp32.cu"
+ uint i;
+# 701 "./multiexp32.cu"
+i = 0U;
+# 701 "./multiexp32.cu"
+for (; (i < window); i++)
+# 701 "./multiexp32.cu"
+{
+# 702 "./multiexp32.cu"
+__cuda_local_var_21439_8_non_const_ret <<= 1;
+# 703 "./multiexp32.cu"
+__cuda_local_var_21439_8_non_const_ret |= ((unsigned)(Fq_get_bit(l, (skip + i))));
+# 704 "./multiexp32.cu"
+} }
+# 705 "./multiexp32.cu"
+return __cuda_local_var_21439_8_non_const_ret;
+# 706 "./multiexp32.cu"
+}}
+# 708 "./multiexp32.cu"
+___device__(static  __no_sc__) void Fq_print(
+# 708 "./multiexp32.cu"
+Fq a){
+# 708 "./multiexp32.cu"
+{
+# 709 "./multiexp32.cu"
+printf(((const char *)"0x"));
+# 710 "./multiexp32.cu"
+{
+# 710 "./multiexp32.cu"
+ uint i;
+# 710 "./multiexp32.cu"
+i = 0U;
+# 710 "./multiexp32.cu"
+for (; (i < 12U); i++)
+# 710 "./multiexp32.cu"
+{
+# 711 "./multiexp32.cu"
+printf(((const char *)"%08x"), (((a.val))[((12U - i) - 1U)]));
+# 712 "./multiexp32.cu"
+} } 
+# 713 "./multiexp32.cu"
+}}
+# 740 "./multiexp32.cu"
+___device__(static  __no_sc__) G1_projective G1_double(
+# 740 "./multiexp32.cu"
+G1_projective inp){
+# 740 "./multiexp32.cu"
+{  Fq __T79;
+ Fq __T80;
+ Fq __T81;
+ Fq __T82;
+# 741 "./multiexp32.cu"
+ Fq __cuda_local_var_21473_12_const_local_zero;
+# 746 "./multiexp32.cu"
+ Fq __cuda_local_var_21478_12_non_const_a;
+# 747 "./multiexp32.cu"
+ Fq __cuda_local_var_21479_12_non_const_b;
+# 748 "./multiexp32.cu"
+ Fq __cuda_local_var_21480_6_non_const_c;
+# 751 "./multiexp32.cu"
+ Fq __cuda_local_var_21483_6_non_const_d;
+# 754 "./multiexp32.cu"
+ Fq __cuda_local_var_21486_12_non_const_e;
+# 755 "./multiexp32.cu"
+ Fq __cuda_local_var_21487_12_non_const_f;
+# 741 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21473_12_const_local_zero, 0,sizeof(__cuda_local_var_21473_12_const_local_zero));
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[0] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[1] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[2] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[3] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[4] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[5] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[6] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[7] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[8] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[9] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[10] = 0U;
+# 741 "./multiexp32.cu"
+__cuda_local_var_21473_12_const_local_zero.val[11] = 0U;
+# 742 "./multiexp32.cu"
+if (Fq_eq((inp.z), ((*(Fq *)&__cuda_local_var_21473_12_const_local_zero))))
+# 742 "./multiexp32.cu"
+{
+# 743 "./multiexp32.cu"
+return inp;
+# 744 "./multiexp32.cu"
+}
+# 746 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21478_12_non_const_a, 0,sizeof(__cuda_local_var_21478_12_non_const_a));
+# 746 "./multiexp32.cu"
+__cuda_local_var_21478_12_non_const_a = (*((const Fq *)((__T79 = (Fq_sqr((inp.x)))) , (&__T79))));
+# 747 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21479_12_non_const_b, 0,sizeof(__cuda_local_var_21479_12_non_const_b));
+# 747 "./multiexp32.cu"
+__cuda_local_var_21479_12_non_const_b = (*((const Fq *)((__T80 = (Fq_sqr((inp.y)))) , (&__T80))));
+# 748 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21480_6_non_const_c, 0,sizeof(__cuda_local_var_21480_6_non_const_c));
+# 748 "./multiexp32.cu"
+__cuda_local_var_21480_6_non_const_c = (Fq_sqr(((*(Fq *)&__cuda_local_var_21479_12_non_const_b))));
+# 751 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21483_6_non_const_d, 0,sizeof(__cuda_local_var_21483_6_non_const_d));
+# 751 "./multiexp32.cu"
+__cuda_local_var_21483_6_non_const_d = (Fq_add((inp.x), ((*(Fq *)&__cuda_local_var_21479_12_non_const_b))));
+# 752 "./multiexp32.cu"
+__cuda_local_var_21483_6_non_const_d = (Fq_sqr(__cuda_local_var_21483_6_non_const_d));
+# 752 "./multiexp32.cu"
+__cuda_local_var_21483_6_non_const_d = (Fq_sub((Fq_sub(__cuda_local_var_21483_6_non_const_d, ((*(Fq *)&__cuda_local_var_21478_12_non_const_a)))), __cuda_local_var_21480_6_non_const_c));
+# 752 "./multiexp32.cu"
+__cuda_local_var_21483_6_non_const_d = (Fq_double(__cuda_local_var_21483_6_non_const_d));
+# 754 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21486_12_non_const_e, 0,sizeof(__cuda_local_var_21486_12_non_const_e));
+# 754 "./multiexp32.cu"
+__cuda_local_var_21486_12_non_const_e = (*((const Fq *)((__T81 = (Fq_add((Fq_double(((*(Fq *)&__cuda_local_var_21478_12_non_const_a)))), ((*(Fq *)&__cuda_local_var_21478_12_non_const_a))))) , (&__T81))));
+# 755 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21487_12_non_const_f, 0,sizeof(__cuda_local_var_21487_12_non_const_f));
+# 755 "./multiexp32.cu"
+__cuda_local_var_21487_12_non_const_f = (*((const Fq *)((__T82 = (Fq_sqr(((*(Fq *)&__cuda_local_var_21486_12_non_const_e))))) , (&__T82))));
+# 757 "./multiexp32.cu"
+(inp.z) = (Fq_mul((inp.y), (inp.z)));
+# 757 "./multiexp32.cu"
+(inp.z) = (Fq_double((inp.z)));
+# 758 "./multiexp32.cu"
+(inp.x) = (Fq_sub((Fq_sub(((*(Fq *)&__cuda_local_var_21487_12_non_const_f)), __cuda_local_var_21483_6_non_const_d)), __cuda_local_var_21483_6_non_const_d));
+# 761 "./multiexp32.cu"
+__cuda_local_var_21480_6_non_const_c = (Fq_double(__cuda_local_var_21480_6_non_const_c));
+# 761 "./multiexp32.cu"
+__cuda_local_var_21480_6_non_const_c = (Fq_double(__cuda_local_var_21480_6_non_const_c));
+# 761 "./multiexp32.cu"
+__cuda_local_var_21480_6_non_const_c = (Fq_double(__cuda_local_var_21480_6_non_const_c));
+# 762 "./multiexp32.cu"
+(inp.y) = (Fq_sub((Fq_mul((Fq_sub(__cuda_local_var_21483_6_non_const_d, (inp.x))), ((*(Fq *)&__cuda_local_var_21486_12_non_const_e)))), __cuda_local_var_21480_6_non_const_c));
+# 764 "./multiexp32.cu"
+return inp;
+# 765 "./multiexp32.cu"
+}}
+# 768 "./multiexp32.cu"
+___device__(static  __no_sc__) G1_projective G1_add_mixed(
+# 768 "./multiexp32.cu"
+G1_projective a, 
+# 768 "./multiexp32.cu"
+G1_affine b){
+# 768 "./multiexp32.cu"
+{  Fq __T83;
+ Fq __T84;
+ Fq __T85;
+ Fq __T86;
+ Fq __T87;
+ Fq __T88;
+# 775 "./multiexp32.cu"
+ Fq __cuda_local_var_21507_12_const_local_zero;
+# 784 "./multiexp32.cu"
+ Fq __cuda_local_var_21516_12_non_const_z1z1;
+# 785 "./multiexp32.cu"
+ Fq __cuda_local_var_21517_12_non_const_u2;
+# 786 "./multiexp32.cu"
+ Fq __cuda_local_var_21518_12_non_const_s2;
+# 792 "./multiexp32.cu"
+ Fq __cuda_local_var_21524_12_non_const_h;
+# 793 "./multiexp32.cu"
+ Fq __cuda_local_var_21525_12_non_const_hh;
+# 794 "./multiexp32.cu"
+ Fq __cuda_local_var_21526_6_non_const_i;
+# 795 "./multiexp32.cu"
+ Fq __cuda_local_var_21527_6_non_const_j;
+# 796 "./multiexp32.cu"
+ Fq __cuda_local_var_21528_6_non_const_r;
+# 797 "./multiexp32.cu"
+ Fq __cuda_local_var_21529_12_non_const_v;
+# 799 "./multiexp32.cu"
+ G1_projective __cuda_local_var_21531_17_non_const_ret;
+# 770 "./multiexp32.cu"
+if (b.inf)
+# 770 "./multiexp32.cu"
+{
+# 771 "./multiexp32.cu"
+return a;
+# 772 "./multiexp32.cu"
+}
+# 775 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21507_12_const_local_zero, 0,sizeof(__cuda_local_var_21507_12_const_local_zero));
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[0] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[1] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[2] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[3] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[4] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[5] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[6] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[7] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[8] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[9] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[10] = 0U;
+# 775 "./multiexp32.cu"
+__cuda_local_var_21507_12_const_local_zero.val[11] = 0U;
+# 776 "./multiexp32.cu"
+if (Fq_eq((a.z), ((*(Fq *)&__cuda_local_var_21507_12_const_local_zero))))
+# 776 "./multiexp32.cu"
+{
+# 777 "./multiexp32.cu"
+ Fq __cuda_local_var_21509_14_const_local_one;
+# 777 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21509_14_const_local_one, 0,sizeof(__cuda_local_var_21509_14_const_local_one));
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[0] = 196605U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[1] = 1980301312U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[2] = 3289120770U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[3] = 3958636555U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[4] = 1405573306U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[5] = 1598593111U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[6] = 1884444485U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[7] = 2010011731U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[8] = 2723605613U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[9] = 1543969431U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[10] = 4202751123U;
+# 777 "./multiexp32.cu"
+__cuda_local_var_21509_14_const_local_one.val[11] = 368467651U;
+# 778 "./multiexp32.cu"
+(a.x) = (b.x);
+# 779 "./multiexp32.cu"
+(a.y) = (b.y);
+# 780 "./multiexp32.cu"
+(a.z) = __cuda_local_var_21509_14_const_local_one;
+# 781 "./multiexp32.cu"
+return a;
+# 782 "./multiexp32.cu"
+}
+# 784 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21516_12_non_const_z1z1, 0,sizeof(__cuda_local_var_21516_12_non_const_z1z1));
+# 784 "./multiexp32.cu"
+__cuda_local_var_21516_12_non_const_z1z1 = (*((const Fq *)((__T83 = (Fq_sqr((a.z)))) , (&__T83))));
+# 785 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21517_12_non_const_u2, 0,sizeof(__cuda_local_var_21517_12_non_const_u2));
+# 785 "./multiexp32.cu"
+__cuda_local_var_21517_12_non_const_u2 = (*((const Fq *)((__T84 = (Fq_mul((b.x), ((*(Fq *)&__cuda_local_var_21516_12_non_const_z1z1))))) , (&__T84))));
+# 786 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21518_12_non_const_s2, 0,sizeof(__cuda_local_var_21518_12_non_const_s2));
+# 786 "./multiexp32.cu"
+__cuda_local_var_21518_12_non_const_s2 = (*((const Fq *)((__T85 = (Fq_mul((Fq_mul((b.y), (a.z))), ((*(Fq *)&__cuda_local_var_21516_12_non_const_z1z1))))) , (&__T85))));
+# 788 "./multiexp32.cu"
+if ((Fq_eq((a.x), ((*(Fq *)&__cuda_local_var_21517_12_non_const_u2)))) && (Fq_eq((a.y), ((*(Fq *)&__cuda_local_var_21518_12_non_const_s2)))))
+# 788 "./multiexp32.cu"
+{
+# 789 "./multiexp32.cu"
+return G1_double(a);
+# 790 "./multiexp32.cu"
+}
+# 792 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21524_12_non_const_h, 0,sizeof(__cuda_local_var_21524_12_non_const_h));
+# 792 "./multiexp32.cu"
+__cuda_local_var_21524_12_non_const_h = (*((const Fq *)((__T86 = (Fq_sub(((*(Fq *)&__cuda_local_var_21517_12_non_const_u2)), (a.x)))) , (&__T86))));
+# 793 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21525_12_non_const_hh, 0,sizeof(__cuda_local_var_21525_12_non_const_hh));
+# 793 "./multiexp32.cu"
+__cuda_local_var_21525_12_non_const_hh = (*((const Fq *)((__T87 = (Fq_sqr(((*(Fq *)&__cuda_local_var_21524_12_non_const_h))))) , (&__T87))));
+# 794 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21526_6_non_const_i, 0,sizeof(__cuda_local_var_21526_6_non_const_i));
+# 794 "./multiexp32.cu"
+__cuda_local_var_21526_6_non_const_i = (Fq_double(((*(Fq *)&__cuda_local_var_21525_12_non_const_hh))));
+# 794 "./multiexp32.cu"
+__cuda_local_var_21526_6_non_const_i = (Fq_double(__cuda_local_var_21526_6_non_const_i));
+# 795 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21527_6_non_const_j, 0,sizeof(__cuda_local_var_21527_6_non_const_j));
+# 795 "./multiexp32.cu"
+__cuda_local_var_21527_6_non_const_j = (Fq_mul(((*(Fq *)&__cuda_local_var_21524_12_non_const_h)), __cuda_local_var_21526_6_non_const_i));
+# 796 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21528_6_non_const_r, 0,sizeof(__cuda_local_var_21528_6_non_const_r));
+# 796 "./multiexp32.cu"
+__cuda_local_var_21528_6_non_const_r = (Fq_sub(((*(Fq *)&__cuda_local_var_21518_12_non_const_s2)), (a.y)));
+# 796 "./multiexp32.cu"
+__cuda_local_var_21528_6_non_const_r = (Fq_double(__cuda_local_var_21528_6_non_const_r));
+# 797 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21529_12_non_const_v, 0,sizeof(__cuda_local_var_21529_12_non_const_v));
+# 797 "./multiexp32.cu"
+__cuda_local_var_21529_12_non_const_v = (*((const Fq *)((__T88 = (Fq_mul((a.x), __cuda_local_var_21526_6_non_const_i))) , (&__T88))));
+# 802 "./multiexp32.cu"
+(__cuda_local_var_21531_17_non_const_ret.x) = (Fq_sub((Fq_sub((Fq_sqr(__cuda_local_var_21528_6_non_const_r)), __cuda_local_var_21527_6_non_const_j)), (Fq_double(((*(Fq *)&__cuda_local_var_21529_12_non_const_v))))));
+# 805 "./multiexp32.cu"
+__cuda_local_var_21527_6_non_const_j = (Fq_mul((a.y), __cuda_local_var_21527_6_non_const_j));
+# 805 "./multiexp32.cu"
+__cuda_local_var_21527_6_non_const_j = (Fq_double(__cuda_local_var_21527_6_non_const_j));
+# 806 "./multiexp32.cu"
+(__cuda_local_var_21531_17_non_const_ret.y) = (Fq_sub((Fq_mul((Fq_sub(((*(Fq *)&__cuda_local_var_21529_12_non_const_v)), (__cuda_local_var_21531_17_non_const_ret.x))), __cuda_local_var_21528_6_non_const_r)), __cuda_local_var_21527_6_non_const_j));
+# 809 "./multiexp32.cu"
+(__cuda_local_var_21531_17_non_const_ret.z) = (Fq_add((a.z), ((*(Fq *)&__cuda_local_var_21524_12_non_const_h))));
+# 809 "./multiexp32.cu"
+(__cuda_local_var_21531_17_non_const_ret.z) = (Fq_sub((Fq_sub((Fq_sqr((__cuda_local_var_21531_17_non_const_ret.z))), ((*(Fq *)&__cuda_local_var_21516_12_non_const_z1z1)))), ((*(Fq *)&__cuda_local_var_21525_12_non_const_hh))));
+# 810 "./multiexp32.cu"
+return __cuda_local_var_21531_17_non_const_ret;
+# 811 "./multiexp32.cu"
+}}
+# 814 "./multiexp32.cu"
+___device__(static  __no_sc__) G1_projective G1_add(
+# 814 "./multiexp32.cu"
+G1_projective a, 
+# 814 "./multiexp32.cu"
+G1_projective b){
+# 814 "./multiexp32.cu"
+{  Fq __T89;
+ Fq __T90;
+ Fq __T91;
+ Fq __T92;
+ Fq __T93;
+# 816 "./multiexp32.cu"
+ Fq __cuda_local_var_21548_12_const_local_zero;
+# 820 "./multiexp32.cu"
+ Fq __cuda_local_var_21552_12_non_const_z1z1;
+# 821 "./multiexp32.cu"
+ Fq __cuda_local_var_21553_12_non_const_z2z2;
+# 822 "./multiexp32.cu"
+ Fq __cuda_local_var_21554_12_non_const_u1;
+# 823 "./multiexp32.cu"
+ Fq __cuda_local_var_21555_12_non_const_u2;
+# 824 "./multiexp32.cu"
+ Fq __cuda_local_var_21556_6_non_const_s1;
+# 825 "./multiexp32.cu"
+ Fq __cuda_local_var_21557_12_non_const_s2;
+# 816 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21548_12_const_local_zero, 0,sizeof(__cuda_local_var_21548_12_const_local_zero));
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[0] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[1] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[2] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[3] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[4] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[5] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[6] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[7] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[8] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[9] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[10] = 0U;
+# 816 "./multiexp32.cu"
+__cuda_local_var_21548_12_const_local_zero.val[11] = 0U;
+# 817 "./multiexp32.cu"
+if (Fq_eq((a.z), ((*(Fq *)&__cuda_local_var_21548_12_const_local_zero)))) {
+# 817 "./multiexp32.cu"
+return b; }
+# 818 "./multiexp32.cu"
+if (Fq_eq((b.z), ((*(Fq *)&__cuda_local_var_21548_12_const_local_zero)))) {
+# 818 "./multiexp32.cu"
+return a; }
+# 820 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21552_12_non_const_z1z1, 0,sizeof(__cuda_local_var_21552_12_non_const_z1z1));
+# 820 "./multiexp32.cu"
+__cuda_local_var_21552_12_non_const_z1z1 = (*((const Fq *)((__T89 = (Fq_sqr((a.z)))) , (&__T89))));
+# 821 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21553_12_non_const_z2z2, 0,sizeof(__cuda_local_var_21553_12_non_const_z2z2));
+# 821 "./multiexp32.cu"
+__cuda_local_var_21553_12_non_const_z2z2 = (*((const Fq *)((__T90 = (Fq_sqr((b.z)))) , (&__T90))));
+# 822 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21554_12_non_const_u1, 0,sizeof(__cuda_local_var_21554_12_non_const_u1));
+# 822 "./multiexp32.cu"
+__cuda_local_var_21554_12_non_const_u1 = (*((const Fq *)((__T91 = (Fq_mul((a.x), ((*(Fq *)&__cuda_local_var_21553_12_non_const_z2z2))))) , (&__T91))));
+# 823 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21555_12_non_const_u2, 0,sizeof(__cuda_local_var_21555_12_non_const_u2));
+# 823 "./multiexp32.cu"
+__cuda_local_var_21555_12_non_const_u2 = (*((const Fq *)((__T92 = (Fq_mul((b.x), ((*(Fq *)&__cuda_local_var_21552_12_non_const_z1z1))))) , (&__T92))));
+# 824 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21556_6_non_const_s1, 0,sizeof(__cuda_local_var_21556_6_non_const_s1));
+# 824 "./multiexp32.cu"
+__cuda_local_var_21556_6_non_const_s1 = (Fq_mul((Fq_mul((a.y), (b.z))), ((*(Fq *)&__cuda_local_var_21553_12_non_const_z2z2))));
+# 825 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21557_12_non_const_s2, 0,sizeof(__cuda_local_var_21557_12_non_const_s2));
+# 825 "./multiexp32.cu"
+__cuda_local_var_21557_12_non_const_s2 = (*((const Fq *)((__T93 = (Fq_mul((Fq_mul((b.y), (a.z))), ((*(Fq *)&__cuda_local_var_21552_12_non_const_z1z1))))) , (&__T93))));
+# 827 "./multiexp32.cu"
+if ((Fq_eq(((*(Fq *)&__cuda_local_var_21554_12_non_const_u1)), ((*(Fq *)&__cuda_local_var_21555_12_non_const_u2)))) && (Fq_eq(__cuda_local_var_21556_6_non_const_s1, ((*(Fq *)&__cuda_local_var_21557_12_non_const_s2))))) {
+# 828 "./multiexp32.cu"
+return G1_double(a); }
+# 829 "./multiexp32.cu"
+else 
+# 829 "./multiexp32.cu"
+{  Fq __T94;
+ Fq __T95;
+ Fq __T96;
+# 830 "./multiexp32.cu"
+ Fq __cuda_local_var_21562_14_non_const_h;
+# 831 "./multiexp32.cu"
+ Fq __cuda_local_var_21563_8_non_const_i;
+# 832 "./multiexp32.cu"
+ Fq __cuda_local_var_21564_14_non_const_j;
+# 833 "./multiexp32.cu"
+ Fq __cuda_local_var_21565_8_non_const_r;
+# 834 "./multiexp32.cu"
+ Fq __cuda_local_var_21566_14_non_const_v;
+# 830 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21562_14_non_const_h, 0,sizeof(__cuda_local_var_21562_14_non_const_h));
+# 830 "./multiexp32.cu"
+__cuda_local_var_21562_14_non_const_h = (*((const Fq *)((__T94 = (Fq_sub(((*(Fq *)&__cuda_local_var_21555_12_non_const_u2)), ((*(Fq *)&__cuda_local_var_21554_12_non_const_u1))))) , (&__T94))));
+# 831 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21563_8_non_const_i, 0,sizeof(__cuda_local_var_21563_8_non_const_i));
+# 831 "./multiexp32.cu"
+__cuda_local_var_21563_8_non_const_i = (Fq_double(((*(Fq *)&__cuda_local_var_21562_14_non_const_h))));
+# 831 "./multiexp32.cu"
+__cuda_local_var_21563_8_non_const_i = (Fq_sqr(__cuda_local_var_21563_8_non_const_i));
+# 832 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21564_14_non_const_j, 0,sizeof(__cuda_local_var_21564_14_non_const_j));
+# 832 "./multiexp32.cu"
+__cuda_local_var_21564_14_non_const_j = (*((const Fq *)((__T95 = (Fq_mul(((*(Fq *)&__cuda_local_var_21562_14_non_const_h)), __cuda_local_var_21563_8_non_const_i))) , (&__T95))));
+# 833 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21565_8_non_const_r, 0,sizeof(__cuda_local_var_21565_8_non_const_r));
+# 833 "./multiexp32.cu"
+__cuda_local_var_21565_8_non_const_r = (Fq_sub(((*(Fq *)&__cuda_local_var_21557_12_non_const_s2)), __cuda_local_var_21556_6_non_const_s1));
+# 833 "./multiexp32.cu"
+__cuda_local_var_21565_8_non_const_r = (Fq_double(__cuda_local_var_21565_8_non_const_r));
+# 834 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21566_14_non_const_v, 0,sizeof(__cuda_local_var_21566_14_non_const_v));
+# 834 "./multiexp32.cu"
+__cuda_local_var_21566_14_non_const_v = (*((const Fq *)((__T96 = (Fq_mul(((*(Fq *)&__cuda_local_var_21554_12_non_const_u1)), __cuda_local_var_21563_8_non_const_i))) , (&__T96))));
+# 835 "./multiexp32.cu"
+(a.x) = (Fq_sub((Fq_sub((Fq_sub((Fq_sqr(__cuda_local_var_21565_8_non_const_r)), ((*(Fq *)&__cuda_local_var_21564_14_non_const_j)))), ((*(Fq *)&__cuda_local_var_21566_14_non_const_v)))), ((*(Fq *)&__cuda_local_var_21566_14_non_const_v))));
+# 838 "./multiexp32.cu"
+(a.y) = (Fq_mul((Fq_sub(((*(Fq *)&__cuda_local_var_21566_14_non_const_v)), (a.x))), __cuda_local_var_21565_8_non_const_r));
+# 839 "./multiexp32.cu"
+__cuda_local_var_21556_6_non_const_s1 = (Fq_mul(__cuda_local_var_21556_6_non_const_s1, ((*(Fq *)&__cuda_local_var_21564_14_non_const_j))));
+# 839 "./multiexp32.cu"
+__cuda_local_var_21556_6_non_const_s1 = (Fq_double(__cuda_local_var_21556_6_non_const_s1));
+# 840 "./multiexp32.cu"
+(a.y) = (Fq_sub((a.y), __cuda_local_var_21556_6_non_const_s1));
+# 843 "./multiexp32.cu"
+(a.z) = (Fq_add((a.z), (b.z)));
+# 843 "./multiexp32.cu"
+(a.z) = (Fq_sqr((a.z)));
+# 844 "./multiexp32.cu"
+(a.z) = (Fq_sub((Fq_sub((a.z), ((*(Fq *)&__cuda_local_var_21552_12_non_const_z1z1)))), ((*(Fq *)&__cuda_local_var_21553_12_non_const_z2z2))));
+# 845 "./multiexp32.cu"
+(a.z) = (Fq_mul((a.z), ((*(Fq *)&__cuda_local_var_21562_14_non_const_h))));
+# 847 "./multiexp32.cu"
+return a;
+# 848 "./multiexp32.cu"
+}
+# 849 "./multiexp32.cu"
+}}
+# 935 "./multiexp32.cu"
+___device__(static  __no_sc__) __nv_bool Fq2_eq(
+# 935 "./multiexp32.cu"
+Fq2 a, 
+# 935 "./multiexp32.cu"
+Fq2 b){
+# 935 "./multiexp32.cu"
+{
+# 936 "./multiexp32.cu"
+return (__nv_bool)((Fq_eq((a.c0), (b.c0))) && (Fq_eq((a.c1), (b.c1))));
+# 937 "./multiexp32.cu"
+}}
+# 938 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_sub(
+# 938 "./multiexp32.cu"
+Fq2 a, 
+# 938 "./multiexp32.cu"
+Fq2 b){
+# 938 "./multiexp32.cu"
+{
+# 939 "./multiexp32.cu"
+(a.c0) = (Fq_sub((a.c0), (b.c0)));
+# 940 "./multiexp32.cu"
+(a.c1) = (Fq_sub((a.c1), (b.c1)));
+# 941 "./multiexp32.cu"
+return a;
+# 942 "./multiexp32.cu"
+}}
+# 943 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_add(
+# 943 "./multiexp32.cu"
+Fq2 a, 
+# 943 "./multiexp32.cu"
+Fq2 b){
+# 943 "./multiexp32.cu"
+{
+# 944 "./multiexp32.cu"
+(a.c0) = (Fq_add((a.c0), (b.c0)));
+# 945 "./multiexp32.cu"
+(a.c1) = (Fq_add((a.c1), (b.c1)));
+# 946 "./multiexp32.cu"
+return a;
+# 947 "./multiexp32.cu"
+}}
+# 948 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_double(
+# 948 "./multiexp32.cu"
+Fq2 a){
+# 948 "./multiexp32.cu"
+{
+# 949 "./multiexp32.cu"
+(a.c0) = (Fq_double((a.c0)));
+# 950 "./multiexp32.cu"
+(a.c1) = (Fq_double((a.c1)));
+# 951 "./multiexp32.cu"
+return a;
+# 952 "./multiexp32.cu"
+}}
+# 960 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_mul(
+# 960 "./multiexp32.cu"
+Fq2 a, 
+# 960 "./multiexp32.cu"
+Fq2 b){
+# 960 "./multiexp32.cu"
+{  Fq __T97;
+ Fq __T98;
+ Fq __T99;
+# 961 "./multiexp32.cu"
+ Fq __cuda_local_var_21675_12_non_const_aa;
+# 962 "./multiexp32.cu"
+ Fq __cuda_local_var_21676_12_non_const_bb;
+# 963 "./multiexp32.cu"
+ Fq __cuda_local_var_21677_12_non_const_o;
+# 961 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21675_12_non_const_aa, 0,sizeof(__cuda_local_var_21675_12_non_const_aa));
+# 961 "./multiexp32.cu"
+__cuda_local_var_21675_12_non_const_aa = (*((const Fq *)((__T97 = (Fq_mul((a.c0), (b.c0)))) , (&__T97))));
+# 962 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21676_12_non_const_bb, 0,sizeof(__cuda_local_var_21676_12_non_const_bb));
+# 962 "./multiexp32.cu"
+__cuda_local_var_21676_12_non_const_bb = (*((const Fq *)((__T98 = (Fq_mul((a.c1), (b.c1)))) , (&__T98))));
+# 963 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21677_12_non_const_o, 0,sizeof(__cuda_local_var_21677_12_non_const_o));
+# 963 "./multiexp32.cu"
+__cuda_local_var_21677_12_non_const_o = (*((const Fq *)((__T99 = (Fq_add((b.c0), (b.c1)))) , (&__T99))));
+# 964 "./multiexp32.cu"
+(a.c1) = (Fq_add((a.c1), (a.c0)));
+# 965 "./multiexp32.cu"
+(a.c1) = (Fq_mul((a.c1), ((*(Fq *)&__cuda_local_var_21677_12_non_const_o))));
+# 966 "./multiexp32.cu"
+(a.c1) = (Fq_sub((a.c1), ((*(Fq *)&__cuda_local_var_21675_12_non_const_aa))));
+# 967 "./multiexp32.cu"
+(a.c1) = (Fq_sub((a.c1), ((*(Fq *)&__cuda_local_var_21676_12_non_const_bb))));
+# 968 "./multiexp32.cu"
+(a.c0) = (Fq_sub(((*(Fq *)&__cuda_local_var_21675_12_non_const_aa)), ((*(Fq *)&__cuda_local_var_21676_12_non_const_bb))));
+# 969 "./multiexp32.cu"
+return a;
+# 970 "./multiexp32.cu"
+}}
+# 978 "./multiexp32.cu"
+___device__(static  __no_sc__) Fq2 Fq2_sqr(
+# 978 "./multiexp32.cu"
+Fq2 a){
+# 978 "./multiexp32.cu"
+{  Fq __T100;
+ Fq __T101;
+# 979 "./multiexp32.cu"
+ Fq __cuda_local_var_21693_12_non_const_ab;
+# 980 "./multiexp32.cu"
+ Fq __cuda_local_var_21694_12_non_const_c0c1;
+# 979 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21693_12_non_const_ab, 0,sizeof(__cuda_local_var_21693_12_non_const_ab));
+# 979 "./multiexp32.cu"
+__cuda_local_var_21693_12_non_const_ab = (*((const Fq *)((__T100 = (Fq_mul((a.c0), (a.c1)))) , (&__T100))));
+# 980 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21694_12_non_const_c0c1, 0,sizeof(__cuda_local_var_21694_12_non_const_c0c1));
+# 980 "./multiexp32.cu"
+__cuda_local_var_21694_12_non_const_c0c1 = (*((const Fq *)((__T101 = (Fq_add((a.c0), (a.c1)))) , (&__T101))));
+# 981 "./multiexp32.cu"
+(a.c0) = (Fq_mul((Fq_sub((a.c0), (a.c1))), ((*(Fq *)&__cuda_local_var_21694_12_non_const_c0c1))));
+# 982 "./multiexp32.cu"
+(a.c1) = (Fq_double(((*(Fq *)&__cuda_local_var_21693_12_non_const_ab))));
+# 983 "./multiexp32.cu"
+return a;
+# 984 "./multiexp32.cu"
+}}
+# 1011 "./multiexp32.cu"
+___device__(static  __no_sc__) G2_projective G2_double(
+# 1011 "./multiexp32.cu"
+G2_projective inp){
+# 1011 "./multiexp32.cu"
+{  Fq2 __T102;
+ Fq2 __T103;
+ Fq2 __T104;
+ Fq2 __T105;
+# 1012 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21719_13_const_local_zero;
+# 1017 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21724_13_non_const_a;
+# 1018 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21725_13_non_const_b;
+# 1019 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21726_7_non_const_c;
+# 1022 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21729_7_non_const_d;
+# 1025 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21732_13_non_const_e;
+# 1026 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21733_13_non_const_f;
+# 1012 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21719_13_const_local_zero, 0,sizeof(__cuda_local_var_21719_13_const_local_zero));
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[0] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[1] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[2] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[3] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[4] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[5] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[6] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[7] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[8] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[9] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[10] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c0.val[11] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[0] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[1] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[2] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[3] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[4] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[5] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[6] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[7] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[8] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[9] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[10] = 0U;
+# 1012 "./multiexp32.cu"
+__cuda_local_var_21719_13_const_local_zero.c1.val[11] = 0U;
+# 1013 "./multiexp32.cu"
+if (Fq2_eq((inp.z), ((*(Fq2 *)&__cuda_local_var_21719_13_const_local_zero))))
+# 1013 "./multiexp32.cu"
+{
+# 1014 "./multiexp32.cu"
+return inp;
+# 1015 "./multiexp32.cu"
+}
+# 1017 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21724_13_non_const_a, 0,sizeof(__cuda_local_var_21724_13_non_const_a));
+# 1017 "./multiexp32.cu"
+__cuda_local_var_21724_13_non_const_a = (*((const Fq2 *)((__T102 = (Fq2_sqr((inp.x)))) , (&__T102))));
+# 1018 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21725_13_non_const_b, 0,sizeof(__cuda_local_var_21725_13_non_const_b));
+# 1018 "./multiexp32.cu"
+__cuda_local_var_21725_13_non_const_b = (*((const Fq2 *)((__T103 = (Fq2_sqr((inp.y)))) , (&__T103))));
+# 1019 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21726_7_non_const_c, 0,sizeof(__cuda_local_var_21726_7_non_const_c));
+# 1019 "./multiexp32.cu"
+__cuda_local_var_21726_7_non_const_c = (Fq2_sqr(((*(Fq2 *)&__cuda_local_var_21725_13_non_const_b))));
+# 1022 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21729_7_non_const_d, 0,sizeof(__cuda_local_var_21729_7_non_const_d));
+# 1022 "./multiexp32.cu"
+__cuda_local_var_21729_7_non_const_d = (Fq2_add((inp.x), ((*(Fq2 *)&__cuda_local_var_21725_13_non_const_b))));
+# 1023 "./multiexp32.cu"
+__cuda_local_var_21729_7_non_const_d = (Fq2_sqr(__cuda_local_var_21729_7_non_const_d));
+# 1023 "./multiexp32.cu"
+__cuda_local_var_21729_7_non_const_d = (Fq2_sub((Fq2_sub(__cuda_local_var_21729_7_non_const_d, ((*(Fq2 *)&__cuda_local_var_21724_13_non_const_a)))), __cuda_local_var_21726_7_non_const_c));
+# 1023 "./multiexp32.cu"
+__cuda_local_var_21729_7_non_const_d = (Fq2_double(__cuda_local_var_21729_7_non_const_d));
+# 1025 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21732_13_non_const_e, 0,sizeof(__cuda_local_var_21732_13_non_const_e));
+# 1025 "./multiexp32.cu"
+__cuda_local_var_21732_13_non_const_e = (*((const Fq2 *)((__T104 = (Fq2_add((Fq2_double(((*(Fq2 *)&__cuda_local_var_21724_13_non_const_a)))), ((*(Fq2 *)&__cuda_local_var_21724_13_non_const_a))))) , (&__T104))));
+# 1026 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21733_13_non_const_f, 0,sizeof(__cuda_local_var_21733_13_non_const_f));
+# 1026 "./multiexp32.cu"
+__cuda_local_var_21733_13_non_const_f = (*((const Fq2 *)((__T105 = (Fq2_sqr(((*(Fq2 *)&__cuda_local_var_21732_13_non_const_e))))) , (&__T105))));
+# 1028 "./multiexp32.cu"
+(inp.z) = (Fq2_mul((inp.y), (inp.z)));
+# 1028 "./multiexp32.cu"
+(inp.z) = (Fq2_double((inp.z)));
+# 1029 "./multiexp32.cu"
+(inp.x) = (Fq2_sub((Fq2_sub(((*(Fq2 *)&__cuda_local_var_21733_13_non_const_f)), __cuda_local_var_21729_7_non_const_d)), __cuda_local_var_21729_7_non_const_d));
+# 1032 "./multiexp32.cu"
+__cuda_local_var_21726_7_non_const_c = (Fq2_double(__cuda_local_var_21726_7_non_const_c));
+# 1032 "./multiexp32.cu"
+__cuda_local_var_21726_7_non_const_c = (Fq2_double(__cuda_local_var_21726_7_non_const_c));
+# 1032 "./multiexp32.cu"
+__cuda_local_var_21726_7_non_const_c = (Fq2_double(__cuda_local_var_21726_7_non_const_c));
+# 1033 "./multiexp32.cu"
+(inp.y) = (Fq2_sub((Fq2_mul((Fq2_sub(__cuda_local_var_21729_7_non_const_d, (inp.x))), ((*(Fq2 *)&__cuda_local_var_21732_13_non_const_e)))), __cuda_local_var_21726_7_non_const_c));
+# 1035 "./multiexp32.cu"
+return inp;
+# 1036 "./multiexp32.cu"
+}}
+# 1039 "./multiexp32.cu"
+___device__(static  __no_sc__) G2_projective G2_add_mixed(
+# 1039 "./multiexp32.cu"
+G2_projective a, 
+# 1039 "./multiexp32.cu"
+G2_affine b){
+# 1039 "./multiexp32.cu"
+{  Fq2 __T106;
+ Fq2 __T107;
+ Fq2 __T108;
+ Fq2 __T109;
+ Fq2 __T110;
+ Fq2 __T111;
+# 1046 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21753_13_const_local_zero;
+# 1055 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21762_13_non_const_z1z1;
+# 1056 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21763_13_non_const_u2;
+# 1057 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21764_13_non_const_s2;
+# 1063 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21770_13_non_const_h;
+# 1064 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21771_13_non_const_hh;
+# 1065 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21772_7_non_const_i;
+# 1066 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21773_7_non_const_j;
+# 1067 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21774_7_non_const_r;
+# 1068 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21775_13_non_const_v;
+# 1070 "./multiexp32.cu"
+ G2_projective __cuda_local_var_21777_17_non_const_ret;
+# 1041 "./multiexp32.cu"
+if (b.inf)
+# 1041 "./multiexp32.cu"
+{
+# 1042 "./multiexp32.cu"
+return a;
+# 1043 "./multiexp32.cu"
+}
+# 1046 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21753_13_const_local_zero, 0,sizeof(__cuda_local_var_21753_13_const_local_zero));
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[0] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[1] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[2] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[3] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[4] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[5] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[6] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[7] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[8] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[9] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[10] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c0.val[11] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[0] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[1] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[2] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[3] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[4] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[5] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[6] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[7] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[8] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[9] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[10] = 0U;
+# 1046 "./multiexp32.cu"
+__cuda_local_var_21753_13_const_local_zero.c1.val[11] = 0U;
+# 1047 "./multiexp32.cu"
+if (Fq2_eq((a.z), ((*(Fq2 *)&__cuda_local_var_21753_13_const_local_zero))))
+# 1047 "./multiexp32.cu"
+{
+# 1048 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21755_15_const_local_one;
+# 1048 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21755_15_const_local_one, 0,sizeof(__cuda_local_var_21755_15_const_local_one));
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[0] = 196605U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[1] = 1980301312U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[2] = 3289120770U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[3] = 3958636555U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[4] = 1405573306U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[5] = 1598593111U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[6] = 1884444485U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[7] = 2010011731U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[8] = 2723605613U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[9] = 1543969431U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[10] = 4202751123U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c0.val[11] = 368467651U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[0] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[1] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[2] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[3] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[4] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[5] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[6] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[7] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[8] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[9] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[10] = 0U;
+# 1048 "./multiexp32.cu"
+__cuda_local_var_21755_15_const_local_one.c1.val[11] = 0U;
+# 1049 "./multiexp32.cu"
+(a.x) = (b.x);
+# 1050 "./multiexp32.cu"
+(a.y) = (b.y);
+# 1051 "./multiexp32.cu"
+(a.z) = __cuda_local_var_21755_15_const_local_one;
+# 1052 "./multiexp32.cu"
+return a;
+# 1053 "./multiexp32.cu"
+}
+# 1055 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21762_13_non_const_z1z1, 0,sizeof(__cuda_local_var_21762_13_non_const_z1z1));
+# 1055 "./multiexp32.cu"
+__cuda_local_var_21762_13_non_const_z1z1 = (*((const Fq2 *)((__T106 = (Fq2_sqr((a.z)))) , (&__T106))));
+# 1056 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21763_13_non_const_u2, 0,sizeof(__cuda_local_var_21763_13_non_const_u2));
+# 1056 "./multiexp32.cu"
+__cuda_local_var_21763_13_non_const_u2 = (*((const Fq2 *)((__T107 = (Fq2_mul((b.x), ((*(Fq2 *)&__cuda_local_var_21762_13_non_const_z1z1))))) , (&__T107))));
+# 1057 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21764_13_non_const_s2, 0,sizeof(__cuda_local_var_21764_13_non_const_s2));
+# 1057 "./multiexp32.cu"
+__cuda_local_var_21764_13_non_const_s2 = (*((const Fq2 *)((__T108 = (Fq2_mul((Fq2_mul((b.y), (a.z))), ((*(Fq2 *)&__cuda_local_var_21762_13_non_const_z1z1))))) , (&__T108))));
+# 1059 "./multiexp32.cu"
+if ((Fq2_eq((a.x), ((*(Fq2 *)&__cuda_local_var_21763_13_non_const_u2)))) && (Fq2_eq((a.y), ((*(Fq2 *)&__cuda_local_var_21764_13_non_const_s2)))))
+# 1059 "./multiexp32.cu"
+{
+# 1060 "./multiexp32.cu"
+return G2_double(a);
+# 1061 "./multiexp32.cu"
+}
+# 1063 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21770_13_non_const_h, 0,sizeof(__cuda_local_var_21770_13_non_const_h));
+# 1063 "./multiexp32.cu"
+__cuda_local_var_21770_13_non_const_h = (*((const Fq2 *)((__T109 = (Fq2_sub(((*(Fq2 *)&__cuda_local_var_21763_13_non_const_u2)), (a.x)))) , (&__T109))));
+# 1064 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21771_13_non_const_hh, 0,sizeof(__cuda_local_var_21771_13_non_const_hh));
+# 1064 "./multiexp32.cu"
+__cuda_local_var_21771_13_non_const_hh = (*((const Fq2 *)((__T110 = (Fq2_sqr(((*(Fq2 *)&__cuda_local_var_21770_13_non_const_h))))) , (&__T110))));
+# 1065 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21772_7_non_const_i, 0,sizeof(__cuda_local_var_21772_7_non_const_i));
+# 1065 "./multiexp32.cu"
+__cuda_local_var_21772_7_non_const_i = (Fq2_double(((*(Fq2 *)&__cuda_local_var_21771_13_non_const_hh))));
+# 1065 "./multiexp32.cu"
+__cuda_local_var_21772_7_non_const_i = (Fq2_double(__cuda_local_var_21772_7_non_const_i));
+# 1066 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21773_7_non_const_j, 0,sizeof(__cuda_local_var_21773_7_non_const_j));
+# 1066 "./multiexp32.cu"
+__cuda_local_var_21773_7_non_const_j = (Fq2_mul(((*(Fq2 *)&__cuda_local_var_21770_13_non_const_h)), __cuda_local_var_21772_7_non_const_i));
+# 1067 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21774_7_non_const_r, 0,sizeof(__cuda_local_var_21774_7_non_const_r));
+# 1067 "./multiexp32.cu"
+__cuda_local_var_21774_7_non_const_r = (Fq2_sub(((*(Fq2 *)&__cuda_local_var_21764_13_non_const_s2)), (a.y)));
+# 1067 "./multiexp32.cu"
+__cuda_local_var_21774_7_non_const_r = (Fq2_double(__cuda_local_var_21774_7_non_const_r));
+# 1068 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21775_13_non_const_v, 0,sizeof(__cuda_local_var_21775_13_non_const_v));
+# 1068 "./multiexp32.cu"
+__cuda_local_var_21775_13_non_const_v = (*((const Fq2 *)((__T111 = (Fq2_mul((a.x), __cuda_local_var_21772_7_non_const_i))) , (&__T111))));
+# 1073 "./multiexp32.cu"
+(__cuda_local_var_21777_17_non_const_ret.x) = (Fq2_sub((Fq2_sub((Fq2_sqr(__cuda_local_var_21774_7_non_const_r)), __cuda_local_var_21773_7_non_const_j)), (Fq2_double(((*(Fq2 *)&__cuda_local_var_21775_13_non_const_v))))));
+# 1076 "./multiexp32.cu"
+__cuda_local_var_21773_7_non_const_j = (Fq2_mul((a.y), __cuda_local_var_21773_7_non_const_j));
+# 1076 "./multiexp32.cu"
+__cuda_local_var_21773_7_non_const_j = (Fq2_double(__cuda_local_var_21773_7_non_const_j));
+# 1077 "./multiexp32.cu"
+(__cuda_local_var_21777_17_non_const_ret.y) = (Fq2_sub((Fq2_mul((Fq2_sub(((*(Fq2 *)&__cuda_local_var_21775_13_non_const_v)), (__cuda_local_var_21777_17_non_const_ret.x))), __cuda_local_var_21774_7_non_const_r)), __cuda_local_var_21773_7_non_const_j));
+# 1080 "./multiexp32.cu"
+(__cuda_local_var_21777_17_non_const_ret.z) = (Fq2_add((a.z), ((*(Fq2 *)&__cuda_local_var_21770_13_non_const_h))));
+# 1080 "./multiexp32.cu"
+(__cuda_local_var_21777_17_non_const_ret.z) = (Fq2_sub((Fq2_sub((Fq2_sqr((__cuda_local_var_21777_17_non_const_ret.z))), ((*(Fq2 *)&__cuda_local_var_21762_13_non_const_z1z1)))), ((*(Fq2 *)&__cuda_local_var_21771_13_non_const_hh))));
+# 1081 "./multiexp32.cu"
+return __cuda_local_var_21777_17_non_const_ret;
+# 1082 "./multiexp32.cu"
+}}
+# 1085 "./multiexp32.cu"
+___device__(static  __no_sc__) G2_projective G2_add(
+# 1085 "./multiexp32.cu"
+G2_projective a, 
+# 1085 "./multiexp32.cu"
+G2_projective b){
+# 1085 "./multiexp32.cu"
+{  Fq2 __T112;
+ Fq2 __T113;
+ Fq2 __T114;
+ Fq2 __T115;
+ Fq2 __T116;
+# 1087 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21794_13_const_local_zero;
+# 1091 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21798_13_non_const_z1z1;
+# 1092 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21799_13_non_const_z2z2;
+# 1093 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21800_13_non_const_u1;
+# 1094 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21801_13_non_const_u2;
+# 1095 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21802_7_non_const_s1;
+# 1096 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21803_13_non_const_s2;
+# 1087 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21794_13_const_local_zero, 0,sizeof(__cuda_local_var_21794_13_const_local_zero));
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[0] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[1] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[2] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[3] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[4] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[5] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[6] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[7] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[8] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[9] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[10] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c0.val[11] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[0] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[1] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[2] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[3] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[4] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[5] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[6] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[7] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[8] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[9] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[10] = 0U;
+# 1087 "./multiexp32.cu"
+__cuda_local_var_21794_13_const_local_zero.c1.val[11] = 0U;
+# 1088 "./multiexp32.cu"
+if (Fq2_eq((a.z), ((*(Fq2 *)&__cuda_local_var_21794_13_const_local_zero)))) {
+# 1088 "./multiexp32.cu"
+return b; }
+# 1089 "./multiexp32.cu"
+if (Fq2_eq((b.z), ((*(Fq2 *)&__cuda_local_var_21794_13_const_local_zero)))) {
+# 1089 "./multiexp32.cu"
+return a; }
+# 1091 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21798_13_non_const_z1z1, 0,sizeof(__cuda_local_var_21798_13_non_const_z1z1));
+# 1091 "./multiexp32.cu"
+__cuda_local_var_21798_13_non_const_z1z1 = (*((const Fq2 *)((__T112 = (Fq2_sqr((a.z)))) , (&__T112))));
+# 1092 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21799_13_non_const_z2z2, 0,sizeof(__cuda_local_var_21799_13_non_const_z2z2));
+# 1092 "./multiexp32.cu"
+__cuda_local_var_21799_13_non_const_z2z2 = (*((const Fq2 *)((__T113 = (Fq2_sqr((b.z)))) , (&__T113))));
+# 1093 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21800_13_non_const_u1, 0,sizeof(__cuda_local_var_21800_13_non_const_u1));
+# 1093 "./multiexp32.cu"
+__cuda_local_var_21800_13_non_const_u1 = (*((const Fq2 *)((__T114 = (Fq2_mul((a.x), ((*(Fq2 *)&__cuda_local_var_21799_13_non_const_z2z2))))) , (&__T114))));
+# 1094 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21801_13_non_const_u2, 0,sizeof(__cuda_local_var_21801_13_non_const_u2));
+# 1094 "./multiexp32.cu"
+__cuda_local_var_21801_13_non_const_u2 = (*((const Fq2 *)((__T115 = (Fq2_mul((b.x), ((*(Fq2 *)&__cuda_local_var_21798_13_non_const_z1z1))))) , (&__T115))));
+# 1095 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21802_7_non_const_s1, 0,sizeof(__cuda_local_var_21802_7_non_const_s1));
+# 1095 "./multiexp32.cu"
+__cuda_local_var_21802_7_non_const_s1 = (Fq2_mul((Fq2_mul((a.y), (b.z))), ((*(Fq2 *)&__cuda_local_var_21799_13_non_const_z2z2))));
+# 1096 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21803_13_non_const_s2, 0,sizeof(__cuda_local_var_21803_13_non_const_s2));
+# 1096 "./multiexp32.cu"
+__cuda_local_var_21803_13_non_const_s2 = (*((const Fq2 *)((__T116 = (Fq2_mul((Fq2_mul((b.y), (a.z))), ((*(Fq2 *)&__cuda_local_var_21798_13_non_const_z1z1))))) , (&__T116))));
+# 1098 "./multiexp32.cu"
+if ((Fq2_eq(((*(Fq2 *)&__cuda_local_var_21800_13_non_const_u1)), ((*(Fq2 *)&__cuda_local_var_21801_13_non_const_u2)))) && (Fq2_eq(__cuda_local_var_21802_7_non_const_s1, ((*(Fq2 *)&__cuda_local_var_21803_13_non_const_s2))))) {
+# 1099 "./multiexp32.cu"
+return G2_double(a); }
+# 1100 "./multiexp32.cu"
+else 
+# 1100 "./multiexp32.cu"
+{  Fq2 __T117;
+ Fq2 __T118;
+ Fq2 __T119;
+# 1101 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21808_15_non_const_h;
+# 1102 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21809_9_non_const_i;
+# 1103 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21810_15_non_const_j;
+# 1104 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21811_9_non_const_r;
+# 1105 "./multiexp32.cu"
+ Fq2 __cuda_local_var_21812_15_non_const_v;
+# 1101 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21808_15_non_const_h, 0,sizeof(__cuda_local_var_21808_15_non_const_h));
+# 1101 "./multiexp32.cu"
+__cuda_local_var_21808_15_non_const_h = (*((const Fq2 *)((__T117 = (Fq2_sub(((*(Fq2 *)&__cuda_local_var_21801_13_non_const_u2)), ((*(Fq2 *)&__cuda_local_var_21800_13_non_const_u1))))) , (&__T117))));
+# 1102 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21809_9_non_const_i, 0,sizeof(__cuda_local_var_21809_9_non_const_i));
+# 1102 "./multiexp32.cu"
+__cuda_local_var_21809_9_non_const_i = (Fq2_double(((*(Fq2 *)&__cuda_local_var_21808_15_non_const_h))));
+# 1102 "./multiexp32.cu"
+__cuda_local_var_21809_9_non_const_i = (Fq2_sqr(__cuda_local_var_21809_9_non_const_i));
+# 1103 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21810_15_non_const_j, 0,sizeof(__cuda_local_var_21810_15_non_const_j));
+# 1103 "./multiexp32.cu"
+__cuda_local_var_21810_15_non_const_j = (*((const Fq2 *)((__T118 = (Fq2_mul(((*(Fq2 *)&__cuda_local_var_21808_15_non_const_h)), __cuda_local_var_21809_9_non_const_i))) , (&__T118))));
+# 1104 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21811_9_non_const_r, 0,sizeof(__cuda_local_var_21811_9_non_const_r));
+# 1104 "./multiexp32.cu"
+__cuda_local_var_21811_9_non_const_r = (Fq2_sub(((*(Fq2 *)&__cuda_local_var_21803_13_non_const_s2)), __cuda_local_var_21802_7_non_const_s1));
+# 1104 "./multiexp32.cu"
+__cuda_local_var_21811_9_non_const_r = (Fq2_double(__cuda_local_var_21811_9_non_const_r));
+# 1105 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21812_15_non_const_v, 0,sizeof(__cuda_local_var_21812_15_non_const_v));
+# 1105 "./multiexp32.cu"
+__cuda_local_var_21812_15_non_const_v = (*((const Fq2 *)((__T119 = (Fq2_mul(((*(Fq2 *)&__cuda_local_var_21800_13_non_const_u1)), __cuda_local_var_21809_9_non_const_i))) , (&__T119))));
+# 1106 "./multiexp32.cu"
+(a.x) = (Fq2_sub((Fq2_sub((Fq2_sub((Fq2_sqr(__cuda_local_var_21811_9_non_const_r)), ((*(Fq2 *)&__cuda_local_var_21810_15_non_const_j)))), ((*(Fq2 *)&__cuda_local_var_21812_15_non_const_v)))), ((*(Fq2 *)&__cuda_local_var_21812_15_non_const_v))));
+# 1109 "./multiexp32.cu"
+(a.y) = (Fq2_mul((Fq2_sub(((*(Fq2 *)&__cuda_local_var_21812_15_non_const_v)), (a.x))), __cuda_local_var_21811_9_non_const_r));
+# 1110 "./multiexp32.cu"
+__cuda_local_var_21802_7_non_const_s1 = (Fq2_mul(__cuda_local_var_21802_7_non_const_s1, ((*(Fq2 *)&__cuda_local_var_21810_15_non_const_j))));
+# 1110 "./multiexp32.cu"
+__cuda_local_var_21802_7_non_const_s1 = (Fq2_double(__cuda_local_var_21802_7_non_const_s1));
+# 1111 "./multiexp32.cu"
+(a.y) = (Fq2_sub((a.y), __cuda_local_var_21802_7_non_const_s1));
+# 1114 "./multiexp32.cu"
+(a.z) = (Fq2_add((a.z), (b.z)));
+# 1114 "./multiexp32.cu"
+(a.z) = (Fq2_sqr((a.z)));
+# 1115 "./multiexp32.cu"
+(a.z) = (Fq2_sub((Fq2_sub((a.z), ((*(Fq2 *)&__cuda_local_var_21798_13_non_const_z1z1)))), ((*(Fq2 *)&__cuda_local_var_21799_13_non_const_z2z2))));
+# 1116 "./multiexp32.cu"
+(a.z) = (Fq2_mul((a.z), ((*(Fq2 *)&__cuda_local_var_21808_15_non_const_h))));
+# 1118 "./multiexp32.cu"
+return a;
+# 1119 "./multiexp32.cu"
+}
+# 1120 "./multiexp32.cu"
+}}
+# 862 "./multiexp32.cu"
+__global__ __var_used__ void G1_bellman_multiexp(
+# 863 "./multiexp32.cu"
+G1_affine *bases, 
+# 864 "./multiexp32.cu"
+G1_projective *__val_param(buckets), 
+# 865 "./multiexp32.cu"
+G1_projective *results, 
+# 866 "./multiexp32.cu"
+Fr *exps, 
+# 867 "./multiexp32.cu"
+uint n, 
+# 868 "./multiexp32.cu"
+uint num_groups, 
+# 869 "./multiexp32.cu"
+uint num_windows, 
+# 870 "./multiexp32.cu"
+uint window_size){__copy_param(G1_projective *buckets,__val_param(buckets));
+# 870 "./multiexp32.cu"
+{  unsigned __T120;
+# 873 "./multiexp32.cu"
+ uint __cuda_local_var_21594_14_non_const_gid;
+# 877 "./multiexp32.cu"
+ uint __cuda_local_var_21598_14_non_const_bucket_len;
+# 882 "./multiexp32.cu"
+ G1_projective __cuda_local_var_21603_23_const_local_zero;
+# 885 "./multiexp32.cu"
+ uint __cuda_local_var_21606_14_non_const_len;
+# 889 "./multiexp32.cu"
+ uint __cuda_local_var_21610_14_non_const_nstart;
+# 890 "./multiexp32.cu"
+ uint __cuda_local_var_21611_14_non_const_nend;
+# 891 "./multiexp32.cu"
+ uint __cuda_local_var_21612_14_non_const_bits;
+# 892 "./multiexp32.cu"
+ ushort __cuda_local_var_21613_16_non_const_w;
+# 894 "./multiexp32.cu"
+ G1_projective __cuda_local_var_21615_17_non_const_res;
+# 914 "./multiexp32.cu"
+ G1_projective __cuda_local_var_21635_17_non_const_acc;
+# 873 "./multiexp32.cu"
+__cuda_local_var_21594_14_non_const_gid = (((blockIdx.x) * (blockDim.x)) + (threadIdx.x));
+# 874 "./multiexp32.cu"
+if (__cuda_local_var_21594_14_non_const_gid >= (num_windows * num_groups)) {
+# 874 "./multiexp32.cu"
+return; }
+# 877 "./multiexp32.cu"
+__cuda_local_var_21598_14_non_const_bucket_len = ((uint)((1 << window_size) - 1));
+# 880 "./multiexp32.cu"
+buckets += (__cuda_local_var_21598_14_non_const_bucket_len * __cuda_local_var_21594_14_non_const_gid);
+# 882 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21603_23_const_local_zero, 0,sizeof(__cuda_local_var_21603_23_const_local_zero));
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[0] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[1] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[2] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[3] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[4] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[5] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[6] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[7] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[8] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[9] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[10] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.x.val[11] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[0] = 196605U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[1] = 1980301312U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[2] = 3289120770U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[3] = 3958636555U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[4] = 1405573306U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[5] = 1598593111U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[6] = 1884444485U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[7] = 2010011731U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[8] = 2723605613U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[9] = 1543969431U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[10] = 4202751123U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.y.val[11] = 368467651U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[0] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[1] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[2] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[3] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[4] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[5] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[6] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[7] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[8] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[9] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[10] = 0U;
+# 882 "./multiexp32.cu"
+__cuda_local_var_21603_23_const_local_zero.z.val[11] = 0U;
+# 883 "./multiexp32.cu"
+{
+# 883 "./multiexp32.cu"
+ uint i;
+# 883 "./multiexp32.cu"
+i = 0U;
+# 883 "./multiexp32.cu"
+for (; (i < __cuda_local_var_21598_14_non_const_bucket_len); i++) {
+# 883 "./multiexp32.cu"
+(buckets[i]) = __cuda_local_var_21603_23_const_local_zero; } }
+# 885 "./multiexp32.cu"
+__cuda_local_var_21606_14_non_const_len = ((uint)(_ZSt4ceilf(( fdividef(((float)n) , ((float)num_groups))))));
+# 889 "./multiexp32.cu"
+__cuda_local_var_21610_14_non_const_nstart = (__cuda_local_var_21606_14_non_const_len * (__cuda_local_var_21594_14_non_const_gid / num_windows));
+# 890 "./multiexp32.cu"
+__cuda_local_var_21611_14_non_const_nend = ((__T120 = (__cuda_local_var_21610_14_non_const_nstart + __cuda_local_var_21606_14_non_const_len)) , (umin(__T120, n)));
+# 891 "./multiexp32.cu"
+__cuda_local_var_21612_14_non_const_bits = ((__cuda_local_var_21594_14_non_const_gid % num_windows) * window_size);
+# 892 "./multiexp32.cu"
+__cuda_local_var_21613_16_non_const_w = ((ushort)(min(((int)((ushort)window_size)), ((int)((ushort)(256U - __cuda_local_var_21612_14_non_const_bits))))));
+# 894 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21615_17_non_const_res, 0,sizeof(__cuda_local_var_21615_17_non_const_res));
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[0] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[1] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[2] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[3] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[4] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[5] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[6] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[7] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[8] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[9] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[10] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.x.val[11] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[0] = 196605U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[1] = 1980301312U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[2] = 3289120770U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[3] = 3958636555U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[4] = 1405573306U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[5] = 1598593111U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[6] = 1884444485U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[7] = 2010011731U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[8] = 2723605613U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[9] = 1543969431U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[10] = 4202751123U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.y.val[11] = 368467651U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[0] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[1] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[2] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[3] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[4] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[5] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[6] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[7] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[8] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[9] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[10] = 0U;
+# 894 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res.z.val[11] = 0U;
+# 895 "./multiexp32.cu"
+{
+# 895 "./multiexp32.cu"
+ uint i;
+# 895 "./multiexp32.cu"
+i = __cuda_local_var_21610_14_non_const_nstart;
+# 895 "./multiexp32.cu"
+for (; (i < __cuda_local_var_21611_14_non_const_nend); i++)
+# 895 "./multiexp32.cu"
+{
+# 896 "./multiexp32.cu"
+ uint __cuda_local_var_21617_10_non_const_ind;
+# 896 "./multiexp32.cu"
+__cuda_local_var_21617_10_non_const_ind = (Fr_get_bits((exps[i]), __cuda_local_var_21612_14_non_const_bits, ((uint)__cuda_local_var_21613_16_non_const_w)));
+# 903 "./multiexp32.cu"
+if (__cuda_local_var_21617_10_non_const_ind == 511U) {
+# 903 "./multiexp32.cu"
+(buckets[510]) = (G1_add_mixed((buckets[510]), (bases[i]))); } else  {
+# 904 "./multiexp32.cu"
+if (__cuda_local_var_21617_10_non_const_ind--) {
+# 904 "./multiexp32.cu"
+(buckets[__cuda_local_var_21617_10_non_const_ind]) = (G1_add_mixed((buckets[__cuda_local_var_21617_10_non_const_ind]), (bases[i]))); } }
+# 908 "./multiexp32.cu"
+} }
+# 914 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21635_17_non_const_acc, 0,sizeof(__cuda_local_var_21635_17_non_const_acc));
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[0] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[1] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[2] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[3] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[4] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[5] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[6] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[7] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[8] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[9] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[10] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.x.val[11] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[0] = 196605U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[1] = 1980301312U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[2] = 3289120770U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[3] = 3958636555U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[4] = 1405573306U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[5] = 1598593111U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[6] = 1884444485U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[7] = 2010011731U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[8] = 2723605613U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[9] = 1543969431U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[10] = 4202751123U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.y.val[11] = 368467651U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[0] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[1] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[2] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[3] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[4] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[5] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[6] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[7] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[8] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[9] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[10] = 0U;
+# 914 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc.z.val[11] = 0U;
+# 915 "./multiexp32.cu"
+{
+# 915 "./multiexp32.cu"
+ int j;
+# 915 "./multiexp32.cu"
+j = ((int)(__cuda_local_var_21598_14_non_const_bucket_len - 1U));
+# 915 "./multiexp32.cu"
+for (; (j >= 0); j--)
+# 915 "./multiexp32.cu"
+{
+# 916 "./multiexp32.cu"
+__cuda_local_var_21635_17_non_const_acc = (G1_add(__cuda_local_var_21635_17_non_const_acc, (buckets[j])));
+# 917 "./multiexp32.cu"
+__cuda_local_var_21615_17_non_const_res = (G1_add(__cuda_local_var_21615_17_non_const_res, __cuda_local_var_21635_17_non_const_acc));
+# 918 "./multiexp32.cu"
+} }
+# 920 "./multiexp32.cu"
+(results[__cuda_local_var_21594_14_non_const_gid]) = __cuda_local_var_21615_17_non_const_res; 
+# 921 "./multiexp32.cu"
+}}
+# 1133 "./multiexp32.cu"
+__global__ __var_used__ void G2_bellman_multiexp(
+# 1134 "./multiexp32.cu"
+G2_affine *bases, 
+# 1135 "./multiexp32.cu"
+G2_projective *__val_param(buckets), 
+# 1136 "./multiexp32.cu"
+G2_projective *results, 
+# 1137 "./multiexp32.cu"
+Fr *exps, 
+# 1138 "./multiexp32.cu"
+uint n, 
+# 1139 "./multiexp32.cu"
+uint num_groups, 
+# 1140 "./multiexp32.cu"
+uint num_windows, 
+# 1141 "./multiexp32.cu"
+uint window_size){__copy_param(G2_projective *buckets,__val_param(buckets));
+# 1141 "./multiexp32.cu"
+{  unsigned __T121;
+# 1144 "./multiexp32.cu"
+ uint __cuda_local_var_21840_14_non_const_gid;
+# 1148 "./multiexp32.cu"
+ uint __cuda_local_var_21844_14_non_const_bucket_len;
+# 1153 "./multiexp32.cu"
+ G2_projective __cuda_local_var_21849_23_const_local_zero;
+# 1156 "./multiexp32.cu"
+ uint __cuda_local_var_21852_14_non_const_len;
+# 1160 "./multiexp32.cu"
+ uint __cuda_local_var_21856_14_non_const_nstart;
+# 1161 "./multiexp32.cu"
+ uint __cuda_local_var_21857_14_non_const_nend;
+# 1162 "./multiexp32.cu"
+ uint __cuda_local_var_21858_14_non_const_bits;
+# 1163 "./multiexp32.cu"
+ ushort __cuda_local_var_21859_16_non_const_w;
+# 1165 "./multiexp32.cu"
+ G2_projective __cuda_local_var_21861_17_non_const_res;
+# 1185 "./multiexp32.cu"
+ G2_projective __cuda_local_var_21881_17_non_const_acc;
+# 1144 "./multiexp32.cu"
+__cuda_local_var_21840_14_non_const_gid = (((blockIdx.x) * (blockDim.x)) + (threadIdx.x));
+# 1145 "./multiexp32.cu"
+if (__cuda_local_var_21840_14_non_const_gid >= (num_windows * num_groups)) {
+# 1145 "./multiexp32.cu"
+return; }
+# 1148 "./multiexp32.cu"
+__cuda_local_var_21844_14_non_const_bucket_len = ((uint)((1 << window_size) - 1));
+# 1151 "./multiexp32.cu"
+buckets += (__cuda_local_var_21844_14_non_const_bucket_len * __cuda_local_var_21840_14_non_const_gid);
+# 1153 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21849_23_const_local_zero, 0,sizeof(__cuda_local_var_21849_23_const_local_zero));
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[0] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[1] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[2] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[3] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[4] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[5] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[6] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[7] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[8] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[9] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[10] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c0.val[11] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[0] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[1] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[2] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[3] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[4] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[5] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[6] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[7] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[8] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[9] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[10] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.x.c1.val[11] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[0] = 196605U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[1] = 1980301312U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[2] = 3289120770U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[3] = 3958636555U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[4] = 1405573306U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[5] = 1598593111U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[6] = 1884444485U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[7] = 2010011731U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[8] = 2723605613U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[9] = 1543969431U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[10] = 4202751123U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c0.val[11] = 368467651U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[0] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[1] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[2] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[3] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[4] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[5] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[6] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[7] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[8] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[9] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[10] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.y.c1.val[11] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[0] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[1] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[2] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[3] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[4] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[5] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[6] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[7] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[8] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[9] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[10] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c0.val[11] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[0] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[1] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[2] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[3] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[4] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[5] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[6] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[7] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[8] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[9] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[10] = 0U;
+# 1153 "./multiexp32.cu"
+__cuda_local_var_21849_23_const_local_zero.z.c1.val[11] = 0U;
+# 1154 "./multiexp32.cu"
+{
+# 1154 "./multiexp32.cu"
+ uint i;
+# 1154 "./multiexp32.cu"
+i = 0U;
+# 1154 "./multiexp32.cu"
+for (; (i < __cuda_local_var_21844_14_non_const_bucket_len); i++) {
+# 1154 "./multiexp32.cu"
+(buckets[i]) = __cuda_local_var_21849_23_const_local_zero; } }
+# 1156 "./multiexp32.cu"
+__cuda_local_var_21852_14_non_const_len = ((uint)(_ZSt4ceilf(( fdividef(((float)n) , ((float)num_groups))))));
+# 1160 "./multiexp32.cu"
+__cuda_local_var_21856_14_non_const_nstart = (__cuda_local_var_21852_14_non_const_len * (__cuda_local_var_21840_14_non_const_gid / num_windows));
+# 1161 "./multiexp32.cu"
+__cuda_local_var_21857_14_non_const_nend = ((__T121 = (__cuda_local_var_21856_14_non_const_nstart + __cuda_local_var_21852_14_non_const_len)) , (umin(__T121, n)));
+# 1162 "./multiexp32.cu"
+__cuda_local_var_21858_14_non_const_bits = ((__cuda_local_var_21840_14_non_const_gid % num_windows) * window_size);
+# 1163 "./multiexp32.cu"
+__cuda_local_var_21859_16_non_const_w = ((ushort)(min(((int)((ushort)window_size)), ((int)((ushort)(256U - __cuda_local_var_21858_14_non_const_bits))))));
+# 1165 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21861_17_non_const_res, 0,sizeof(__cuda_local_var_21861_17_non_const_res));
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[0] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[1] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[2] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[3] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[4] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[5] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[6] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[7] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[8] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[9] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[10] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c0.val[11] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[0] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[1] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[2] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[3] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[4] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[5] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[6] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[7] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[8] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[9] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[10] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.x.c1.val[11] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[0] = 196605U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[1] = 1980301312U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[2] = 3289120770U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[3] = 3958636555U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[4] = 1405573306U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[5] = 1598593111U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[6] = 1884444485U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[7] = 2010011731U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[8] = 2723605613U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[9] = 1543969431U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[10] = 4202751123U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c0.val[11] = 368467651U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[0] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[1] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[2] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[3] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[4] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[5] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[6] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[7] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[8] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[9] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[10] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.y.c1.val[11] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[0] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[1] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[2] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[3] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[4] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[5] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[6] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[7] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[8] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[9] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[10] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c0.val[11] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[0] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[1] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[2] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[3] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[4] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[5] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[6] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[7] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[8] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[9] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[10] = 0U;
+# 1165 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res.z.c1.val[11] = 0U;
+# 1166 "./multiexp32.cu"
+{
+# 1166 "./multiexp32.cu"
+ uint i;
+# 1166 "./multiexp32.cu"
+i = __cuda_local_var_21856_14_non_const_nstart;
+# 1166 "./multiexp32.cu"
+for (; (i < __cuda_local_var_21857_14_non_const_nend); i++)
+# 1166 "./multiexp32.cu"
+{
+# 1167 "./multiexp32.cu"
+ uint __cuda_local_var_21863_10_non_const_ind;
+# 1167 "./multiexp32.cu"
+__cuda_local_var_21863_10_non_const_ind = (Fr_get_bits((exps[i]), __cuda_local_var_21858_14_non_const_bits, ((uint)__cuda_local_var_21859_16_non_const_w)));
+# 1174 "./multiexp32.cu"
+if (__cuda_local_var_21863_10_non_const_ind == 511U) {
+# 1174 "./multiexp32.cu"
+(buckets[510]) = (G2_add_mixed((buckets[510]), (bases[i]))); } else  {
+# 1175 "./multiexp32.cu"
+if (__cuda_local_var_21863_10_non_const_ind--) {
+# 1175 "./multiexp32.cu"
+(buckets[__cuda_local_var_21863_10_non_const_ind]) = (G2_add_mixed((buckets[__cuda_local_var_21863_10_non_const_ind]), (bases[i]))); } }
+# 1179 "./multiexp32.cu"
+} }
+# 1185 "./multiexp32.cu"
+memset((char *)&__cuda_local_var_21881_17_non_const_acc, 0,sizeof(__cuda_local_var_21881_17_non_const_acc));
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[0] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[1] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[2] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[3] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[4] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[5] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[6] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[7] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[8] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[9] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[10] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c0.val[11] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[0] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[1] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[2] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[3] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[4] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[5] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[6] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[7] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[8] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[9] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[10] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.x.c1.val[11] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[0] = 196605U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[1] = 1980301312U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[2] = 3289120770U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[3] = 3958636555U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[4] = 1405573306U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[5] = 1598593111U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[6] = 1884444485U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[7] = 2010011731U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[8] = 2723605613U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[9] = 1543969431U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[10] = 4202751123U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c0.val[11] = 368467651U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[0] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[1] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[2] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[3] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[4] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[5] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[6] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[7] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[8] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[9] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[10] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.y.c1.val[11] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[0] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[1] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[2] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[3] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[4] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[5] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[6] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[7] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[8] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[9] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[10] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c0.val[11] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[0] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[1] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[2] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[3] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[4] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[5] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[6] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[7] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[8] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[9] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[10] = 0U;
+# 1185 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc.z.c1.val[11] = 0U;
+# 1186 "./multiexp32.cu"
+{
+# 1186 "./multiexp32.cu"
+ int j;
+# 1186 "./multiexp32.cu"
+j = ((int)(__cuda_local_var_21844_14_non_const_bucket_len - 1U));
+# 1186 "./multiexp32.cu"
+for (; (j >= 0); j--)
+# 1186 "./multiexp32.cu"
+{
+# 1187 "./multiexp32.cu"
+__cuda_local_var_21881_17_non_const_acc = (G2_add(__cuda_local_var_21881_17_non_const_acc, (buckets[j])));
+# 1188 "./multiexp32.cu"
+__cuda_local_var_21861_17_non_const_res = (G2_add(__cuda_local_var_21861_17_non_const_res, __cuda_local_var_21881_17_non_const_acc));
+# 1189 "./multiexp32.cu"
+} }
+# 1191 "./multiexp32.cu"
+(results[__cuda_local_var_21840_14_non_const_gid]) = __cuda_local_var_21861_17_non_const_res; 
+# 1192 "./multiexp32.cu"
+}}
+# 165 "/usr/include/c++/7/cmath" 3
+___device__(static  __no_sc__) __inline__ __attribute__((visibility("default"))) float _ZSt4ceilf(
+# 165 "/usr/include/c++/7/cmath" 3
+float __x){
+# 166 "/usr/include/c++/7/cmath" 3
+{
+# 166 "/usr/include/c++/7/cmath" 3
+return ceilf(__x);
+# 166 "/usr/include/c++/7/cmath" 3
+}}
